@@ -1,0 +1,16 @@
+name: Reviewdog
+on:
+    pull_request:
+        branches:
+            - master
+jobs:
+    eslint:
+        name: eslint
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@master
+            - name: eslint
+              uses: reviewdog/action-eslint@master
+              with:
+                  github_token: ${{ secrets.github_token }}
+                  reporter: github-check

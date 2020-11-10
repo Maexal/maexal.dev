@@ -1,0 +1,76 @@
+{
+	"name": "maexal.dev",
+	"version": "1.0.0",
+	"private": true,
+	"description": "",
+	"keywords": [
+		"maexal"
+	],
+	"homepage": "https://maexal.dev/",
+	"bugs": {
+		"url": "https://github.com/maexal/maexal.dev/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/maexal/maexal.dev.git"
+	},
+	"license": "UNLICENSED",
+	"author": "Max Altena <max@maexal.dev> (https://maexal.dev/)",
+	"scripts": {
+		"build": "gulp build",
+		"dev": "gulp watch",
+		"eslint": "eslint .",
+		"eslint:fix": "eslint . --fix",
+		"prettier": "prettier **/*",
+		"prettier:fix": "prettier **/* --write",
+		"start": "echo \"Error: start not specified\" && exit 0",
+		"test": "echo \"Error: test not specified\" && exit 0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*": "npm run prettier:fix",
+		"*.js": "npm run eslint:fix"
+	},
+	"browserslist": [
+		"last 1 version",
+		"> 0.25%",
+		"maintained node versions",
+		"not dead"
+	],
+	"dependencies": {},
+	"devDependencies": {
+		"@babel/core": "^7.12.3",
+		"@babel/preset-env": "^7.12.1",
+		"babelify": "^10.0.0",
+		"browserify": "^17.0.0",
+		"eslint": "^7.13.0",
+		"eslint-config-prettier": "^6.15.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.1",
+		"gulp-cache-bust": "^1.4.1",
+		"gulp-if": "^3.0.0",
+		"gulp-options": "^1.1.1",
+		"gulp-postcss": "^8.0.0",
+		"gulp-rename": "^2.0.0",
+		"gulp-sass": "^4.1.0",
+		"gulp-strip-debug": "^3.0.0",
+		"gulp-uglify": "^3.0.2",
+		"husky": "^4.3.0",
+		"lint-staged": "^10.5.1",
+		"node-sass": "^5.0.0",
+		"postcss-custom-properties": "^10.0.0",
+		"prettier": "^2.1.2",
+		"vinyl-buffer": "^1.0.1",
+		"vinyl-source-stream": "^2.0.0"
+	},
+	"engines": {
+		"node": ">= 8.17.0",
+		"npm": ">= 6.12.1",
+		"yarn": ">= 1.19.1"
+	}
+}

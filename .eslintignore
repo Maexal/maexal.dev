@@ -1,0 +1,19 @@
+# General
+node_modules
+.eslintignore
+.prettierignore
+.gitignore
+.editorconfig
+.browserslistrc
+.htaccess
+.git-ftp-include
+*.min.*
+*.yml
+*.pdf
+*.otf
+*.jpg
+*.gif
+*.png
+
+# Project specific
+dist
