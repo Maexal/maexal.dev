@@ -6,7 +6,6 @@ node_modules
 .editorconfig
 .browserslistrc
 .htaccess
-.git-ftp-include
 *.min.*
 *.yml
 *.pdf
@@ -14,6 +13,8 @@ node_modules
 *.jpg
 *.gif
 *.png
+LICENSE
+*.toml
 
 # Project specific
 dist
