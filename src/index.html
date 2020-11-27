@@ -51,32 +51,61 @@
 		<meta name="msapplication-navbutton-color" content="black" />
 		<meta name="application-name" content="Maexal" />
 		<meta name="msapplication-tooltip" content="Launch Maexal" />
-		<link rel="shortcut icon" href="" />
-		<link rel="apple-touch-icon" href="" />
-		<link rel="apple-touch-startup-image" href="" />
 
 		<link
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro&family=Fira+Code&display=swap"
 		/>
-		<link rel="stylesheet" href="css/style.min.css" />
-
-		<script defer src="js/main.min.js"></script>
+		<link rel="stylesheet" href="css/index.min.css" />
+		<script defer src="js/index.min.js"></script>
 	</head>
 
 	<body>
+		<div class="bg-blue-600">
+			<div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+				<div class="flex items-center justify-between flex-wrap">
+					<div class="w-0 flex-1 flex items-center">
+						<span class="flex p-2 rounded-lg bg-blue-800">
+							<svg
+								class="h-6 w-6 text-white"
+								xmlns="http://www.w3.org/2000/svg"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								aria-hidden="true"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									stroke-width="2"
+									d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+								/>
+							</svg>
+						</span>
+						<p class="ml-3 font-medium text-white truncate">
+							<span class="md:hidden"> We are working on a brand new website! </span>
+							<span class="hidden md:inline">
+								Big news! We're excited to announce that we are working on a brand new website!
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<main>
-			<h1>M&#230;xal</h1>
-			<p>Neem contact op via:</p>
-			<a href="mailto:max@maexal.dev"
-				><button class="elevated"><span>max@maexal.dev</span></button></a
+			<h1 class="font-serif logo" style="--size: 1.5">M&#230;xal</h1>
+			<p>Contact us through:</p>
+			<a href="mailto:hello@maexal.dev"
+				><button class="elevated cool-one"><span class="font-mono">hello@maexal.dev</span></button></a
 			>
 		</main>
+
 		<footer>
-			<div><strong>KVK:</strong>78183251</div>
-			<div><strong>BTW:</strong>NL003297690B50</div>
-			<div><strong>IBAN:</strong>NL14 BUNQ 2044 3278 72</div>
-			<div><strong>BIC:</strong>BUNQNL2AXXX</div>
+			<div class="font-mono"><strong class="font-mono">KVK:</strong>78183251</div>
+			<div class="font-mono"><strong class="font-mono">BTW:</strong>NL003297690B50</div>
+			<div class="font-mono"><strong class="font-mono">IBAN:</strong>NL14 BUNQ 2044 3278 72</div>
+			<div class="font-mono"><strong class="font-mono">BIC:</strong>BUNQNL2AXXX</div>
 		</footer>
 	</body>
 </html>

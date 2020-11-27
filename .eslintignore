@@ -6,7 +6,6 @@ node_modules
 .editorconfig
 .browserslistrc
 .htaccess
-.git-ftp-include
 *.min.*
 *.yml
 *.pdf

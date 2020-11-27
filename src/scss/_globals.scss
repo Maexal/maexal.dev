@@ -1,20 +1,21 @@
+:root {
+	--font-primary: "Merriweather", serif;
+	--font-secondary: "Source Sans Pro", sans-serif;
+	--font-tertiary: "Fira Code", monospace;
+
+	--transition-speed: 150ms;
+	--transition-timing: ease-in-out;
+}
 *,
 *::before,
 *::after {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	font-family: var(--font-secondary);
 }
 body {
-	position: fixed;
 	background: var(--background);
 	color: var(--on-background);
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	transition: all var(--transition-speed) var(--transition-timing);
 }
 p {
