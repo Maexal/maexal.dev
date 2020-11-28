@@ -15,6 +15,11 @@ node_modules
 *.png
 LICENSE
 *.toml
+.netlify
+.next
+public
 
 # Project specific
 dist
+out_publish
+out_functions

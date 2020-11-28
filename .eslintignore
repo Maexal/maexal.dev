@@ -13,6 +13,11 @@ node_modules
 *.jpg
 *.gif
 *.png
+.netlify
+.next
+public
 
 # Project specific
 dist
+out_publish
+out_functions
