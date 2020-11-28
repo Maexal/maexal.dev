@@ -1,5 +1,9 @@
 .logo {
-	--color: #03aaf9;
+	&.top-logo {
+		--size: 1.5;
+	}
+
+	--color: var(--blue);
 	--transition-timing: cubic-bezier(0.37, 0, 0.63, 1);
 	position: relative;
 	z-index: 1;
@@ -20,7 +24,7 @@
 		content: "M\00e6xal";
 		position: absolute;
 		color: transparent !important;
-		-webkit-text-stroke: calc(var(--size) * 0.2px) var(--color);
+		-webkit-text-stroke: calc(var(--size) * 0.25px) var(--color);
 		font-weight: bold;
 		top: calc(var(--size) * 3px);
 		left: calc(var(--size) * -3px);

@@ -8,10 +8,6 @@ module.exports = {
 				serif: ["Merriweather", ...require("tailwindcss/defaultTheme").fontFamily.serif],
 				mono: ["Fira Code", ...require("tailwindcss/defaultTheme").fontFamily.mono],
 			},
-			transitionDuration: {
-				half: "calc(var(--transition-speed) / 2)",
-				regular: "var(--transition-speed)",
-			},
 		},
 	},
 	variants: {
