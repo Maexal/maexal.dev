@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { Logo } from "../components";
-import { withTranslation } from "../utils/i18next";
+import { withTranslation } from "../i18next";
 
 const Homepage = ({ t }) => {
 	return (

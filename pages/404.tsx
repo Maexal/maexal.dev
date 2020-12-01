@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { Link } from "../utils/i18next";
-import { withTranslation } from "../utils/i18next";
+import { Link } from "../i18next";
+import { withTranslation } from "../i18next";
 
 const NotFoundPage = ({ t }) => {
 	return (

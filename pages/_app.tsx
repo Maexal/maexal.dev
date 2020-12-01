@@ -1,5 +1,5 @@
 import App from "next/app";
-import { appWithTranslation } from "../utils/i18next";
+import { appWithTranslation } from "../i18next";
 import "../styles/index.scss";
 
 const MyApp = ({ Component, pageProps }) => {
