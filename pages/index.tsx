@@ -70,7 +70,7 @@ const Homepage = ({ t }) => {
 };
 
 Homepage.getInitialProps = async () => ({
-	namespacesRequired: ["all"],
+	namespacesRequired: ["common"],
 });
 
-export default withTranslation("all")(Homepage);
+export default withTranslation("common")(Homepage);
