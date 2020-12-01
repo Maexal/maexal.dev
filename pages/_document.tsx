@@ -4,6 +4,15 @@ class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
 		const initialProps = await Document.getInitialProps(ctx);
 
+		// // Whenever the user explicitly chooses light mode
+		// localStorage.theme = "light";
+
+		// // Whenever the user explicitly chooses dark mode
+		// localStorage.theme = "dark";
+
+		// // Whenever the user explicitly chooses to respect the OS preference
+		// localStorage.removeItem("theme");
+
 		return { ...initialProps };
 	}
 
@@ -92,7 +101,7 @@ class MyDocument extends Document {
 					<meta name="msapplication-tooltip" content="Launch Maexal" />
 					<link
 						rel="stylesheet"
-						href="https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Sans+Pro&family=Fira+Code&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Source+Sans+Pro&family=Fira+Code&display=swap"
 					/>
 				</Head>
 

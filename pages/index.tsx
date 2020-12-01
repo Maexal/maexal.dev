@@ -1,17 +1,18 @@
 import Head from "next/head";
+import { Logo } from "../components";
 
-const Home = () => {
+export const Home = () => {
 	return (
-		<>
+		<div className="home bg-gray-100 dark:bg-gray-800">
 			<Head>
 				<title>M&#230;xal</title>
 			</Head>
 
-			<div className="bg-blue-600">
+			<div className="bg-blue-600 dark:bg-blue-800 z-30">
 				<div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between flex-wrap">
 						<div className="w-0 flex-1 flex items-center">
-							<span className="flex p-2 rounded-lg bg-blue-800">
+							<span className="flex p-2 rounded-lg bg-blue-700 dark:bg-blue-900">
 								<svg
 									className="h-6 w-6 text-white"
 									xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +40,11 @@ const Home = () => {
 				</div>
 			</div>
 
-			<main>
-				<h1 className="font-serif logo top-logo">M&#230;xal</h1>
-				<p>Contact us through:</p>
+			<main className="z-10">
+				<h1 className="m-4">
+					<Logo interactive />
+				</h1>
+				<p className="text-black dark:text-white">Contact us through:</p>
 				<a href="mailto:hello@maexal.dev">
 					<button className="elevated cool-one">
 						<span className="font-mono">hello@maexal.dev</span>
@@ -49,21 +52,21 @@ const Home = () => {
 				</a>
 			</main>
 
-			<footer>
-				<div className="font-mono">
+			<footer className="z-20">
+				<div className="font-mono text-black dark:text-white">
 					<strong className="font-mono">KVK:</strong>78183251
 				</div>
-				<div className="font-mono">
+				<div className="font-mono text-black dark:text-white">
 					<strong className="font-mono">BTW:</strong>NL003297690B50
 				</div>
-				<div className="font-mono">
+				<div className="font-mono text-black dark:text-white">
 					<strong className="font-mono">IBAN:</strong>NL14 BUNQ 2044 3278 72
 				</div>
-				<div className="font-mono">
+				<div className="font-mono text-black dark:text-white">
 					<strong className="font-mono">BIC:</strong>BUNQNL2AXXX
 				</div>
 			</footer>
-		</>
+		</div>
 	);
 };
 

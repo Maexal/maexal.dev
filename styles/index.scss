@@ -30,5 +30,22 @@ p {
 	line-height: 1.7em;
 }
 
+.home {
+	min-height: 100vh;
+	height: auto;
+	width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	:root {
+		--transition-speed: 0ms;
+	}
+}
+
+html.reduced-motion,
+.reduced-motion {
+	--transition-speed: 0ms;
+}
+
 @import "components/logo";
 @import "components/old";
