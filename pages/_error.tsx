@@ -1,6 +1,5 @@
 import Head from "next/head";
-import { Link } from "../utils/i18next";
-import { withTranslation } from "../utils/i18next";
+import { Link, withTranslation } from "../i18next";
 
 const ErrorPage = ({ statusCode, t }) => {
 	return (
