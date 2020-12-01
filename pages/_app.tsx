@@ -1,3 +1,5 @@
+import App from "next/app";
+import { appWithTranslation } from "../utils/i18next";
 import "../styles/index.scss";
 
 const MyApp = ({ Component, pageProps }) => {
@@ -13,4 +15,6 @@ const MyApp = ({ Component, pageProps }) => {
 	return <Component {...pageProps} />;
 };
 
-export default MyApp;
+MyApp.getInitialProps = async (appContext: any) => ({ ...(await App.getInitialProps(appContext)) });
+
+export default appWithTranslation(MyApp);

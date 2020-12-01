@@ -1,7 +1,8 @@
 import Head from "next/head";
 import { Logo } from "../components";
+import { withTranslation } from "../utils/i18next";
 
-export const Home = () => {
+const Homepage = ({ t }) => {
 	return (
 		<div className="home bg-gray-100 dark:bg-gray-800">
 			<Head>
@@ -30,10 +31,8 @@ export const Home = () => {
 								</svg>
 							</span>
 							<p className="ml-3 font-medium text-white truncate">
-								<span className="md:hidden"> We are working on a brand new website! </span>
-								<span className="hidden md:inline">
-									Big news! We're excited to announce that we are working on a brand new website!
-								</span>
+								<span className="md:hidden">{t("banner-short")}</span>
+								<span className="hidden md:inline">{t("banner-long")}</span>
 							</p>
 						</div>
 					</div>
@@ -44,7 +43,7 @@ export const Home = () => {
 				<h1 className="m-4">
 					<Logo interactive />
 				</h1>
-				<p className="text-black dark:text-white">Contact us through:</p>
+				<p className="text-black dark:text-white">{t("contact-us-through")}:</p>
 				<a href="mailto:hello@maexal.dev">
 					<button className="elevated cool-one">
 						<span className="font-mono">hello@maexal.dev</span>
@@ -70,4 +69,8 @@ export const Home = () => {
 	);
 };
 
-export default Home;
+Homepage.getInitialProps = async () => ({
+	namespacesRequired: ["all"],
+});
+
+export default withTranslation("all")(Homepage);

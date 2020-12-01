@@ -4,21 +4,12 @@ class MyDocument extends Document {
 	static async getInitialProps(ctx: DocumentContext) {
 		const initialProps = await Document.getInitialProps(ctx);
 
-		// // Whenever the user explicitly chooses light mode
-		// localStorage.theme = "light";
-
-		// // Whenever the user explicitly chooses dark mode
-		// localStorage.theme = "dark";
-
-		// // Whenever the user explicitly chooses to respect the OS preference
-		// localStorage.removeItem("theme");
-
 		return { ...initialProps };
 	}
 
 	render() {
 		return (
-			<Html dir="ltr" lang="en">
+			<Html dir="ltr" lang={this.props.__NEXT_DATA__.props.initialLanguage}>
 				<Head>
 					<meta charSet="utf-8" />
 					<link rel="author" href="humans.txt" />
