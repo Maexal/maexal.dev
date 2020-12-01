@@ -17,16 +17,15 @@
 	"license": "MIT",
 	"author": "Max Altena <max@maexal.dev> (https://maexal.dev/)",
 	"scripts": {
-		"build": "gulp build",
-		"build:prod": "gulp build:prod",
-		"watch": "gulp watch",
-		"dev": "npm run watch",
+		"dev": "next dev",
+		"build": "next build",
+		"postbuild": "next-on-netlify",
+		"start": "next start",
 		"eslint": "eslint .",
 		"eslint:fix": "eslint . --fix",
 		"prettier": "prettier **/*",
 		"prettier:fix": "prettier **/* --write",
-		"start": "echo \"Error: start not specified\" && exit 0",
-		"test": "echo \"Error: test not specified\" && exit 0"
+		"test": "snyk test && echo \"Error: test not specified\" && exit 0"
 	},
 	"husky": {
 		"hooks": {
@@ -43,36 +42,28 @@
 		"maintained node versions",
 		"not dead"
 	],
-	"dependencies": {},
+	"dependencies": {
+		"next": "^10.0.3",
+		"next-on-netlify": "^2.6.3",
+		"react": "^17.0.1",
+		"react-dom": "^17.0.1",
+		"sass": "^1.29.0"
+	},
 	"devDependencies": {
-		"@babel/core": "^7.12.9",
-		"@babel/preset-env": "^7.12.7",
-		"autoprefixer": "^10.0.3",
-		"babelify": "^10.0.0",
-		"browser-sync": "^2.26.13",
-		"browserify": "^17.0.0",
-		"concurrently": "^5.3.0",
+		"@types/node": "^14.14.10",
+		"@types/react": "^17.0.0",
+		"autoprefixer": "^10.0.4",
 		"eslint": "^7.14.0",
 		"eslint-config-prettier": "^6.15.0",
 		"eslint-plugin-prettier": "^3.1.4",
-		"gulp": "^4.0.2",
-		"gulp-cache-bust": "^1.4.1",
-		"gulp-if": "^3.0.0",
-		"gulp-minifier": "^3.5.0",
-		"gulp-options": "^1.1.1",
-		"gulp-postcss": "^9.0.0",
-		"gulp-real-favicon": "^0.3.2",
-		"gulp-rename": "^2.0.0",
-		"gulp-sass": "^4.1.0",
-		"gulp-strip-debug": "^3.0.0",
-		"gulp-uglify": "^3.0.2",
+		"globby": "^11.0.1",
 		"husky": "^4.3.0",
 		"lint-staged": "^10.5.2",
 		"postcss": "^8.1.10",
-		"prettier": "^2.2.0",
+		"prettier": "^2.2.1",
+		"snyk": "^1.433.0",
 		"tailwindcss": "^2.0.1",
-		"vinyl-buffer": "^1.0.1",
-		"vinyl-source-stream": "^2.0.0"
+		"typescript": "^4.1.2"
 	},
 	"engines": {
 		"node": ">= 8.17.0",

@@ -4,7 +4,6 @@ on:
   pull_request:
     branches:
       - staging
-      - production
 
 jobs:
   auto-approve:

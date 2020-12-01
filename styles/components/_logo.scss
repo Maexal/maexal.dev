@@ -1,0 +1,150 @@
+.logo {
+	--size: 1;
+
+	&.size-25 {
+		--size: 0.25;
+	}
+	&.size-50 {
+		--size: 0.5;
+	}
+	&.size-75 {
+		--size: 0.75;
+	}
+	&.size-1,
+	&.size-100 {
+		--size: 1;
+	}
+	&.size-125 {
+		--size: 1.25;
+	}
+	&.size-150 {
+		--size: 1.5;
+	}
+	&.size-175 {
+		--size: 1.75;
+	}
+	&.size-2,
+	&.size-200 {
+		--size: 2;
+	}
+
+	position: relative;
+
+	&.logo-interactive {
+		color: transparent;
+		user-select: none;
+		height: calc(49.2px * var(--size));
+		width: calc(212.4px * var(--size));
+
+		&::before {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 2px;
+			left: -2px;
+			background-image: url("/assets/vectors/logo-outline-only-blue.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			z-index: -2;
+		}
+
+		&::after {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: -2px;
+			left: 2px;
+			background-image: url("/assets/vectors/logo-filled-only-blue.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			z-index: -1;
+			transition: top var(--transition-speed) var(--transition-timing),
+				left var(--transition-speed) var(--transition-timing);
+		}
+
+		&:hover {
+			&::after {
+				top: -6px;
+				left: 6px;
+			}
+		}
+
+		&:active,
+		&:focus {
+			&::after {
+				top: 2px;
+				left: -2px;
+			}
+		}
+	}
+
+	&.logo-color {
+		color: var(--blue);
+		text-align: center;
+		font-weight: bold;
+		font-family: var(--font-primary);
+		font-size: calc(3.8rem * var(--size));
+	}
+}
+
+.old-logo {
+	&.top-logo {
+		--size: 1.5;
+	}
+
+	--color: var(--blue);
+	--transition-timing: cubic-bezier(0.37, 0, 0.63, 1);
+	position: relative;
+	z-index: 1;
+	width: calc(var(--size) * 250px);
+	height: calc(var(--size) * 100px);
+	font-size: calc(var(--size) * 60px);
+	line-height: calc(var(--size) * 100px);
+	text-align: center;
+	top: calc(var(--size) * -3px);
+	left: calc(var(--size) * 3px);
+	color: var(--color);
+	font-weight: 900;
+	transition: all var(--transition-speed) var(--transition-timing);
+	user-select: none;
+	-webkit-user-drag: none;
+
+	&::after {
+		content: "M\00e6xal";
+		position: absolute;
+		color: transparent !important;
+		-webkit-text-stroke: calc(var(--size) * 0.25px) var(--color);
+		font-weight: bold;
+		top: calc(var(--size) * 3px);
+		left: calc(var(--size) * -3px);
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+		transition: top var(--transition-speed) var(--transition-timing),
+			left var(--transition-speed) var(--transition-timing);
+	}
+
+	&:hover {
+		top: calc(var(--size) * -6px);
+		left: calc(var(--size) * 6px);
+
+		&::after {
+			top: calc(var(--size) * 6px);
+			left: calc(var(--size) * -6px);
+		}
+	}
+
+	&:active {
+		top: calc(var(--size) * -0px);
+		left: calc(var(--size) * 0px);
+
+		&::after {
+			top: calc(var(--size) * 0px);
+			left: calc(var(--size) * -0px);
+		}
+	}
+}
