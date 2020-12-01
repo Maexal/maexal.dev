@@ -34,4 +34,4 @@ ErrorPage.getInitialProps = async ({ res, err }) => {
 };
 
 // @ts-ignore
-export default withTranslation("all")(ErrorPage);
+export default withTranslation("common")(ErrorPage);

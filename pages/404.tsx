@@ -19,4 +19,4 @@ const NotFoundPage = ({ t }) => {
 	);
 };
 
-export default withTranslation("all")(NotFoundPage);
+export default withTranslation("common")(NotFoundPage);
