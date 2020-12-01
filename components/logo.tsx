@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Logo = ({ interactive = false, size = 100 }) => {
+const Logo = ({ interactive = false, size = 100 }) => {
 	const classInteractive = interactive ? `logo-interactive` : `logo-color`;
 	const classSize = `size-${size}`;
 

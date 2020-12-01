@@ -1,24 +1,38 @@
 import Head from "next/head";
-import Link from "next/link";
+import { Link } from "../utils/i18next";
+import { withTranslation } from "../utils/i18next";
 
-const Error = ({ statusCode }) => {
+const ErrorPage = ({ statusCode, t }) => {
 	return (
 		<>
 			<Head>
-				<title>Error- M&#230;xal</title>
+				<title>{{ statusCode }}- M&#230;xal</title>
 			</Head>
 
 			<main className="container">
-				<p>{statusCode ? `An error ${statusCode} occurred on server` : "An error occurred on client"}</p>
-				<Link href="/">Back to safety</Link>
+				<p>
+					{statusCode} {t("whoops")}
+				</p>
+				<Link href="/">
+					<span className="underline cursor-pointer">{t("back-to-safety")}</span>
+				</Link>
 			</main>
 		</>
 	);
 };
 
-Error.getInitialProps = ({ res, err }) => {
-	const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-	return { statusCode };
+ErrorPage.getInitialProps = async ({ res, err }) => {
+	let statusCode = null;
+	if (res) {
+		({ statusCode } = res);
+	} else if (err) {
+		({ statusCode } = err);
+	}
+	return {
+		namespacesRequired: ["common"],
+		statusCode,
+	};
 };
 
-export default Error;
+// @ts-ignore
+export default withTranslation("all")(ErrorPage);
