@@ -13,7 +13,7 @@ async function generateSiteMap() {
 					const route = path === "/index" ? "" : path;
 					return `
                       <url>
-                          <loc>${`https://maexal.dev/${route}`}</loc>
+                          <loc>${`https://maexal.dev${route}/`}</loc>
                       </url>
                   `;
 				})
