@@ -2,6 +2,7 @@
 command = "npm run build"
 functions = "out_functions"
 publish = "out_publish"
+environment = { I18N_LOCALES_PATH = "out_publish/static/locales" }
 
 [[plugins]]
 package = "netlify-plugin-cache-nextjs"
