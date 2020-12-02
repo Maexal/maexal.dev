@@ -24,6 +24,15 @@ buildDir = "out_publish"
 prettyURLs = true
 trailingSlash = false
 
+[[plugins]]
+package = "netlify-plugin-submit-sitemap"
+[plugins.inputs]
+baseUrl = "https://maexal.dev"
+providers = [
+  "google",
+]
+sitemapPath = "/sitemap.xml"
+
 [[redirects]]
 conditions = {Language = ["nl"]}
 from = "/"
