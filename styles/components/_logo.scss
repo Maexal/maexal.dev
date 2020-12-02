@@ -1,29 +1,24 @@
 .logo {
+	--logo-width: 375px;
+	--logo-height: 95px;
+	--logo-interactive-jump: 3px;
 	--size: 1;
 
-	&.size-25 {
-		--size: 0.25;
-	}
 	&.size-50 {
 		--size: 0.5;
 	}
-	&.size-75 {
-		--size: 0.75;
+	&.size-60 {
+		--size: 0.6;
 	}
-	&.size-1,
+	&.size-80 {
+		--size: 0.8;
+	}
 	&.size-100 {
 		--size: 1;
-	}
-	&.size-125 {
-		--size: 1.25;
 	}
 	&.size-150 {
 		--size: 1.5;
 	}
-	&.size-175 {
-		--size: 1.75;
-	}
-	&.size-2,
 	&.size-200 {
 		--size: 2;
 	}
@@ -31,53 +26,56 @@
 	position: relative;
 
 	&.logo-interactive {
+		--width: calc(var(--logo-width) * var(--size));
+		--height: calc(var(--logo-height) * var(--size));
+		--jump: calc(var(--logo-interactive-jump) * var(--size));
+		--pos-0: translate(calc(var(--jump) * -1), calc(var(--jump) * 1));
+		--pos-1: translate(calc(var(--jump) * 1), calc(var(--jump) * -1));
+		--pos-2: translate(calc(var(--jump) * 3), calc(var(--jump) * -3));
+
 		color: transparent;
 		user-select: none;
-		height: calc(49.2px * var(--size));
-		width: calc(212.4px * var(--size));
+		font-size: 0px;
+		width: var(--width);
+		height: var(--height);
 
-		&::before {
+		&::before,
+		&::after {
 			content: "";
-			width: 100%;
-			height: 100%;
+			height: var(--height);
+			width: var(--width);
 			position: absolute;
-			top: 2px;
-			left: -2px;
-			background-image: url("/assets/vectors/logo-outline-only-blue.svg");
+			top: 0;
+			left: 0;
 			background-repeat: no-repeat;
 			background-position: center;
-			background-size: contain;
+			background-size: var(--width) var(--height);
+		}
+
+		&::before {
+			background-image: url("/assets/vectors/logo-outline-only-blue.svg");
 			z-index: -2;
+			transform: var(--pos-0);
 		}
 
 		&::after {
-			content: "";
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: -2px;
-			left: 2px;
 			background-image: url("/assets/vectors/logo-filled-only-blue.svg");
-			background-repeat: no-repeat;
-			background-position: center;
-			background-size: contain;
 			z-index: -1;
-			transition: top var(--transition-speed) var(--transition-timing),
-				left var(--transition-speed) var(--transition-timing);
+			transform: var(--pos-1);
+			will-change: transform;
+			transition: transform var(--transition-speed) var(--transition-timing);
 		}
 
 		&:hover {
 			&::after {
-				top: -6px;
-				left: 6px;
+				transform: var(--pos-2);
 			}
 		}
 
 		&:active,
 		&:focus {
 			&::after {
-				top: 2px;
-				left: -2px;
+				transform: var(--pos-0);
 			}
 		}
 	}

@@ -43,7 +43,7 @@ const Homepage = () => {
 
 			<main className="z-10">
 				<h1 className="m-4">
-					<Logo interactive />
+					<Logo interactive size={80} />
 				</h1>
 				<p className="text-black dark:text-white">{i18n.t("contact-us-through")}:</p>
 				<a href="mailto:hello@maexal.dev">
