@@ -30,6 +30,8 @@ package = "netlify-plugin-submit-sitemap"
 baseUrl = "https://maexal.dev"
 providers = [
   "google",
+  "bing",
+  "yandex",
 ]
 sitemapPath = "/sitemap.xml"
 
