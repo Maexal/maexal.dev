@@ -1,7 +1,10 @@
 import Head from "next/head";
-import { Link, withTranslation } from "../i18next";
+import Link from "next/link";
+import { useI18n } from "next-localization";
 
-const ErrorPage = ({ statusCode, t }) => {
+const ErrorPage = ({ statusCode }) => {
+	const i18n = useI18n();
+
 	return (
 		<>
 			<Head>
@@ -10,10 +13,10 @@ const ErrorPage = ({ statusCode, t }) => {
 
 			<main className="container">
 				<p>
-					{statusCode} {t("whoops")}
+					{statusCode} {i18n.t("whoops")}
 				</p>
 				<Link href="/">
-					<span className="underline cursor-pointer">{t("back-to-safety")}</span>
+					<span className="underline cursor-pointer">{i18n.t("back-to-safety")}</span>
 				</Link>
 			</main>
 		</>
@@ -28,10 +31,8 @@ ErrorPage.getInitialProps = async ({ res, err }) => {
 		({ statusCode } = err);
 	}
 	return {
-		namespacesRequired: ["common"],
 		statusCode,
 	};
 };
 
-// @ts-ignore
-export default withTranslation("common")(ErrorPage);
+export default ErrorPage;

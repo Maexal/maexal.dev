@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
 	render() {
 		return (
-			<Html dir="ltr" lang={this.props.__NEXT_DATA__.props.initialLanguage}>
+			<Html>
 				<Head>
 					<meta charSet="utf-8" />
 					<link rel="author" href="humans.txt" />
@@ -52,14 +52,12 @@ class MyDocument extends Document {
 					<meta name="msapplication-config" content="assets/icons/browserconfig.xml?v=2Ia6uyFL0E" />
 					<meta name="theme-color" content="#ffffff" />
 					<meta name="keywords" content="maexal,mæxal,max,altena,max altena" />
-					<meta name="description" content="Website of Maexal" />
+					<meta name="description" content="Website Maexal" />
 					<meta name="subject" content="Maexal" />
 					<meta name="copyright" content="Maexal" />
-					<meta name="language" content="en" />
-					<meta name="revised" content="Monday, June 1, 2020, 12:00 pm" />
-					<meta name="abstract" content="Website of Maexal" />
+					<meta name="abstract" content="Website Maexal" />
 					<meta name="topic" content="Maexal" />
-					<meta name="summary" content="Website of Maexal" />
+					<meta name="summary" content="Website Maexal" />
 					<meta name="Classification" content="Website" />
 					<meta name="author" content="Max Altena, max@maexal.dev" />
 					<meta name="designer" content="Max Altena" />
@@ -78,16 +76,16 @@ class MyDocument extends Document {
 					<meta name="og:type" content="website" />
 					<meta name="og:url" content="https://maexal.dev/" />
 					<meta name="og:site_name" content="Maexal" />
-					<meta name="og:description" content="Website of Maexal" />
+					<meta name="og:description" content="Website Maexal" />
 					<meta name="og:email" content="max@maexal.dev" />
 					<meta name="mobile-web-app-capable" content="yes" />
 					<meta name="apple-mobile-web-app-capable" content="yes" />
 					<meta name="apple-touch-fullscreen" content="yes" />
-					<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+					<meta name="apple-mobile-web-app-status-bar-style" content="white" />
 					<meta name="mssmarttagspreventparsing" content="true" />
 					<meta httpEquiv="X-UA-Compatible" content="chrome=1" />
 					<meta name="msapplication-starturl" content="https://maexal.dev/" />
-					<meta name="msapplication-navbutton-color" content="black" />
+					<meta name="msapplication-navbutton-color" content="white" />
 					<meta name="application-name" content="Maexal" />
 					<meta name="msapplication-tooltip" content="Launch Maexal" />
 					<link
