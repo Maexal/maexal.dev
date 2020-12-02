@@ -55,10 +55,10 @@ const Homepage = () => {
 
 			<footer className="z-20">
 				<div className="font-mono text-black dark:text-white">
-					<strong className="font-mono">KVK:</strong>78183251
+					<strong className="font-mono">{i18n.t("coc")}:</strong>78183251
 				</div>
 				<div className="font-mono text-black dark:text-white">
-					<strong className="font-mono">BTW:</strong>NL003297690B50
+					<strong className="font-mono">{i18n.t("vat")}:</strong>NL003297690B50
 				</div>
 				<div className="font-mono text-black dark:text-white">
 					<strong className="font-mono">IBAN:</strong>NL14 BUNQ 2044 3278 72
