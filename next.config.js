@@ -1,18 +1,11 @@
-const { nextI18NextRewrites } = require("next-i18next/rewrites");
-
-const localeSubpaths = {
-	en: "en",
-	nl: "nl",
-};
-
 module.exports = {
 	target: "serverless",
 	sassOptions: {
 		includePaths: ["styles"],
 	},
-	rewrites: async () => nextI18NextRewrites(localeSubpaths),
-	publicRuntimeConfig: {
-		localeSubpaths,
+	i18n: {
+		locales: ["en", "nl"],
+		defaultLocale: "en",
 	},
 	trailingSlash: true,
 	webpack: (config, { isServer }) => {

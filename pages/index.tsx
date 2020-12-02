@@ -1,8 +1,10 @@
 import Head from "next/head";
 import { Logo } from "../components";
-import { withTranslation } from "../i18next";
+import { useI18n } from "next-localization";
 
-const Homepage = ({ t }) => {
+const Homepage = () => {
+	const i18n = useI18n();
+
 	return (
 		<div className="home bg-gray-100 dark:bg-gray-800">
 			<Head>
@@ -31,8 +33,8 @@ const Homepage = ({ t }) => {
 								</svg>
 							</span>
 							<p className="ml-3 font-medium text-white truncate">
-								<span className="md:hidden">{t("banner-short")}</span>
-								<span className="hidden md:inline">{t("banner-long")}</span>
+								<span className="md:hidden">{i18n.t("banner-short")}</span>
+								<span className="hidden md:inline">{i18n.t("banner-long")}</span>
 							</p>
 						</div>
 					</div>
@@ -43,7 +45,7 @@ const Homepage = ({ t }) => {
 				<h1 className="m-4">
 					<Logo interactive />
 				</h1>
-				<p className="text-black dark:text-white">{t("contact-us-through")}:</p>
+				<p className="text-black dark:text-white">{i18n.t("contact-us-through")}:</p>
 				<a href="mailto:hello@maexal.dev">
 					<button className="elevated cool-one">
 						<span className="font-mono">hello@maexal.dev</span>
@@ -69,8 +71,4 @@ const Homepage = ({ t }) => {
 	);
 };
 
-Homepage.getInitialProps = async () => ({
-	namespacesRequired: ["common"],
-});
-
-export default withTranslation("common")(Homepage);
+export default Homepage;
