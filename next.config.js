@@ -7,5 +7,4 @@ module.exports = {
 		locales: ["en", "nl"],
 		defaultLocale: "en",
 	},
-	trailingSlash: true,
 };

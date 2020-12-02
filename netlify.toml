@@ -22,29 +22,47 @@ package = "@netlify/plugin-sitemap"
 [plugins.inputs]
 buildDir = "out_publish"
 prettyURLs = true
-trailingSlash = true
+trailingSlash = false
 
 [[redirects]]
+conditions = {Language = ["nl"]}
 from = "/"
-status = 200
-to = "/en.html"
+status = 301
+to = "/nl"
 
 [[redirects]]
+conditions = {Language = ["nl"]}
 from = "/404"
-status = 200
-to = "/en/404.html"
-
-[[redirects]]
-from = "/en/*"
-status = 404
-to = "/en/404.html"
+status = 301
+to = "/nl/404"
 
 [[redirects]]
 from = "/nl/*"
 status = 404
-to = "/nl/404.html"
+to = "/nl/404"
+
+[[redirects]]
+from = "/"
+status = 301
+to = "/en"
+
+[[redirects]]
+from = "/404"
+status = 301
+to = "/en/404"
+
+[[redirects]]
+from = "/en/*"
+status = 404
+to = "/en/404"
+
+[[redirects]]
+conditions = {Language = ["nl"]}
+from = "/*"
+status = 301
+to = "/nl/404"
 
 [[redirects]]
 from = "/*"
-status = 404
-to = "/en/404.html"
+status = 301
+to = "/en/404"
