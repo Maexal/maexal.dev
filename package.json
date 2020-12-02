@@ -21,6 +21,7 @@
 		"build": "next build",
 		"postbuild": "next-on-netlify",
 		"start": "next start",
+		"preview": "netlify build && netlify deploy",
 		"eslint": "eslint .",
 		"eslint:fix": "eslint . --fix",
 		"prettier": "prettier **/*",
