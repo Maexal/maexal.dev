@@ -11,7 +11,7 @@ const Homepage = () => {
 				<title>M&#230;xal</title>
 			</Head>
 
-			<div className="bg-blue-600 dark:bg-blue-800 z-30">
+			<div className="banner bg-blue-600 dark:bg-blue-800 z-30">
 				<div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
 					<div className="flex items-center justify-between flex-wrap">
 						<div className="w-0 flex-1 flex items-center">
