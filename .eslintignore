@@ -19,5 +19,6 @@ public
 
 # Project specific
 dist
+out
 out_publish
 out_functions

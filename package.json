@@ -19,7 +19,6 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"postbuild": "next-on-netlify",
 		"start": "next start",
 		"preview": "netlify build && netlify deploy",
 		"eslint": "eslint .",
@@ -44,13 +43,14 @@
 		"not dead"
 	],
 	"dependencies": {
+		"@netlify/plugin-nextjs": "^1.0.2",
 		"@netlify/plugin-sitemap": "^0.5.1",
 		"netlify-plugin-cache-nextjs": "^1.5.2",
 		"netlify-plugin-image-optim": "^0.4.0",
 		"netlify-plugin-minify-html": "^0.3.0",
+		"netlify-plugin-submit-sitemap": "^0.2.3",
 		"next": "^10.0.3",
 		"next-localization": "^0.10.0",
-		"next-on-netlify": "^2.6.3",
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"sass": "^1.30.0"
@@ -63,7 +63,7 @@
 		"eslint-config-prettier": "^7.0.0",
 		"eslint-plugin-prettier": "^3.2.0",
 		"globby": "^11.0.1",
-		"husky": "^4.3.0",
+		"husky": "^4.3.5",
 		"lint-staged": "^10.5.3",
 		"postcss": "^8.1.14",
 		"prettier": "^2.2.1",
