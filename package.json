@@ -65,7 +65,7 @@
 		"globby": "^11.0.1",
 		"husky": "^4.3.5",
 		"lint-staged": "^10.5.3",
-		"postcss": "^8.2.0",
+		"postcss": "^8.2.1",
 		"prettier": "^2.2.1",
 		"snyk": "^1.434.3",
 		"tailwindcss": "^2.0.1",
