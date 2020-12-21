@@ -17,14 +17,15 @@
 	"license": "MIT",
 	"author": "Max Altena <max@maexal.dev> (https://maexal.dev/)",
 	"scripts": {
-		"dev": "next dev",
 		"build": "next build",
-		"start": "next start",
-		"preview": "netlify build && netlify deploy",
+		"dev": "next dev",
 		"eslint": "eslint .",
 		"eslint:fix": "eslint . --fix",
 		"prettier": "prettier **/*",
 		"prettier:fix": "prettier **/* --write",
+		"preview": "netlify build && netlify deploy",
+		"sort-package-json": "sort-package-json",
+		"start": "next start",
 		"test": "snyk test && echo \"Error: test not specified\" && exit 0"
 	},
 	"husky": {
@@ -33,8 +34,11 @@
 		}
 	},
 	"lint-staged": {
-		"*": "npm run prettier:fix",
-		"*.js": "npm run eslint:fix"
+		"*": [
+			"npm run sort-package-json",
+			"npm run prettier:fix"
+		],
+		"*.{js,jsx,ts,tsx}": "npm run eslint:fix"
 	},
 	"browserslist": [
 		"last 1 version",
@@ -68,6 +72,7 @@
 		"postcss": "^8.2.1",
 		"prettier": "^2.2.1",
 		"snyk": "^1.437.2",
+		"sort-package-json": "^1.48.0",
 		"tailwindcss": "^2.0.2",
 		"typescript": "^4.1.3"
 	},
