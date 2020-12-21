@@ -45,7 +45,7 @@
 		"not dead"
 	],
 	"dependencies": {
-		"@netlify/plugin-nextjs": "^1.0.2",
+		"@netlify/plugin-nextjs": "^1.0.3",
 		"@netlify/plugin-sitemap": "^0.5.2",
 		"netlify-plugin-cache-nextjs": "^1.5.2",
 		"netlify-plugin-image-optim": "^0.4.0",
