@@ -34,11 +34,9 @@
 		}
 	},
 	"lint-staged": {
-		"*": [
-			"npm run sort-package-json",
-			"npm run prettier:fix"
-		],
-		"*.{js,jsx,ts,tsx}": "npm run eslint:fix"
+		"*": "npm run prettier:fix",
+		"*.{js,jsx,ts,tsx}": "npm run eslint:fix",
+		"package.json": "npm run sort-package-json"
 	},
 	"browserslist": [
 		"last 1 version",
