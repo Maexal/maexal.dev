@@ -1,0 +1,35 @@
+.link {
+	@apply cursor-pointer;
+
+	&.styled-link {
+		@apply underline;
+	}
+
+	&.nav-link {
+		@apply rounded py-1 px-3 mr-2 outline-none active:ring-2 focus:ring-2 select-none duration-150 ease-in-out;
+		transition-property: padding;
+
+		&::before,
+		&::after {
+			@apply opacity-50 text-sm transition-all duration-150 ease-in-out;
+		}
+
+		&::before {
+			content: "<";
+		}
+		&::after {
+			content: "/>";
+		}
+
+		&:hover {
+			@apply px-2;
+
+			&::before {
+				@apply mr-1;
+			}
+			&::after {
+				@apply ml-1;
+			}
+		}
+	}
+}

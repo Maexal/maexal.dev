@@ -1,10 +1,23 @@
+import React from "react";
 import { I18nProvider } from "next-localization";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
+
 import "../styles/index.scss";
+
 import lngDictEN from "../locales/en.json";
 import lngDictNL from "../locales/nl.json";
 
-const MyApp = ({ Component, pageProps }) => {
+const _getLngDict = (router: NextRouter) => {
+	switch (router.locale) {
+		case "nl":
+			return lngDictNL;
+		case "en":
+		default:
+			return lngDictEN;
+	}
+};
+
+const _checkDarkMode = () => {
 	if (typeof window !== "undefined") {
 		if (
 			window.localStorage.theme === "dark" ||
@@ -13,21 +26,15 @@ const MyApp = ({ Component, pageProps }) => {
 			document.querySelector("html").classList.add("dark");
 		else document.querySelector("html").classList.remove("dark");
 	}
+};
 
+const MyApp = ({ Component, pageProps }: { Component; pageProps }): JSX.Element => {
 	const router = useRouter();
-	let lngDict;
-	switch (router.locale) {
-		case "nl":
-			lngDict = lngDictNL;
-			break;
-		case "en":
-		default:
-			lngDict = lngDictEN;
-			break;
-	}
+
+	_checkDarkMode();
 
 	return (
-		<I18nProvider lngDict={lngDict} locale={router.locale}>
+		<I18nProvider lngDict={_getLngDict(router)} locale={router.locale}>
 			<Component {...pageProps} />
 		</I18nProvider>
 	);

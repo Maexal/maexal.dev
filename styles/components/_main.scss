@@ -1,0 +1,7 @@
+main {
+	@apply w-full h-auto;
+
+	&.page-centered {
+		@apply flex flex-grow flex-col justify-center items-center;
+	}
+}

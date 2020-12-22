@@ -1,10 +1,27 @@
 {
-	"coc": "COC",
-	"vat": "VAT",
-	"contact-us-through": "Contact us through",
-	"banner-short": "We are starting to working on a brand new website!",
-	"banner-long": "Big news! We're excited to announce that we started working on a brand new website!",
-	"back-to-safety": "Back to safety",
-	"not-found": "Not found",
-	"whoops": "Whoops, something went wrong!"
+	"projects:": {
+		"name": "projects",
+		"url": "projects"
+	},
+	"services:": {
+		"name": "services",
+		"url": "services"
+	},
+	"about:": {
+		"name": "about",
+		"url": "about"
+	},
+	"contact:": {
+		"name": "contactUs",
+		"url": "contact"
+	},
+	"redirecting-in": "Redirecting in",
+	"seconds": {
+		"one": "second",
+		"other": "seconds"
+	},
+	"back-to-safety": "back to safety",
+	"not-found": "not found",
+	"whoops": "whoops, something went wrong!",
+	"cancel": "cancel"
 }

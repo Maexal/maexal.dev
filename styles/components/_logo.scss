@@ -1,9 +1,17 @@
 .logo {
+	@apply relative select-none;
+
 	--logo-width: 375px;
 	--logo-height: 95px;
 	--logo-interactive-jump: 3px;
 	--size: 1;
 
+	&.size-30 {
+		--size: 0.3;
+	}
+	&.size-40 {
+		--size: 0.4;
+	}
 	&.size-50 {
 		--size: 0.5;
 	}
@@ -23,9 +31,9 @@
 		--size: 2;
 	}
 
-	position: relative;
-
 	&.logo-interactive {
+		@apply text-transparent;
+
 		--width: calc(var(--logo-width) * var(--size));
 		--height: calc(var(--logo-height) * var(--size));
 		--jump: calc(var(--logo-interactive-jump) * var(--size));
@@ -33,22 +41,17 @@
 		--pos-1: translate(calc(var(--jump) * 1), calc(var(--jump) * -1));
 		--pos-2: translate(calc(var(--jump) * 3), calc(var(--jump) * -3));
 
-		color: transparent;
-		user-select: none;
 		font-size: 0px;
 		width: var(--width);
 		height: var(--height);
 
 		&::before,
 		&::after {
+			@apply absolute top-0 left-0 bg-no-repeat bg-center;
+
 			content: "";
 			height: var(--height);
 			width: var(--width);
-			position: absolute;
-			top: 0;
-			left: 0;
-			background-repeat: no-repeat;
-			background-position: center;
 			background-size: var(--width) var(--height);
 		}
 
@@ -59,11 +62,12 @@
 		}
 
 		&::after {
+			@apply transition-transform duration-150 ease-in-out;
+
 			background-image: url("/assets/vectors/logo-filled-only-blue.svg");
 			z-index: -1;
 			transform: var(--pos-1);
 			will-change: transform;
-			transition: transform var(--transition-speed) var(--transition-timing);
 		}
 
 		&:hover {
@@ -81,68 +85,8 @@
 	}
 
 	&.logo-color {
-		color: var(--blue);
-		text-align: center;
-		font-weight: bold;
-		font-family: var(--font-primary);
+		@apply text-blue text-center font-bold font-serif;
+
 		font-size: calc(3.8rem * var(--size));
-	}
-}
-
-.old-logo {
-	&.top-logo {
-		--size: 1.5;
-	}
-
-	--color: var(--blue);
-	--transition-timing: cubic-bezier(0.37, 0, 0.63, 1);
-	position: relative;
-	z-index: 1;
-	width: calc(var(--size) * 250px);
-	height: calc(var(--size) * 100px);
-	font-size: calc(var(--size) * 60px);
-	line-height: calc(var(--size) * 100px);
-	text-align: center;
-	top: calc(var(--size) * -3px);
-	left: calc(var(--size) * 3px);
-	color: var(--color);
-	font-weight: 900;
-	transition: all var(--transition-speed) var(--transition-timing);
-	user-select: none;
-	-webkit-user-drag: none;
-
-	&::after {
-		content: "M\00e6xal";
-		position: absolute;
-		color: transparent !important;
-		-webkit-text-stroke: calc(var(--size) * 0.25px) var(--color);
-		font-weight: bold;
-		top: calc(var(--size) * 3px);
-		left: calc(var(--size) * -3px);
-		width: 100%;
-		height: 100%;
-		z-index: -1;
-		transition: top var(--transition-speed) var(--transition-timing),
-			left var(--transition-speed) var(--transition-timing);
-	}
-
-	&:hover {
-		top: calc(var(--size) * -6px);
-		left: calc(var(--size) * 6px);
-
-		&::after {
-			top: calc(var(--size) * 6px);
-			left: calc(var(--size) * -6px);
-		}
-	}
-
-	&:active {
-		top: calc(var(--size) * -0px);
-		left: calc(var(--size) * 0px);
-
-		&::after {
-			top: calc(var(--size) * 0px);
-			left: calc(var(--size) * -0px);
-		}
 	}
 }

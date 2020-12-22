@@ -2,50 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--font-primary: "Merriweather", serif;
-	--font-secondary: "Source Sans Pro", sans-serif;
-	--font-tertiary: "Fira Code", monospace;
-
-	--transition-speed: 150ms;
-	--transition-timing: ease-in-out;
-
-	--blue: #03aaf9;
-	--orange: #f95103;
-}
-
 *,
 *::before,
 *::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+	@apply m-0 p-0 box-border;
 }
 
 body {
-	@apply bg-blue-50;
+	@apply bg-blue-100 dark:bg-blue-900 text-gray-800 dark:text-gray-100;
 }
 
 p {
-	line-height: 1.7em;
+	@apply leading-relaxed;
 }
 
-.home {
-	min-height: 100vh;
-	height: auto;
-	width: 100%;
+h1 {
+	@apply text-5xl;
 }
 
-@media (prefers-reduced-motion: reduce) {
-	:root {
-		--transition-speed: 0ms;
-	}
-}
-
-html.reduced-motion,
-.reduced-motion {
-	--transition-speed: 0ms;
-}
+@import "pages/error";
+@import "pages/404";
 
 @import "components/logo";
-@import "components/old";
+@import "components/link";
+@import "components/button";
+@import "components/header";
+@import "components/main";
+@import "components/footer";

@@ -1,0 +1,41 @@
+header {
+	@apply fixed h-20 z-10 top-0 inset-x-0 w-full bg-blue-100 dark:bg-blue-900 duration-150 ease-in-out shadow;
+	will-change: height, box-shadow;
+	transition-property: height, box-shadow;
+
+	&[data-scrolled="true"] {
+		@apply h-16 shadow-md;
+
+		> .header-wrapper {
+			span.logo {
+				@apply transition-transform transform-gpu scale-75;
+
+				will-change: transform;
+				transform-origin: left center;
+			}
+		}
+	}
+
+	> .header-wrapper {
+		@apply container h-full mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center;
+
+		span.logo {
+			@apply inline-block transition-transform transform-gpu scale-100;
+
+			will-change: transform;
+			transform-origin: left center;
+		}
+
+		nav {
+			@apply md:ml-auto flex flex-wrap items-center text-base justify-center font-mono;
+
+			span.cta {
+				&::after {
+					@apply opacity-50 text-sm;
+
+					content: "()";
+				}
+			}
+		}
+	}
+}

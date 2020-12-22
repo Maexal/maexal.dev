@@ -1,10 +1,27 @@
 {
-	"coc": "KVK",
-	"vat": "BTW",
-	"contact-us-through": "Neem contact met ons op via",
-	"banner-short": "We zijn begonnen aan een gloednieuwe website!",
-	"banner-long": "Goed nieuws! We zijn blij om aan te kondigen dat we zijn begonnen aan een gloednieuwe website!",
-	"back-to-safety": "Terug naar veiligheid",
-	"not-found": "Niks gevonden",
-	"whoops": "Whoops, er ging iets mis!"
+	"projects:": {
+		"name": "projecten",
+		"url": "projecten"
+	},
+	"services:": {
+		"name": "diensten",
+		"url": "diensten"
+	},
+	"about:": {
+		"name": "about",
+		"url": "over"
+	},
+	"contact:": {
+		"name": "contacteerOns",
+		"url": "contact"
+	},
+	"redirecting-in": "Doorsturen in",
+	"seconds": {
+		"one": "seconde",
+		"other": "seconden"
+	},
+	"back-to-safety": "terug naar veiligheid",
+	"not-found": "niets gevonden",
+	"whoops": "whoops, er ging iets mis!",
+	"cancel": "annuleren"
 }

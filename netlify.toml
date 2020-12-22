@@ -33,11 +33,22 @@ providers = [
 ]
 sitemapPath = "/sitemap.xml"
 
+# Dutch pages
+
 [[redirects]]
 conditions = {Language = ["nl"]}
 from = "/"
 status = 301
 to = "/nl"
+
+# English pages
+
+[[redirects]]
+from = "/"
+status = 301
+to = "/en"
+
+# 404 pages
 
 [[redirects]]
 conditions = {Language = ["nl"]}
@@ -49,11 +60,6 @@ to = "/nl/404"
 from = "/nl/*"
 status = 404
 to = "/nl/404"
-
-[[redirects]]
-from = "/"
-status = 301
-to = "/en"
 
 [[redirects]]
 from = "/404"
