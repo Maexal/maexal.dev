@@ -1,0 +1,23 @@
+.home {
+	.hero {
+		.hero-wrapper {
+			@apply container mx-auto flex px-5 py-24 md:flex-row flex-col items-center;
+
+			.content {
+				@apply lg:flex-grow w-2/3 md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center;
+
+				h1 {
+					@apply font-serif sm:text-4xl mb-4 font-bold text-blue-900 dark:text-blue-100;
+				}
+
+				p {
+					@apply mb-8 font-sans text-blue-900 dark:text-blue-200;
+				}
+
+				.buttons {
+					@apply flex justify-center;
+				}
+			}
+		}
+	}
+}

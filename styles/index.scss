@@ -2,30 +2,5 @@
 @tailwind components;
 @tailwind utilities;
 
-*,
-*::before,
-*::after {
-	@apply m-0 p-0 box-border;
-}
-
-body {
-	@apply bg-blue-100 dark:bg-blue-900 text-gray-800 dark:text-gray-100;
-}
-
-p {
-	@apply leading-relaxed;
-}
-
-h1 {
-	@apply text-5xl;
-}
-
-@import "pages/error";
-@import "pages/404";
-
-@import "components/logo";
-@import "components/link";
-@import "components/button";
-@import "components/header";
-@import "components/main";
-@import "components/footer";
+@import "components/basic", "components/link", "components/button", "components/logo", "components/header",
+	"components/main", "components/footer", "pages/error", "pages/404", "pages/home";

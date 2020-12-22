@@ -6,7 +6,7 @@
 	}
 
 	&.nav-link {
-		@apply rounded py-1 px-3 mr-2 outline-none active:ring-2 focus:ring-2 select-none duration-150 ease-in-out;
+		@apply rounded py-1 px-3 mr-2 outline-none select-none duration-150 ease-in-out;
 		transition-property: padding;
 
 		&::before,
@@ -30,6 +30,14 @@
 			&::after {
 				@apply ml-1;
 			}
+		}
+
+		&:focus {
+			@apply ring-4 ring-inset;
+		}
+
+		&:active {
+			@apply ring-2 ring-inset;
 		}
 	}
 }

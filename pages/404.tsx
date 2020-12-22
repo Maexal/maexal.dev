@@ -2,13 +2,13 @@ import React from "react";
 import { useRouter } from "next/router";
 import { useI18n } from "next-localization";
 
-import { Head, Header, Main, Link } from "../components";
+import { Head, Header, Main, Link, Footer } from "../components";
 import { capitalizeFirst } from "../utils";
 
 const NotFoundPage = (): JSX.Element => {
 	const i18n = useI18n();
 	const router = useRouter();
-	const [time, setTime] = React.useState(5000);
+	const [time, setTime] = React.useState(8000);
 	const [ticking, setTicking] = React.useState<boolean>(true);
 	let timer;
 
@@ -55,6 +55,8 @@ const NotFoundPage = (): JSX.Element => {
 					</p>
 				)}
 			</Main>
+
+			<Footer type="small" />
 		</>
 	);
 };

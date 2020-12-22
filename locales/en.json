@@ -1,18 +1,18 @@
 {
-	"projects:": {
+	"projects": {
 		"name": "projects",
 		"url": "projects"
 	},
-	"services:": {
+	"services": {
 		"name": "services",
 		"url": "services"
 	},
-	"about:": {
+	"about": {
 		"name": "about",
 		"url": "about"
 	},
-	"contact:": {
-		"name": "contactUs",
+	"contact": {
+		"name": "contact",
 		"url": "contact"
 	},
 	"redirecting-in": "Redirecting in",

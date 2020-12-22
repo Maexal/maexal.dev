@@ -1,18 +1,27 @@
 button.button {
 	@apply inline-block relative outline-none w-auto rounded text-center text-white border-none cursor-pointer bg-transparent py-1 px-3 m-2 font-mono;
 
+	--color: theme("colors.orange.DEFAULT");
+
+	&[data-color="orange"] {
+		--color: theme("colors.orange.DEFAULT");
+	}
+
+	&[data-color="blue"] {
+		--color: theme("colors.blue.DEFAULT");
+	}
+
 	&::before,
 	&::after {
 		@apply absolute w-full h-full inset-0 rounded-sm transform-gpu duration-150 ease-in-out shadow;
 
 		content: "";
-		--tw-shadow: 0 0 0 1px theme("colors.orange.DEFAULT");
+		--tw-shadow: 0 0 0 1px var(--color);
 	}
 
 	&::before {
-		@apply bg-orange;
-
 		z-index: 0;
+		background: var(--color);
 	}
 
 	&::after {

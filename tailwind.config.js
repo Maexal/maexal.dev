@@ -49,9 +49,6 @@ module.exports = {
 		},
 	},
 	variants: {
-		extend: {
-			ringWidth: ["hover", "active", "focus"],
-		},
 		animation: ["responsive", "motion-safe", "motion-reduce"],
 	},
 	plugins: [],
