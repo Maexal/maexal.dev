@@ -46,7 +46,7 @@
 	],
 	"dependencies": {
 		"@netlify/plugin-nextjs": "^1.0.3",
-		"@netlify/plugin-sitemap": "^0.5.2",
+		"@netlify/plugin-sitemap": "^0.6.0",
 		"netlify-plugin-cache-nextjs": "^1.5.2",
 		"netlify-plugin-image-optim": "^0.4.0",
 		"netlify-plugin-minify-html": "^0.3.0",
