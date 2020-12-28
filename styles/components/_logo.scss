@@ -1,5 +1,5 @@
 .logo {
-	@apply relative select-none;
+	@apply relative select-none rounded outline-none;
 
 	--logo-width: 375px;
 	--logo-height: 95px;
@@ -88,5 +88,9 @@
 		@apply text-blue text-center font-bold font-serif;
 
 		font-size: calc(3.8rem * var(--size));
+	}
+
+	&:focus-visible {
+		@apply ring;
 	}
 }

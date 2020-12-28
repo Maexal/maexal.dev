@@ -1,27 +1,42 @@
 {
-	"projects": {
-		"name": "projects",
-		"url": "projects"
+	"sentences": {
+		"404-title": "Oh no! The page you're looking for isn't here.",
+		"404-text": "You might have the wrong address, or the page may have moved.",
+		"500-title": "Sorry! Something went wrong on our side.",
+		"500-text": "Seems like our servers aren't doing too well... Try again later."
 	},
-	"services": {
-		"name": "services",
-		"url": "services"
+	"phrases": {
+		"back-to-safety": "back to safety",
+		"page-not-found": "page not found",
+		"internal-server-error": "internal server error",
+		"get-to-know-us": "get to know us",
+		"contact-us": "contact us"
 	},
-	"about": {
-		"name": "about",
-		"url": "about"
+	"words": {
+		"cancel": "cancel",
+		"confirm": "confirm",
+		"send": "send"
 	},
-	"contact": {
-		"name": "contact",
-		"url": "contact"
-	},
-	"redirecting-in": "Redirecting in",
-	"seconds": {
-		"one": "second",
-		"other": "seconds"
-	},
-	"back-to-safety": "back to safety",
-	"not-found": "not found",
-	"whoops": "whoops, something went wrong!",
-	"cancel": "cancel"
+	"navigation": {
+		"home": {
+			"name": "home",
+			"url": "/"
+		},
+		"projects": {
+			"name": "projects",
+			"url": "/#projects"
+		},
+		"services": {
+			"name": "services",
+			"url": "/#services"
+		},
+		"about": {
+			"name": "about",
+			"url": "/#about"
+		},
+		"contact": {
+			"name": "contact",
+			"url": "/#contact"
+		}
+	}
 }

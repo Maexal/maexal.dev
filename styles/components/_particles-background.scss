@@ -1,0 +1,9 @@
+.particles {
+	@apply fixed inset-0 w-screen h-screen;
+
+	z-index: -2147483647;
+
+	.particles-canvas {
+		@apply w-auto h-auto;
+	}
+}

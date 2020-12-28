@@ -162,7 +162,7 @@ const _getExternalStyles = () => {
 	return (
 		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Source+Sans+Pro&family=Fira+Code&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Merriweather:wght@800;900&family=Source+Sans+Pro&family=Fira+Code&display=swap"
 		/>
 	);
 };
@@ -171,29 +171,29 @@ export const HeadNext = ({
 	title,
 	useTitleTemplate = true,
 }: {
-	title?: string;
+	title: string;
 	useTitleTemplate?: boolean;
 }): JSX.Element => {
 	const router = useRouter();
 
+	const { locale } = router;
+
 	return (
 		<NextHead>
-			{_getMetaLocale(router.locale)}
+			{_getMetaLocale(locale)}
 			{_getTitle(title, useTitleTemplate)}
 		</NextHead>
 	);
 };
 
-export const HeadDocument = (): JSX.Element => {
-	return (
-		<NextDocumentHead>
-			{_getMeta()}
-			{_getIcons()}
-			{_getRestOfHead()}
-			{_getExternalStyles()}
-		</NextDocumentHead>
-	);
-};
+export const HeadDocument = (): JSX.Element => (
+	<NextDocumentHead>
+		{_getMeta()}
+		{_getIcons()}
+		{_getRestOfHead()}
+		{_getExternalStyles()}
+	</NextDocumentHead>
+);
 
 export const Head = HeadNext;
 

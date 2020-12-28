@@ -1,62 +1,40 @@
 import React from "react";
-import { useRouter } from "next/router";
 import { useI18n } from "next-localization";
 
-import { Head, Header, Main, Link, Footer } from "../components";
+import { Head, Header, Main, Link, ParticlesBackground } from "../components";
 import { capitalizeFirst } from "../utils";
 
 const NotFoundPage = (): JSX.Element => {
 	const i18n = useI18n();
-	const router = useRouter();
-	const [time, setTime] = React.useState(8000);
-	const [ticking, setTicking] = React.useState<boolean>(true);
-	let timer;
-
-	React.useEffect(() => {
-		if (time <= 0) router.push("/");
-
-		timer = setTimeout(() => setTime(time - 1000), 1000);
-
-		return () => clearTimeout(timer);
-	}, [time]);
-
-	const cancelTimer = () => {
-		setTicking(false);
-		clearTimeout(timer);
-	};
-
-	const getTimeInSeconds = (seconds: number) => Math.floor(seconds / 1000);
+	const { t } = i18n;
 
 	return (
 		<>
-			<Head title={`404 ${i18n.t("404-page.not-found")}`} />
+			<Head title={`Error 404: ${capitalizeFirst(t("phrases.page-not-found"))}`} />
+
+			<ParticlesBackground bouncing />
 
 			<Header />
 
-			<Main className="not-found page-centered min-h-screen py-24">
-				<h1>404 {capitalizeFirst(i18n.t("not-found"))}</h1>
+			<Main fullPage className="not-found">
+				<div>
+					<div>
+						<p className="label">Error 404: {capitalizeFirst(t("phrases.page-not-found"))}</p>
+						<h1>{t("sentences.404-title")}</h1>
+						<p>{t("sentences.404-text")}</p>
 
-				<div className="gif"></div>
-
-				<Link href="/" className={ticking ? "" : "link-height"}>
-					{capitalizeFirst(i18n.t("back-to-safety"))}
-				</Link>
-
-				{ticking && (
-					<p className="text">
-						<span className="timer">
-							{capitalizeFirst(i18n.t("redirecting-in"))} {getTimeInSeconds(time)}{" "}
-							{getTimeInSeconds(time) > 1 ? i18n.t("seconds.other") : i18n.t("seconds.one")}
-						</span>
-
-						<span className="cancel" onClick={cancelTimer}>
-							{capitalizeFirst(i18n.t("cancel"))}
-						</span>
-					</p>
-				)}
+						<Link type="button" href={t("navigation.home.url")} elevation="hovering" margin>
+							{capitalizeFirst(t("phrases.back-to-safety"))}
+						</Link>
+						<Link type="button" href={t("navigation.contact.url")} margin color="blue">
+							{capitalizeFirst(t("phrases.contact-us"))}
+						</Link>
+					</div>
+					<div>
+						<div className="image"></div>
+					</div>
+				</div>
 			</Main>
-
-			<Footer type="small" />
 		</>
 	);
 };

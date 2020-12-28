@@ -17,4 +17,23 @@ module.exports = {
 			},
 		],
 	},
+	async redirects() {
+		return [
+			{
+				source: "/terms",
+				destination: "/terms-and-conditions",
+				permanent: true,
+			},
+			{
+				source: "/conditions",
+				destination: "/terms-and-conditions",
+				permanent: true,
+			},
+			{
+				source: "/privacy",
+				destination: "/privacy-policy",
+				permanent: true,
+			},
+		];
+	},
 };

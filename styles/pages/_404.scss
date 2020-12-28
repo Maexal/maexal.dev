@@ -1,23 +1,27 @@
 .not-found {
-	.gif {
-		@apply rounded w-60 h-60 bg-center bg-cover bg-no-repeat my-12;
+	@apply container px-4 py-24 mx-auto flex flex-col justify-center items-center;
 
-		background-image: url("https://media.giphy.com/media/hEc4k5pN17GZq/giphy.gif");
-	}
+	> div {
+		@apply grid items-center w-full grid-cols-1 gap-10 mx-auto md:w-4/5 lg:grid-cols-2 xl:gap-32;
 
-	.text {
-		@apply h-12 text-sm;
-	}
+		> div {
+			> h1 {
+				@apply font-serif mb-4 text-2xl font-extrabold leading-tight tracking-tight text-left text-gray-900 dark:text-gray-100 md:text-4xl;
+			}
 
-	.timer {
-		@apply mr-2;
-	}
+			> p {
+				@apply font-sans mb-5 text-base text-left text-gray-800 dark:text-gray-200 md:text-xl;
 
-	.cancel {
-		@apply underline cursor-pointer;
-	}
+				&.label {
+					@apply font-mono mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase;
+				}
+			}
 
-	.link-height {
-		@apply mb-12;
+			> div.image {
+				@apply w-full h-full py-48 bg-gray-200 dark:bg-gray-800 rounded-lg bg-center bg-cover bg-no-repeat;
+
+				background-image: url("https://media.giphy.com/media/hEc4k5pN17GZq/giphy.gif");
+			}
+		}
 	}
 }

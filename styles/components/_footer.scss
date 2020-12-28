@@ -1,31 +1,14 @@
 footer {
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	height: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 5px;
-	transition: opacity var(--transition-duration) var(--transition-timing-function);
+	@apply w-full bg-blue-100 dark:bg-blue-900;
 
-	> div {
-		margin: 0 15px 5px;
-
-		> strong {
-			margin-right: 5px;
-			user-select: none;
+	&[data-type="regular"] {
+		> .footer-wrapper {
+			@apply container px-4 py-12 mx-auto;
 		}
 	}
-
-	&:not(:hover) {
-		opacity: 0.3;
-	}
-}
-@media only screen and (max-width: 850px) {
-	footer {
-		flex-direction: column;
+	&[data-type="small"] {
+		> .footer-wrapper {
+			@apply container;
+		}
 	}
 }

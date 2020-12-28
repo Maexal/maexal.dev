@@ -1,61 +1,41 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Head, Header, Link, Main } from "../components";
-import { useRouter } from "next/router";
+import { Head, Header, Link, Main, ParticlesBackground } from "../components";
 import { capitalizeFirst } from "../utils";
 
-const ErrorPage = ({ statusCode }: { statusCode?: never }): JSX.Element => {
+const ErrorPage = ({ statusCode = 500 }: { statusCode?: number }): JSX.Element => {
 	const i18n = useI18n();
-	const router = useRouter();
-	const [time, setTime] = React.useState(5000);
-	const [ticking, setTicking] = React.useState<boolean>(true);
-	let timer: ReturnType<typeof setTimeout>;
-
-	React.useEffect(() => {
-		if (time <= 0) router.push("/");
-
-		timer = setTimeout(() => setTime(time - 1000), 1000);
-
-		return () => clearTimeout(timer);
-	}, [time]);
-
-	const cancelTimer = (): void => {
-		setTicking(false);
-		clearTimeout(timer);
-	};
-
-	const getTimeInSeconds = (seconds: number): number => Math.floor(seconds / 1000);
+	const { t } = i18n;
 
 	return (
 		<>
-			<Head title={statusCode} />
+			<Head title={`Error ${statusCode}: ${capitalizeFirst(t("phrases.internal-server-error"))}`} />
+
+			<ParticlesBackground bouncing />
 
 			<Header />
 
-			<Main className="error page-centered min-h-screen py-24">
-				<h1>
-					{statusCode} {capitalizeFirst(i18n.t("whoops"))}
-				</h1>
+			<Main fullPage className="error">
+				<div>
+					<div>
+						<p className="label">
+							Error {statusCode}: {capitalizeFirst(t("phrases.internal-server-error"))}
+						</p>
+						<h1>{t("sentences.500-title")}</h1>
+						<p>{t("sentences.500-text")}</p>
 
-				<div className="gif"></div>
-
-				<Link href="/" className={ticking ? "" : "link-height"}>
-					{capitalizeFirst(i18n.t("back-to-safety"))}
-				</Link>
-
-				{ticking && (
-					<p className="text">
-						<span className="timer">
-							{capitalizeFirst(i18n.t("redirecting-in"))} {getTimeInSeconds(time)}{" "}
-							{getTimeInSeconds(time) > 1 ? i18n.t("seconds.other") : i18n.t("seconds.one")}
-						</span>
-
-						<span className="cancel" onClick={cancelTimer}>
-							{capitalizeFirst(i18n.t("cancel"))}
-						</span>
-					</p>
-				)}
+						<Link type="button" href={t("navigation.home.url")} elevation="hovering" margin>
+							{capitalizeFirst(t("phrases.back-to-safety"))}
+						</Link>
+						<Link type="button" href={t("navigation.contact.url")} margin color="blue">
+							{capitalizeFirst(t("phrases.contact-us"))}
+						</Link>
+					</div>
+					<div>
+						<div className="image"></div>
+					</div>
+				</div>
 			</Main>
 		</>
 	);

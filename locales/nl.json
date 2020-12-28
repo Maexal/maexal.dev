@@ -1,27 +1,42 @@
 {
-	"projects:": {
-		"name": "projecten",
-		"url": "projecten"
+	"sentences": {
+		"404-title": "Oh no! De pagina waar je naar op zoek bent is hier niet.",
+		"404-text": "Je hebt misschien het foute adres, of de pagina is verplaatst.",
+		"500-title": "Sorry! Er ging iets mis aan onze kant.",
+		"500-text": "Het ziet ernaar uit de onze servers niet helemaal top zijn... Probeer het later nog eens."
 	},
-	"services:": {
-		"name": "diensten",
-		"url": "diensten"
+	"phrases": {
+		"back-to-safety": "terug naar veiligheid",
+		"page-not-found": "page niet gevonden",
+		"internal-server-error": "interne server error",
+		"get-to-know-us": "leer ons kennen",
+		"contact-us": "neem contact met ons op"
 	},
-	"about:": {
-		"name": "about",
-		"url": "over"
+	"words": {
+		"cancel": "annuleren",
+		"confirm": "bevestigen",
+		"send": "versturen"
 	},
-	"contact:": {
-		"name": "contacteer",
-		"url": "contact"
-	},
-	"redirecting-in": "Doorsturen in",
-	"seconds": {
-		"one": "seconde",
-		"other": "seconden"
-	},
-	"back-to-safety": "terug naar veiligheid",
-	"not-found": "niets gevonden",
-	"whoops": "whoops, er ging iets mis!",
-	"cancel": "annuleren"
+	"navigation": {
+		"home": {
+			"name": "home",
+			"url": "/"
+		},
+		"projects:": {
+			"name": "projecten",
+			"url": "/#projecten"
+		},
+		"services:": {
+			"name": "diensten",
+			"url": "/#diensten"
+		},
+		"about:": {
+			"name": "about",
+			"url": "/#over"
+		},
+		"contact:": {
+			"name": "contacteer",
+			"url": "/#contact"
+		}
+	}
 }

@@ -1,21 +1,43 @@
 .home {
-	.hero {
-		.hero-wrapper {
-			@apply container mx-auto flex px-5 py-24 md:flex-row flex-col items-center;
+	section {
+		@apply relative bg-blue-100 dark:bg-blue-900;
+	}
 
-			.content {
-				@apply lg:flex-grow w-2/3 md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center;
+	section#hero {
+		@apply bg-transparent;
 
-				h1 {
-					@apply font-serif sm:text-4xl mb-4 font-bold text-blue-900 dark:text-blue-100;
-				}
+		height: calc(100vh - 6rem);
 
-				p {
-					@apply mb-8 font-sans text-blue-900 dark:text-blue-200;
-				}
+		&::after {
+			@apply absolute inset-x-0 bottom-0 w-full h-16 bg-gradient-to-b from-transparent to-blue-100 dark:to-blue-900;
 
-				.buttons {
-					@apply flex justify-center;
+			content: "";
+		}
+
+		> .hero-container {
+			@apply container h-full px-4 py-24 mx-auto flex flex-col justify-center items-center;
+
+			> .hero-wrapper {
+				@apply w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center;
+
+				> h1 {
+					@apply mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 dark:text-gray-100 md:text-6xl md:tracking-tight;
+
+					> span {
+						@apply block font-serif w-full text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500 lg:inline;
+					}
+
+					> p {
+						@apply px-0 mb-6 text-lg text-gray-600 md:text-xl lg:px-24;
+					}
+
+					> div {
+						@apply mb-4 space-x-0 md:space-x-2 md:mb-8;
+
+						> * {
+							@apply inline-flex items-center justify-center w-full mb-2 sm:w-auto sm:mb-0;
+						}
+					}
 				}
 			}
 		}

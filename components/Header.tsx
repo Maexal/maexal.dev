@@ -1,11 +1,12 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Logo, Link, Button } from ".";
+import { Logo, Link } from ".";
 import { capitalizeFirst } from "../utils";
 
 export const Header = (): JSX.Element => {
 	const i18n = useI18n();
+	const { t } = i18n;
 	const [scrolled, setScrolled] = React.useState<boolean>(false);
 
 	React.useEffect(() => {
@@ -21,25 +22,26 @@ export const Header = (): JSX.Element => {
 	return (
 		<header data-scrolled={scrolled}>
 			<div className="header-wrapper">
-				<span className="logo ">
-					<Link href="/#" styled={false}>
-						<Logo interactive size={40} />
-					</Link>
-				</span>
+				<Link href="/" className="logo-link">
+					<Logo interactive size={40} />
+				</Link>
 
 				<nav>
-					<Link href={`/#${i18n.t("projects.url")}`} navLink={true}>
-						{capitalizeFirst(i18n.t("projects.name"))}
+					<Link href={t("navigation.projects.url")} navLink>
+						{capitalizeFirst(t("navigation.projects.name"))}
 					</Link>
-					<Link href={`/#${i18n.t("services.url")}`} navLink={true}>
-						{capitalizeFirst(i18n.t("services.name"))}
+					<Link href={t("navigation.services.url")} navLink>
+						{capitalizeFirst(t("navigation.services.name"))}
 					</Link>
-					<Link href={`/#${i18n.t("about.url")}`} navLink={true}>
-						{capitalizeFirst(i18n.t("about.name"))}
+					<Link href={t("navigation.about.url")} navLink>
+						{capitalizeFirst(t("navigation.about.name"))}
 					</Link>
-					<Button href={`/#${i18n.t("contact.url")}`} elevation="hovering">
-						<span className="cta">{i18n.t("contact.name")}</span>
-					</Button>
+
+					<span className="space" />
+
+					<Link type="button" href={t("navigation.contact.url")} elevation="hovering">
+						<span className="cta">{t("navigation.contact.name")}</span>
+					</Link>
 				</nav>
 			</div>
 		</header>

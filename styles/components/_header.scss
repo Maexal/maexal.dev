@@ -1,25 +1,21 @@
 header {
-	@apply fixed h-20 z-10 top-0 inset-x-0 w-full bg-blue-100 dark:bg-blue-900 duration-150 ease-in-out shadow;
-	will-change: height, box-shadow;
-	transition-property: height, box-shadow;
+	@apply fixed h-24 z-10 top-0 inset-x-0 w-full bg-transparent duration-150 ease-in-out;
+
+	will-change: height, box-shadow, background-color;
+	transition-property: height, box-shadow, background-color;
 
 	&[data-scrolled="true"] {
-		@apply h-16 shadow-md;
-
-		> .header-wrapper {
-			span.logo {
-				@apply transition-transform transform-gpu scale-75;
-
-				will-change: transform;
-				transform-origin: left center;
-			}
-		}
+		@apply h-16 shadow-md bg-blue-100 dark:bg-blue-900;
 	}
 
 	> .header-wrapper {
 		@apply container h-full mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center;
 
-		span.logo {
+		> a {
+			display: inherit;
+		}
+
+		.logo {
 			@apply inline-block transition-transform transform-gpu scale-100;
 
 			will-change: transform;
@@ -29,9 +25,15 @@ header {
 		nav {
 			@apply md:ml-auto flex flex-wrap items-center text-base justify-center font-mono;
 
+			.space {
+				@apply w-2;
+			}
+
 			span.cta {
+				@apply font-mono;
+
 				&::after {
-					@apply opacity-50 text-sm;
+					@apply opacity-50 text-sm font-mono;
 
 					content: "()";
 				}

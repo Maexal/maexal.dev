@@ -1,11 +1,12 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Button, Footer, Head, Header, Main } from "../components";
+import { Footer, Head, Header, Link, Main, ParticlesBackground } from "../components";
 import projectConfig from "../project.config";
 
-const Homepage = (): JSX.Element => {
+const HomePage = (): JSX.Element => {
 	const i18n = useI18n();
+	const { t } = i18n;
 	const {
 		name,
 		abstract,
@@ -16,25 +17,26 @@ const Homepage = (): JSX.Element => {
 		<>
 			<Head title={`${name}: ${abstract}`} useTitleTemplate={false} />
 
+			<ParticlesBackground />
+
 			<Header />
 
-			<Main className="home py-24">
+			<Main className="home">
 				<section id="hero">
-					<div className="hero-wrapper">
-						<div className="content">
-							<h1>A robot running a business? That looks good.</h1>
-							<p>
-								Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed
-								tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken
-								authentic tumeric truffaut hexagon try-hard chambray.
-							</p>
-							<div className="buttons">
-								<Button href={`mailto:${general}`} elevation="flying">
-									{general}
-								</Button>
-								<Button href={`/#${i18n.t("projects.url")}`} color="blue">
-									start getting to know us
-								</Button>
+					<div className="hero-container">
+						<div className="hero-wrapper">
+							<h1>
+								All the <span>expected results</span> of your future online product met.
+							</h1>
+							<p>This is what we guarantee you here at Maexal.</p>
+							<div>
+								<Link type="button" href={`mailto:${general}`} margin elevation="hovering">
+									{t("phrases.contact-us")}
+								</Link>
+
+								<Link type="button" href="/#about" margin color="blue">
+									{t("phrases.get-to-know-us")}
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -46,4 +48,4 @@ const Homepage = (): JSX.Element => {
 	);
 };
 
-export default Homepage;
+export default HomePage;
