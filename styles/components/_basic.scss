@@ -21,7 +21,7 @@ a {
 }
 
 a:not([href*="maexal.dev"]):not([href^="#"]):not([href^="/"])::after {
-	@apply inline-block w-5 h-5 bg-gray-900 dark:bg-gray-100;
+	@apply inline-block ml-1 w-5 h-5 bg-gray-900 dark:bg-gray-100;
 
 	content: "";
 	mask: url("https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/external-link.svg");
