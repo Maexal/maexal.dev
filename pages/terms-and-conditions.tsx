@@ -1,26 +1,31 @@
 import React from "react";
+import { useI18n } from "next-localization";
 
-import { Head, Header, Link, Main } from "../components";
+import { Head, Link, Main } from "../components";
 import { projectConfig } from "../project.config";
+import { capitalizeFirst } from "../utils";
 
 const TermsAndConditionsPage = (): JSX.Element => {
+	const i18n = useI18n();
+	const { t } = i18n;
 	const {
 		email: { contact },
 		url,
+		lastUpdated,
 	} = projectConfig;
 
 	return (
 		<>
 			<Head title="Terms &amp; Conditions" />
 
-			<Header />
-
 			<Main className="terms-and-conditions text-page">
 				<div className="top">
 					<h1>Terms &amp; Conditions</h1>
-					<p>Last updated: December 28, 2020</p>
+					<p>Last updated: {lastUpdated}</p>
 				</div>
 				<div className="content">
+					<Link href="/">{capitalizeFirst(t("words.back"))}</Link>
+
 					<p>Please read these terms and conditions carefully before using Our Service.</p>
 					<h2>Interpretation and Definitions</h2>
 					<h3>Interpretation</h3>

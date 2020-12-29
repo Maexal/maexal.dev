@@ -15,7 +15,8 @@
 	"words": {
 		"cancel": "annuleren",
 		"confirm": "bevestigen",
-		"send": "versturen"
+		"send": "versturen",
+		"back": "terug"
 	},
 	"navigation": {
 		"home": {

@@ -1,7 +1,7 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Head, Header, Main, Link, ParticlesBackground } from "../components";
+import { Head, Main, Link } from "../components";
 import { capitalizeFirst } from "../utils";
 
 const NotFoundPage = (): JSX.Element => {
@@ -11,10 +11,6 @@ const NotFoundPage = (): JSX.Element => {
 	return (
 		<>
 			<Head title={`Error 404: ${capitalizeFirst(t("phrases.page-not-found"))}`} />
-
-			<ParticlesBackground bouncing />
-
-			<Header />
 
 			<Main fullPage className="not-found">
 				<div>

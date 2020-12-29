@@ -1,7 +1,7 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Head, Header, Link, Main, ParticlesBackground } from "../components";
+import { Head, Link, Main } from "../components";
 import { capitalizeFirst } from "../utils";
 
 const ErrorPage = ({ statusCode = 500 }: { statusCode?: number }): JSX.Element => {
@@ -11,10 +11,6 @@ const ErrorPage = ({ statusCode = 500 }: { statusCode?: number }): JSX.Element =
 	return (
 		<>
 			<Head title={`Error ${statusCode}: ${capitalizeFirst(t("phrases.internal-server-error"))}`} />
-
-			<ParticlesBackground bouncing />
-
-			<Header />
 
 			<Main fullPage className="error">
 				<div>

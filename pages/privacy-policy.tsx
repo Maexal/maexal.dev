@@ -1,26 +1,31 @@
 import React from "react";
+import { useI18n } from "next-localization";
 
-import { Head, Header, Link, Main } from "../components";
+import { Head, Link, Main } from "../components";
 import { projectConfig } from "../project.config";
+import { capitalizeFirst } from "../utils";
 
 const PrivacyPolicyPage = (): JSX.Element => {
+	const i18n = useI18n();
+	const { t } = i18n;
 	const {
 		email: { contact },
 		url,
+		lastUpdated,
 	} = projectConfig;
 
 	return (
 		<>
 			<Head title="Privacy Policy" />
 
-			<Header />
-
 			<Main className="privacy-policy text-page">
 				<div className="top">
 					<h1>Privacy Policy</h1>
-					<p>Last updated: December 28, 2020</p>
+					<p>Last updated: {lastUpdated}</p>
 				</div>
 				<div className="content">
+					<Link href="/">{capitalizeFirst(t("words.back"))}</Link>
+
 					<p>
 						This Privacy Policy describes Our policies and procedures on the collection, use and disclosure
 						of Your information when You use the Service and tells You about Your privacy rights and how the

@@ -16,6 +16,7 @@ interface ProjectConfig {
 	domain: string;
 	iconPath: string;
 	url: string;
+	lastUpdated: string;
 	keywords: Array<string>;
 	email: {
 		general: string;
@@ -43,6 +44,7 @@ export const projectConfig: ProjectConfig = {
 	domain,
 	iconPath: "/assets/icons/android-chrome-512x512.png",
 	url: `https://${domain}/`,
+	lastUpdated: "December 28, 2020",
 	keywords: ["maexal", "mæxal", "max", "altena", "max altena"],
 	email: {
 		general: `hello@${domain}`,

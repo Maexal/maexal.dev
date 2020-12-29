@@ -15,7 +15,8 @@
 	"words": {
 		"cancel": "cancel",
 		"confirm": "confirm",
-		"send": "send"
+		"send": "send",
+		"back": "back"
 	},
 	"navigation": {
 		"home": {

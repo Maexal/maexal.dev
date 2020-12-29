@@ -17,10 +17,6 @@ const HomePage = (): JSX.Element => {
 		<>
 			<Head title={`${name}: ${abstract}`} useTitleTemplate={false} />
 
-			<ParticlesBackground />
-
-			<Header />
-
 			<Main className="home">
 				<section id="hero">
 					<div className="hero-container">
