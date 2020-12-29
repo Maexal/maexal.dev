@@ -1,7 +1,7 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Footer, Head, Header, Link, Main, ParticlesBackground } from "../components";
+import { Footer, Head, Link, Main } from "../components";
 import projectConfig from "../project.config";
 
 const HomePage = (): JSX.Element => {
