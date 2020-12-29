@@ -18,24 +18,25 @@
 		"send": "versturen",
 		"back": "terug"
 	},
+
 	"navigation": {
 		"home": {
 			"name": "home",
 			"url": "/"
 		},
-		"projects:": {
+		"projects": {
 			"name": "projecten",
 			"url": "/#projecten"
 		},
-		"services:": {
+		"services": {
 			"name": "diensten",
 			"url": "/#diensten"
 		},
-		"about:": {
+		"about": {
 			"name": "about",
 			"url": "/#over"
 		},
-		"contact:": {
+		"contact": {
 			"name": "contacteer",
 			"url": "/#contact"
 		}

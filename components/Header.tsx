@@ -11,7 +11,7 @@ export const Header = (): JSX.Element => {
 
 	React.useEffect(() => {
 		const _handleScroll = () => {
-			if (window.scrollY > 0) setScrolled(true);
+			if (window.scrollY > 10) setScrolled(true);
 			else setScrolled(false);
 		};
 
