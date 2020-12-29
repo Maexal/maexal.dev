@@ -10,7 +10,9 @@
 		"page-not-found": "page not found",
 		"internal-server-error": "internal server error",
 		"get-to-know-us": "get to know us",
-		"contact-us": "contact us"
+		"contact-us": "contact us",
+		"last-updated": "last updated",
+		"back-to-homepage": "back to homepage"
 	},
 	"words": {
 		"cancel": "cancel",

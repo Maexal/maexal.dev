@@ -21,10 +21,12 @@ const PrivacyPolicyPage = (): JSX.Element => {
 			<Main className="privacy-policy text-page">
 				<div className="top">
 					<h1>Privacy Policy</h1>
-					<p>Last updated: {lastUpdated}</p>
+					<p>
+						{capitalizeFirst(t("phrases.last-updated"))}: {lastUpdated}
+					</p>
 				</div>
 				<div className="content">
-					<Link href="/">{capitalizeFirst(t("words.back"))}</Link>
+					<Link href="/">{capitalizeFirst(t("phrases.back-to-homepage"))}</Link>
 
 					<p>
 						This Privacy Policy describes Our policies and procedures on the collection, use and disclosure

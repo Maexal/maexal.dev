@@ -10,7 +10,9 @@
 		"page-not-found": "page niet gevonden",
 		"internal-server-error": "interne server error",
 		"get-to-know-us": "leer ons kennen",
-		"contact-us": "neem contact met ons op"
+		"contact-us": "neem contact met ons op",
+		"last-updated": "laatst geupdate",
+		"back-to-homepage": "terug naar homepagina"
 	},
 	"words": {
 		"cancel": "annuleren",

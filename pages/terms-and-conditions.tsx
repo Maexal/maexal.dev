@@ -21,10 +21,12 @@ const TermsAndConditionsPage = (): JSX.Element => {
 			<Main className="terms-and-conditions text-page">
 				<div className="top">
 					<h1>Terms &amp; Conditions</h1>
-					<p>Last updated: {lastUpdated}</p>
+					<p>
+						{capitalizeFirst(t("phrases.last-updated"))}: {lastUpdated}
+					</p>
 				</div>
 				<div className="content">
-					<Link href="/">{capitalizeFirst(t("words.back"))}</Link>
+					<Link href="/">{capitalizeFirst(t("phrases.back-to-homepage"))}</Link>
 
 					<p>Please read these terms and conditions carefully before using Our Service.</p>
 					<h2>Interpretation and Definitions</h2>
