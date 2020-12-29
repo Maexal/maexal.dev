@@ -53,9 +53,8 @@ const _checkDarkMode = () => {
 
 const _getShouldParticlesBackgroundShow = (route: string): boolean => {
 	switch (route) {
-		case "/privacy-policy":
 		case "/terms-and-conditions":
-			return false;
+		case "/privacy-policy":
 		case "/404":
 		case "/":
 		default:

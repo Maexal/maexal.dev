@@ -11,6 +11,7 @@ export interface LinkProps extends NextLinkProps {
 	elevation?: "flat" | "hovering" | "flying";
 	color?: "orange" | "blue";
 	margin?: boolean;
+	target?: "_blank";
 }
 
 export const Link = ({
@@ -23,13 +24,14 @@ export const Link = ({
 	elevation = "flat",
 	color = "orange",
 	margin = false,
+	target,
 	...props
 }: LinkProps): JSX.Element => {
 	switch (type) {
 		case "button":
 			return (
 				<NextLink {...props}>
-					<a>
+					<a target={target}>
 						<button
 							className={`link button${styled ? ` styled-link` : ``}${className ? ` ${className}` : ``}`}
 							data-elevation={elevation}
@@ -47,7 +49,7 @@ export const Link = ({
 			if (navLink)
 				return (
 					<NextLink {...props}>
-						<a>
+						<a target={target}>
 							<button
 								className={`link nav-link${styled ? ` styled-link` : ``}${
 									className ? ` ${className}` : ``
@@ -61,7 +63,7 @@ export const Link = ({
 			else
 				return (
 					<NextLink {...props}>
-						<a>
+						<a target={target}>
 							<button
 								className={`link${styled ? ` styled-link` : ``}${className ? ` ${className}` : ``}`}
 							>

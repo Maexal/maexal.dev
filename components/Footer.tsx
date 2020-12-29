@@ -56,134 +56,123 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 									</svg>
 									<span className="sr-only">Kutty Home Page</span>
 								</a>
-								<p className="my-4 text-xs leading-normal text-gray-500">
+								<p className="my-4 text-xs leading-normal text-gray-800 dark:text-gray-200">
 									Bring together your discussions, memberships, and content. Integrate a thriving
 									community wherever your audience is, all under your own brand.
 								</p>
-								<label className="flex w-24">
+								<label className="flex w-24 text-gray-800 dark:text-gray-200">
 									<span className="sr-only">Select a language</span>
-									<select className="form-select form-select-sm">
+									<select className="form-select form-select-sm text-gray-800 dark:text-gray-200">
 										<option>English</option>
-										<option>Tamil</option>
+										<option>Dutch</option>
 									</select>
 								</label>
 							</div>
 							<nav className="col-span-1 md:col-span-1 lg:col-span-2">
-								<p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+								<p className="mb-3 text-xs font-semibold tracking-wider text-gray-800 dark:text-gray-200 uppercase">
 									Product
 								</p>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Features
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Integrations
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Documentation
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									FAQs
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Pricing
 								</a>
 							</nav>
 							<nav className="col-span-1 md:col-span-1 lg:col-span-2">
-								<p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+								<p className="mb-3 text-xs font-semibold tracking-wider  text-gray-800 dark:text-gray-200 uppercase">
 									About
 								</p>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Press-Kit
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Company
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Privacy
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Blog
 								</a>
 							</nav>
 							<nav className="col-span-2 md:col-span-1 lg:col-span-2">
-								<p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+								<p className="mb-3 text-xs font-semibold tracking-wider  text-gray-800 dark:text-gray-200 uppercase">
 									Contact
 								</p>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Twitter
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Instagram
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Email
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Advertising
 								</a>
 								<a
 									href="#"
-									className="flex mb-3 text-sm font-medium text-gray-800 transition md:mb-2 hover:text-primary"
+									className="flex mb-3 text-sm font-medium text-gray-700 dark:text-gray-300 transition md:mb-2 hover:text-primary"
 								>
 									Chat
 								</a>
 							</nav>
 							<div className="col-span-3">
-								<p className="mb-3 text-xs font-semibold tracking-wider text-gray-400 uppercase">
+								<p className="mb-3 text-xs font-semibold tracking-wider  text-gray-800 dark:text-gray-200 uppercase">
 									SUBSCRIBE TO OUR NEWSLETTER
 								</p>
-								<form action="#" className="mb-2">
-									<div className="form-append">
-										<input
-											className="form-input form-input-sm"
-											type="email"
-											placeholder="Enter your email"
-										/>
-										<button className="btn btn-light-primary btn-sm" type="submit">
-											Subscribe
-										</button>
-									</div>
-								</form>
-								<p className="text-xs leading-normal text-gray-500">
+
+								<p className="text-xs leading-normal text-gray-700 dark:text-gray-300">
 									Get lessons and insights on how to grow your freelance business.
 								</p>
 							</div>
@@ -193,16 +182,10 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 								&copy; Copyright 2020-{new Date().getFullYear()} {name}. All Rights Reserved.
 							</p>
 							<div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
-								<Link
-									href="/terms-and-conditions"
-									className="text-sm text-gray-600 dark:text-gray-400 transition hover:text-primary"
-								>
+								<Link href="/terms-and-conditions" className="text-sm text-gray-600 dark:text-gray-400">
 									Terms &amp; Conditions
 								</Link>
-								<Link
-									href="/privacy-policy"
-									className="text-sm text-gray-600 dark:text-gray-400 transition hover:text-primary"
-								>
+								<Link href="/privacy-policy" className="text-sm text-gray-600 dark:text-gray-400">
 									Privacy Policy
 								</Link>
 							</div>

@@ -118,102 +118,107 @@ export const projectConfig: ProjectConfig = {
 				type: ["image"],
 				image: [
 					{
-						src: "assets/vectors/code.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/code.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/terminal.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/terminal.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/cloud.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/cloud.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/database.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/database.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/server.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/server.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/beaker.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/beaker.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/at-symbol.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/at-symbol.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/chip.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/chip.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/desktop-computer.svg",
+						src:
+							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/desktop-computer.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/device-mobile.svg",
+						src:
+							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/device-mobile.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/device-tablet.svg",
+						src:
+							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/device-tablet.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/globe-alt.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/globe-alt.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/hashtag.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/hashtag.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/heart.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/heart.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/light-bulb.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/light-bulb.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/lightning-bolt.svg",
+						src:
+							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/lightning-bolt.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/paper-airplane.svg",
+						src:
+							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/paper-airplane.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/sparkles.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/sparkles.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/star.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/star.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "assets/vectors/support.svg",
+						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/support.svg",
 						height: 20,
 						width: 20,
 					},

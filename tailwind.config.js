@@ -31,6 +31,18 @@ module.exports = {
 					900: "#321001",
 				},
 			},
+			borderWidth: {
+				DEFAULT: "1px",
+				0: "0",
+				1: "1px",
+				2: "2px",
+				3: "3px",
+				4: "4px",
+				5: "5px",
+				6: "6px",
+				7: "7px",
+				8: "8px",
+			},
 			fontFamily: {
 				sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
 				serif: ["Merriweather", ...defaultTheme.fontFamily.serif],

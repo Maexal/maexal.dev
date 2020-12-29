@@ -11,7 +11,10 @@ const _getMeta = () => {
 
 	return (
 		<>
-			<meta name="viewport" content="width=device-width, initial-scale=1" />
+			<meta
+				name="viewport"
+				content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+			/>
 			<meta charSet="utf-8" />
 			<link rel="author" href="humans.txt" />
 			<link rel="alternate" href={url} hrefLang="x-default" />
@@ -160,10 +163,14 @@ const _getTitle = (title?: string, useTitleTemplate = true) => {
 
 const _getExternalStyles = () => {
 	return (
-		<link
-			rel="stylesheet"
-			href="https://fonts.googleapis.com/css2?family=Merriweather:wght@800;900&family=Source+Sans+Pro&family=Fira+Code&display=swap"
-		/>
+		<>
+			<link rel="preconnect" href="https://fonts.googleapis.com/" />
+			<link rel="preconnect" href="https://raw.githubusercontent.com/" />
+			<link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=Merriweather:wght@800;900&family=Source+Sans+Pro&family=Fira+Code&display=swap"
+			/>
+		</>
 	);
 };
 
