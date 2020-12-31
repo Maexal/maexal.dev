@@ -1,13 +1,13 @@
 {
 	"sentences": {
-		"404-title": "Oh no! De pagina waar je naar op zoek bent is hier niet.",
+		"404-title": "Oh nee! De pagina waar je naar op zoek bent is hier niet.",
 		"404-text": "Je hebt misschien het foute adres, of de pagina is verplaatst.",
 		"500-title": "Sorry! Er ging iets mis aan onze kant.",
 		"500-text": "Het ziet ernaar uit de onze servers niet helemaal top zijn... Probeer het later nog eens."
 	},
 	"phrases": {
 		"back-to-safety": "terug naar veiligheid",
-		"page-not-found": "page niet gevonden",
+		"page-not-found": "pagina niet gevonden",
 		"internal-server-error": "interne server error",
 		"get-to-know-us": "leer ons kennen",
 		"contact-us": "neem contact met ons op",
@@ -41,6 +41,16 @@
 		"contact": {
 			"name": "contacteer",
 			"url": "/#contact"
+		},
+		"privacy-policy": {
+			"name": "privacy policy",
+			"capitalized-name": "Privacy Policy",
+			"url": "/privacy-policy/"
+		},
+		"terms-and-conditions": {
+			"name": "terms and conditions",
+			"capitalized-name": "Terms and Conditions",
+			"url": "/terms-and-conditions/"
 		}
 	}
 }

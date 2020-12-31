@@ -23,7 +23,13 @@ export const ParticlesBackground = ({
 	};
 
 	return (
-		<Particles className={`particles${hide ? ` hidden` : ``}`} canvasClassName="particles-canvas" params={params} />
+		<Particles
+			className={`fixed inset-0 w-screen h-screen duration-150 ease-in-out opacity-100 z-n10 pointer-events-none${
+				hide ? ` opacity-0` : ``
+			}`}
+			canvasClassName="w-auto h-auto"
+			params={params}
+		/>
 	);
 };
 

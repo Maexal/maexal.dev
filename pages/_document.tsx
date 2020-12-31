@@ -1,9 +1,9 @@
 import React from "react";
-import Document, { Html, Main, NextScript, DocumentContext } from "next/document";
+import NextDocument, { Html, Main, NextScript, DocumentContext } from "next/document";
 
 import { HeadDocument } from "../components/Head";
 
-class MyDocument extends Document {
+class Document extends NextDocument {
 	render(): JSX.Element {
 		return (
 			<Html>
@@ -18,18 +18,18 @@ class MyDocument extends Document {
 	}
 }
 
-MyDocument.getInitialProps = async (ctx: DocumentContext) => {
-	const originalRenderPage = ctx.renderPage;
+Document.getInitialProps = async (context: DocumentContext) => {
+	const originalRenderPage = context.renderPage;
 
-	ctx.renderPage = () =>
+	context.renderPage = () =>
 		originalRenderPage({
 			enhanceApp: App => App,
 			enhanceComponent: Component => Component,
 		});
 
-	const initialProps = await Document.getInitialProps(ctx);
+	const initialProps = await NextDocument.getInitialProps(context);
 
 	return initialProps;
 };
 
-export default MyDocument;
+export default Document;

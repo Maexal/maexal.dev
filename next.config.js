@@ -1,7 +1,10 @@
+const path = require("path");
 const withPWA = require("next-pwa");
 
 module.exports = withPWA({
 	target: "serverless",
+	reactStrictMode: true,
+	trailingSlash: true,
 	pwa: {
 		dest: "public",
 		disable: process.env.NODE_ENV === "development",
@@ -10,7 +13,7 @@ module.exports = withPWA({
 		sw: "/sw.js",
 	},
 	sassOptions: {
-		includePaths: ["styles"],
+		includePaths: [path.join(__dirname, "styles")],
 	},
 	i18n: {
 		locales: ["en", "nl"],
@@ -25,6 +28,9 @@ module.exports = withPWA({
 				defaultLocale: "nl",
 			},
 		],
+	},
+	images: {
+		domains: ["raw.githubusercontent.com", "media.giphy.com"],
 	},
 	async redirects() {
 		return [

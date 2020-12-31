@@ -11,7 +11,11 @@ export const Main = ({
 	centered?: boolean;
 	fullPage?: boolean;
 }): JSX.Element => (
-	<main className={className} data-full-page={fullPage} data-centered={centered}>
+	<main
+		className={`w-full h-auto${fullPage ? ` min-h-screen py-24` : ``}${
+			centered ? ` flex flex-grow flex-col justify-center items-center` : ``
+		}${className ? ` ${className}` : ``}`}
+	>
 		{children}
 	</main>
 );

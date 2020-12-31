@@ -20,13 +20,25 @@ export const Header = (): JSX.Element => {
 	}, []);
 
 	return (
-		<header data-scrolled={scrolled}>
-			<div className="header-wrapper">
-				<Link href="/" className="logo-link">
+		<header
+			className={`fixed z-10 top-0 inset-x-0 w-full duration-150 ease-in-out ${
+				scrolled ? `h-16 shadow-md bg-blue-100 dark:bg-blue-900` : `h-24 shadow-none bg-transparent`
+			}`}
+			style={{
+				willChange: "height, box-shadow, background-color",
+				transitionProperty: "height, box-shadow, background-color",
+			}}
+		>
+			<div className="container h-full mx-auto flex flex-wrap p-4 flex-col md:flex-row items-center">
+				<Link
+					href={t("navigation.home.url")}
+					style={{ display: "inherit" }}
+					className="inline-flex relative justify-center items-center select-none no-underline h-full"
+				>
 					<Logo interactive size={40} />
 				</Link>
 
-				<nav>
+				<nav className="md:ml-auto flex flex-wrap items-center text-base justify-center font-mono">
 					<Link href={t("navigation.projects.url")} navLink>
 						{capitalizeFirst(t("navigation.projects.name"))}
 					</Link>
@@ -37,10 +49,10 @@ export const Header = (): JSX.Element => {
 						{capitalizeFirst(t("navigation.about.name"))}
 					</Link>
 
-					<span className="space" />
+					<span className="w-2" />
 
 					<Link type="button" href={t("navigation.contact.url")} elevation="hovering">
-						<span className="cta">{t("navigation.contact.name")}</span>
+						<span className="header-cta font-mono">{t("navigation.contact.name")}</span>
 					</Link>
 				</nav>
 			</div>

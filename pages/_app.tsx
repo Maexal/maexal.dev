@@ -1,9 +1,13 @@
 import React from "react";
+import NextApp from "next/app";
 import { I18nProvider } from "next-localization";
 import { NextRouter } from "next/router";
 import { AnimatePresence, motion, MotionProps } from "framer-motion";
 
+import "../styles/tailwind.scss";
 import "../styles/index.scss";
+import "../styles/global.scss";
+import "../styles/customCSS.scss";
 
 import lngDictEN from "../locales/en.json";
 import lngDictNL from "../locales/nl.json";
@@ -74,25 +78,36 @@ const _getShouldParticlesBackgroundBounce = (route: string): boolean => {
 	}
 };
 
-const MyApp = ({ Component, pageProps, router }: { Component; pageProps; router: NextRouter }): JSX.Element => {
-	_checkDarkMode();
+class App extends NextApp {
+	//eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+	constructor(props) {
+		super(props);
 
-	return (
-		<I18nProvider lngDict={_getLngDict(router)} locale={router.locale}>
-			<>
-				<ParticlesBackground
-					hide={!_getShouldParticlesBackgroundShow(router.route)}
-					bouncing={_getShouldParticlesBackgroundBounce(router.route)}
-				/>
-				<Header />
-				<AnimatePresence exitBeforeEnter>
-					<motion.div key={router.route} {...motionProps}>
-						<Component {...pageProps} />
-					</motion.div>
-				</AnimatePresence>
-			</>
-		</I18nProvider>
-	);
-};
+		_checkDarkMode();
+	}
 
-export default MyApp;
+	render(): JSX.Element {
+		const { Component, pageProps, router } = this.props;
+
+		return (
+			<React.StrictMode>
+				<I18nProvider lngDict={_getLngDict(router)} locale={router.locale}>
+					<>
+						<ParticlesBackground
+							hide={!_getShouldParticlesBackgroundShow(router.route)}
+							bouncing={_getShouldParticlesBackgroundBounce(router.route)}
+						/>
+						<Header />
+						<AnimatePresence exitBeforeEnter>
+							<motion.div key={router.route} {...motionProps}>
+								<Component {...pageProps} />
+							</motion.div>
+						</AnimatePresence>
+					</>
+				</I18nProvider>
+			</React.StrictMode>
+		);
+	}
+}
+
+export default App;

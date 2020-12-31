@@ -1,9 +1,12 @@
 import React from "react";
+import { useI18n } from "next-localization";
 
 import { Link } from ".";
 import { projectConfig } from "../project.config";
 
 export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JSX.Element => {
+	const i18n = useI18n();
+	const { t } = i18n;
 	const { name } = projectConfig;
 
 	// <footer data-type={type}>
@@ -176,18 +179,24 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 		case "regular":
 		default:
 			return (
-				<footer data-type={type}>
-					<div className="footer-wrapper">
+				<footer className="w-full bg-blue-100 dark:bg-blue-900">
+					<div className="container px-4 py-12 mx-auto">
 						<div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-200 dark:border-gray-800 md:flex-row md:items-center">
 							<p className="mb-6 text-sm text-left text-gray-600 dark:text-gray-400 md:mb-0">
 								&copy; Copyright 2020-{new Date().getFullYear()} {name}. All Rights Reserved.
 							</p>
 							<div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
-								<Link href="/terms-and-conditions" className="text-sm text-gray-600 dark:text-gray-400">
-									Terms &amp; Conditions
+								<Link
+									href={t("navigation.terms-and-conditions.url")}
+									className="text-sm text-gray-600 dark:text-gray-400"
+								>
+									{t("navigation.terms-and-conditions.capitalized-name")}
 								</Link>
-								<Link href="/privacy-policy" className="text-sm text-gray-600 dark:text-gray-400">
-									Privacy Policy
+								<Link
+									href={t("navigation.privacy-policy.url")}
+									className="text-sm text-gray-600 dark:text-gray-400"
+								>
+									{t("navigation.privacy-policy.capitalized-name")}
 								</Link>
 							</div>
 						</div>

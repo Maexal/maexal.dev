@@ -1,11 +1,12 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-	purge: ["./pages/**/*.tsx", "./components/**/*.tsx"],
+	purge: ["./pages/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
 	darkMode: "class",
 	theme: {
 		extend: {
 			colors: {
+				...defaultTheme.colors,
 				blue: {
 					DEFAULT: "#03aaf7",
 					100: "#f0faff",
@@ -32,27 +33,30 @@ module.exports = {
 				},
 			},
 			borderWidth: {
-				DEFAULT: "1px",
-				0: "0",
+				...defaultTheme.borderWidth,
 				1: "1px",
-				2: "2px",
 				3: "3px",
-				4: "4px",
 				5: "5px",
 				6: "6px",
 				7: "7px",
-				8: "8px",
+			},
+			zIndex: {
+				...defaultTheme.zIndex,
+				n10: "-10",
 			},
 			fontFamily: {
+				...defaultTheme.fontFamily,
 				sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],
 				serif: ["Merriweather", ...defaultTheme.fontFamily.serif],
 				mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
 			},
 			animation: {
+				...defaultTheme.animation,
 				"spin-slow": "spin 3s linear infinite",
 				wiggle: "wiggle 1s ease-in-out infinite",
 			},
 			keyframes: {
+				...defaultTheme.keyframes,
 				wiggle: {
 					"0%, 100%": { transform: "rotate(-3deg)" },
 					"50%": { transform: "rotate(3deg)" },
@@ -62,6 +66,8 @@ module.exports = {
 	},
 	variants: {
 		animation: ["responsive", "motion-safe", "motion-reduce"],
+		outline: ["focus"],
+		padding: ["hover", "active"],
 	},
 	plugins: [],
 };

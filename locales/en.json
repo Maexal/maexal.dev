@@ -40,6 +40,16 @@
 		"contact": {
 			"name": "contact",
 			"url": "/#contact"
+		},
+		"privacy-policy": {
+			"name": "privacy policy",
+			"capitalized-name": "Privacy Policy",
+			"url": "/privacy-policy/"
+		},
+		"terms-and-conditions": {
+			"name": "terms and conditions",
+			"capitalized-name": "Terms and Conditions",
+			"url": "/terms-and-conditions/"
 		}
 	}
 }
