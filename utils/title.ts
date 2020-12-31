@@ -1,4 +1,4 @@
-import { projectConfig } from "../project.config";
+import { projectConfig } from "@/project.config";
 
 export const getFullTitle = (title: string): string => {
 	const { name, titleTemplate } = projectConfig;

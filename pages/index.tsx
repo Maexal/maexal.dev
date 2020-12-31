@@ -1,8 +1,8 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Footer, Head, Link, Main } from "../components";
-import projectConfig from "../project.config";
+import { Footer, Head, Link, Main } from "@/components";
+import projectConfig from "@/project.config";
 
 const HomePage = (): JSX.Element => {
 	const i18n = useI18n();

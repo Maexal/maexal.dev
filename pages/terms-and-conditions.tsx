@@ -1,9 +1,9 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Head, Link, Main } from "../components";
-import { projectConfig } from "../project.config";
-import { capitalizeFirst } from "../utils";
+import { Head, Link, Main } from "@/components";
+import { projectConfig } from "@/project.config";
+import { capitalizeFirst } from "@/utils";
 
 const TermsAndConditionsPage = (): JSX.Element => {
 	const i18n = useI18n();

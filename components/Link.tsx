@@ -1,4 +1,4 @@
-import React, { CSSProperties, MouseEvent } from "react";
+import React, { CSSProperties } from "react";
 import { default as NextLink, LinkProps as NextLinkProps } from "next/link";
 
 export interface LinkProps extends NextLinkProps {
@@ -7,7 +7,6 @@ export interface LinkProps extends NextLinkProps {
 	className?: string;
 	style?: CSSProperties;
 	type?: "normal" | "button";
-	onClick?: (event: MouseEvent) => void;
 	elevation?: "flat" | "hovering" | "flying";
 	color?: "orange" | "blue";
 	margin?: boolean;
@@ -20,7 +19,6 @@ export const Link = ({
 	className,
 	style,
 	type = "normal",
-	onClick,
 	elevation = "flat",
 	color = "orange",
 	margin = false,
@@ -40,7 +38,6 @@ export const Link = ({
 						data-elevation={elevation}
 						data-color={color}
 						data-margin={margin}
-						onClick={onClick}
 					>
 						<span className="content block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
 							{children}

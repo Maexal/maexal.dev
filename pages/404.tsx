@@ -1,8 +1,8 @@
 import React from "react";
 import { useI18n } from "next-localization";
 
-import { Head, Main, Link } from "../components";
-import { capitalizeFirst } from "../utils";
+import { Head, Main, Link } from "@/components";
+import { capitalizeFirst } from "@/utils";
 
 const NotFoundPage = (): JSX.Element => {
 	const i18n = useI18n();

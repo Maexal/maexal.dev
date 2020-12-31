@@ -10,7 +10,7 @@ module.exports = withPWA({
 		disable: process.env.NODE_ENV === "development",
 		register: true,
 		scope: "/",
-		sw: "/sw.js",
+		sw: "/serviceworker.js",
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, "styles")],
@@ -32,21 +32,35 @@ module.exports = withPWA({
 	images: {
 		domains: ["raw.githubusercontent.com", "media.giphy.com"],
 	},
+	async rewrites() {
+		return [
+			{
+				source: "/nl/algemene-voorwaarden/",
+				destination: "/en/terms-and-conditions/",
+				locale: false,
+			},
+			{
+				source: "/nl/privacybeleid/",
+				destination: "/en/privacy-policy/",
+				locale: false,
+			},
+		];
+	},
 	async redirects() {
 		return [
 			{
 				source: "/terms",
-				destination: "/terms-and-conditions",
+				destination: "/terms-and-conditions/",
 				permanent: true,
 			},
 			{
 				source: "/conditions",
-				destination: "/terms-and-conditions",
+				destination: "/terms-and-conditions/",
 				permanent: true,
 			},
 			{
 				source: "/privacy",
-				destination: "/privacy-policy",
+				destination: "/privacy-policy/",
 				permanent: true,
 			},
 		];

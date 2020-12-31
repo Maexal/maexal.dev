@@ -1,6 +1,6 @@
 import React from "react";
 import Particles, { IParticlesParams } from "react-particles-js";
-import { projectConfig } from "../project.config";
+import { projectConfig } from "@/project.config";
 
 export const ParticlesBackground = ({
 	bouncing = false,

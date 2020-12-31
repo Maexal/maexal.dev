@@ -1,17 +1,15 @@
 import React from "react";
 import NextApp from "next/app";
 import { I18nProvider } from "next-localization";
-import { NextRouter } from "next/router";
 import { AnimatePresence, motion, MotionProps } from "framer-motion";
 
-import "../styles/tailwind.scss";
-import "../styles/index.scss";
-import "../styles/global.scss";
-import "../styles/customCSS.scss";
+import "@/styles/tailwind.scss";
+import "@/styles/index.scss";
+import "@/styles/global.scss";
+import "@/styles/customCSS.scss";
 
-import lngDictEN from "../locales/en.json";
-import lngDictNL from "../locales/nl.json";
-import { Header, ParticlesBackground } from "../components";
+import { Header, ParticlesBackground } from "@/components";
+import { checkDarkMode, getLngDict } from "@/utils";
 
 const motionProps: MotionProps = {
 	initial: "pageInitial",
@@ -32,27 +30,6 @@ const motionProps: MotionProps = {
 		duration: 0.15,
 		ease: "easeInOut",
 	},
-};
-
-const _getLngDict = (router: NextRouter) => {
-	switch (router.locale) {
-		case "nl":
-			return lngDictNL;
-		case "en":
-		default:
-			return lngDictEN;
-	}
-};
-
-const _checkDarkMode = () => {
-	if (typeof window !== "undefined") {
-		if (
-			window.localStorage.theme === "dark" ||
-			(!("theme" in window.localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-		)
-			document.querySelector("html").classList.add("dark");
-		else document.querySelector("html").classList.remove("dark");
-	}
 };
 
 const _getShouldParticlesBackgroundShow = (route: string): boolean => {
@@ -83,7 +60,7 @@ class App extends NextApp {
 	constructor(props) {
 		super(props);
 
-		_checkDarkMode();
+		checkDarkMode();
 	}
 
 	render(): JSX.Element {
@@ -91,7 +68,7 @@ class App extends NextApp {
 
 		return (
 			<React.StrictMode>
-				<I18nProvider lngDict={_getLngDict(router)} locale={router.locale}>
+				<I18nProvider lngDict={getLngDict(router.locale)} locale={router.locale}>
 					<>
 						<ParticlesBackground
 							hide={!_getShouldParticlesBackgroundShow(router.route)}

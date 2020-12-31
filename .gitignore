@@ -14,7 +14,7 @@
 /build
 /out_publish/
 /out_functions/
-/public/sw.js
+/public/serviceworker.js
 /public/workbox-*
 
 # misc

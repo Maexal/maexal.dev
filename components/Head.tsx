@@ -3,8 +3,8 @@ import { Head as NextDocumentHead } from "next/document";
 import { default as NextHead } from "next/head";
 import { useRouter } from "next/router";
 
-import { projectConfig } from "../project.config";
-import { getFullTitle } from "../utils";
+import { projectConfig } from "@/project.config";
+import { getFullTitle } from "@/utils";
 
 const _getMeta = () => {
 	const { url } = projectConfig;
@@ -62,8 +62,8 @@ const _getRestOfHead = () => {
 
 	return (
 		<>
-			<link rel="manifest" href={`assets/icons/site.webmanifest?v=${faviconVersion}`} />
-			<meta name="msapplication-config" content={`assets/icons/browserconfig.xml?v=${faviconVersion}`} />
+			<link rel="manifest" href={`/assets/icons/site.webmanifest?v=${faviconVersion}`} />
+			<meta name="msapplication-config" content={`/assets/icons/browserconfig.xml?v=${faviconVersion}`} />
 
 			<meta name="abstract" content={abstract} />
 			<meta name="description" content={description} />
@@ -119,34 +119,34 @@ const _getIcons = () => {
 				rel="icon"
 				type="image/png"
 				sizes="16x16"
-				href={`assets/icons/favicon-16x16.png?v=${faviconVersion}`}
+				href={`/assets/icons/favicon-16x16.png?v=${faviconVersion}`}
 			/>
 			<link
 				rel="icon"
 				type="image/png"
 				sizes="32x32"
-				href={`assets/icons/favicon-32x32.png?v=${faviconVersion}`}
+				href={`/assets/icons/favicon-32x32.png?v=${faviconVersion}`}
 			/>
 			<link
 				rel="icon"
 				type="image/png"
 				sizes="194x194"
-				href={`assets/icons/favicon-194x194.png?v=${faviconVersion}`}
+				href={`/assets/icons/favicon-194x194.png?v=${faviconVersion}`}
 			/>
 			<link
 				rel="apple-touch-icon"
 				sizes="180x180"
-				href={`assets/icons/apple-touch-icon.png?v=${faviconVersion}`}
+				href={`/assets/icons/apple-touch-icon.png?v=${faviconVersion}`}
 			/>
 			<link
 				rel="icon"
 				type="image/png"
 				sizes="192x192"
-				href={`assets/icons/android-chrome-192x192.png?v=${faviconVersion}`}
+				href={`/assets/icons/android-chrome-192x192.png?v=${faviconVersion}`}
 			/>
-			<link rel="mask-icon" href={`assets/icons/safari-pinned-tab.svg?v=${faviconVersion}`} color={primary} />
-			<link rel="shortcut icon" href={`assets/icons/favicon.ico?v=${faviconVersion}`} />
-			<meta name="msapplication-TileImage" content={`assets/icons/mstile-144x144.png?v=${faviconVersion}`} />
+			<link rel="mask-icon" href={`/assets/icons/safari-pinned-tab.svg?v=${faviconVersion}`} color={primary} />
+			<link rel="shortcut icon" href={`/assets/icons/favicon.ico?v=${faviconVersion}`} />
+			<meta name="msapplication-TileImage" content={`/assets/icons/mstile-144x144.png?v=${faviconVersion}`} />
 		</>
 	);
 };

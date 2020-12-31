@@ -6,13 +6,15 @@
 		"500-text": "Het ziet ernaar uit de onze servers niet helemaal top zijn... Probeer het later nog eens."
 	},
 	"phrases": {
+		"all-rights-reserved": "Alle Rechten Voorbehouden",
 		"back-to-safety": "terug naar veiligheid",
 		"page-not-found": "pagina niet gevonden",
-		"internal-server-error": "interne server error",
 		"get-to-know-us": "leer ons kennen",
 		"contact-us": "neem contact met ons op",
 		"last-updated": "laatst geupdate",
-		"back-to-homepage": "terug naar homepagina"
+		"back-to-homepage": "terug naar homepagina",
+		"error-with-status": "Error {{ statusCode }}: Interne server error",
+		"error-without-status": "Error: Interne server error"
 	},
 	"words": {
 		"cancel": "annuleren",
@@ -35,7 +37,7 @@
 			"url": "/#diensten"
 		},
 		"about": {
-			"name": "about",
+			"name": "over",
 			"url": "/#over"
 		},
 		"contact": {
@@ -43,14 +45,14 @@
 			"url": "/#contact"
 		},
 		"privacy-policy": {
-			"name": "privacy policy",
-			"capitalized-name": "Privacy Policy",
-			"url": "/privacy-policy/"
+			"name": "privacybeleid",
+			"capitalized-name": "Privacybeleid",
+			"url": "/privacybeleid/"
 		},
 		"terms-and-conditions": {
-			"name": "terms and conditions",
-			"capitalized-name": "Terms and Conditions",
-			"url": "/terms-and-conditions/"
+			"name": "algemene voorwaarden",
+			"capitalized-name": "Algemene voorwaarden",
+			"url": "/algemene-voorwaarden/"
 		}
 	}
 }

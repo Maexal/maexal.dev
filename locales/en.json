@@ -6,13 +6,15 @@
 		"500-text": "Seems like our servers aren't doing too well... Try again later."
 	},
 	"phrases": {
+		"all-rights-reserved": "All Rights Reserved",
 		"back-to-safety": "back to safety",
 		"page-not-found": "page not found",
-		"internal-server-error": "internal server error",
 		"get-to-know-us": "get to know us",
 		"contact-us": "contact us",
 		"last-updated": "last updated",
-		"back-to-homepage": "back to homepage"
+		"back-to-homepage": "back to homepage",
+		"error-with-status": "Error {{ statusCode }}: Internal server error",
+		"error-without-status": "Error: Internal server error"
 	},
 	"words": {
 		"cancel": "cancel",

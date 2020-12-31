@@ -1,4 +1,6 @@
 export * from "./title";
+export * from "./i18n";
+export * from "./theme";
 
 export const capitalizeFirst = (string: string): string => {
 	if (typeof string !== "string") return "";

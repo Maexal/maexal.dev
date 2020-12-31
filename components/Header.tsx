@@ -2,7 +2,7 @@ import React from "react";
 import { useI18n } from "next-localization";
 
 import { Logo, Link } from ".";
-import { capitalizeFirst } from "../utils";
+import { capitalizeFirst } from "@/utils";
 
 export const Header = (): JSX.Element => {
 	const i18n = useI18n();

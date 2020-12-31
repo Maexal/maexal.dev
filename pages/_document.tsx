@@ -1,7 +1,7 @@
 import React from "react";
 import NextDocument, { Html, Main, NextScript, DocumentContext } from "next/document";
 
-import { HeadDocument } from "../components/Head";
+import { HeadDocument } from "@/components/Head";
 
 class Document extends NextDocument {
 	render(): JSX.Element {
