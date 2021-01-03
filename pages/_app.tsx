@@ -61,6 +61,9 @@ class App extends NextApp {
 		super(props);
 
 		checkDarkMode();
+
+		if (typeof window !== "undefined")
+			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
 	}
 
 	render(): JSX.Element {

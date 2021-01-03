@@ -7,11 +7,10 @@ import { capitalizeFirst } from "@/utils";
 
 const PrivacyPolicyPage = (): JSX.Element => {
 	const i18n = useI18n();
-	const { t } = i18n;
+	const { t, locale } = i18n;
 	const {
 		email: { contact },
 		url,
-		lastUpdated,
 	} = projectConfig;
 
 	return (
@@ -24,11 +23,17 @@ const PrivacyPolicyPage = (): JSX.Element => {
 						{t("navigation.privacy-policy.capitalized-name")}
 					</h1>
 					<p className="text-base text-gray-500 dark:text-gray-500 md:text-lg">
-						{capitalizeFirst(t("phrases.last-updated"))}: {lastUpdated}
+						{capitalizeFirst(t("phrases.last-updated"))}: {t("information.last-updated")}
 					</p>
 				</div>
 				<div className="relative container px-4 pt-12 pb-20 mx-auto max-w-prose bg-blue-100 dark:bg-blue-900 text-page-content">
 					<Link href={t("navigation.home.url")}>{capitalizeFirst(t("phrases.back-to-homepage"))}</Link>
+
+					{locale() === "nl" && (
+						<p className="my-2 p-4 rounded bg-red-600 text-white">
+							Dit privacybeleid is alleen in het Engels beschikbaar.
+						</p>
+					)}
 
 					<p className="my-2">
 						This Privacy Policy describes Our policies and procedures on the collection, use and disclosure
@@ -479,8 +484,6 @@ const PrivacyPolicyPage = (): JSX.Element => {
 					</ul>
 				</div>
 			</Main>
-
-			<Footer />
 		</>
 	);
 };

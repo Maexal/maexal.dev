@@ -4,14 +4,14 @@ import { useRouter } from "next/router";
 
 import { Link } from ".";
 import { projectConfig } from "@/project.config";
-import { setTheme, Theme, getTypeOfTheme } from "../utils";
+import { setTheme, Theme, getTypeOfTheme, capitalizeFirst } from "../utils";
 
 export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JSX.Element => {
 	const i18n = useI18n();
 	const router = useRouter();
 	const [dropdownTheme, setDropdownTheme] = React.useState<Theme>(getTypeOfTheme());
 	const { t } = i18n;
-	const { name } = projectConfig;
+	const { name, languages } = projectConfig;
 
 	const _changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>): void => {
 		const lng = event.target.value;
@@ -22,7 +22,7 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 	const _changeTheme = (event: React.ChangeEvent<HTMLSelectElement>): void => {
 		const targetValue = event.target.value;
 
-		if (targetValue === "light" || targetValue === "dark" || targetValue === "auto") {
+		if (targetValue === "light" || targetValue === "dark" || targetValue === "system") {
 			setTheme(targetValue);
 			setDropdownTheme(targetValue);
 		}
@@ -53,7 +53,7 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 				<footer className="w-full bg-blue-100 dark:bg-blue-900">
 					<div className="grid grid-cols-2 gap-10 mb-3 md:grid-cols-3 lg:grid-cols-12 lg:gap-20">
 						<div className="col-span-3">
-							{/* <a href="/" title="Go to Kutty Home Page">
+							<a href="/" title="Go to Kutty Home Page">
 								<svg
 									className="w-auto h-6"
 									width="86"
@@ -80,7 +80,7 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 							<p className="my-4 text-xs leading-normal text-gray-800 dark:text-gray-200">
 								Bring together your discussions, memberships, and content. Integrate a thriving
 								community wherever your audience is, all under your own brand.
-							</p> */}
+							</p>
 							<label className="flex w-24 text-gray-800 dark:text-gray-200">
 								<span className="sr-only">Change language</span>
 								<select
@@ -88,8 +88,13 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 									value={i18n.locale()}
 									onChange={_changeLanguage}
 								>
-									<option value="en">English</option>
-									<option value="nl">Dutch</option>
+									{languages.map(
+										({ key, name }: { key: string; name: string }): JSX.Element => (
+											<option key={key} value={key}>
+												{name}
+											</option>
+										)
+									)}
 								</select>
 							</label>
 							<label className="flex w-24 text-gray-800 dark:text-gray-200">
@@ -99,13 +104,13 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 									value={dropdownTheme}
 									onChange={_changeTheme}
 								>
-									<option value="auto">System</option>
-									<option value="light">Light</option>
-									<option value="dark">Dark</option>
+									<option value="system">{capitalizeFirst(t("words.system"))}</option>
+									<option value="light">{capitalizeFirst(t("words.light"))}</option>
+									<option value="dark">{capitalizeFirst(t("words.dark"))}</option>
 								</select>
 							</label>
 						</div>
-						{/* <nav className="col-span-1 md:col-span-1 lg:col-span-2">
+						<nav className="col-span-1 md:col-span-1 lg:col-span-2">
 							<p className="mb-3 text-xs font-semibold tracking-wider text-gray-800 dark:text-gray-200 uppercase">
 								Product
 							</p>
@@ -212,7 +217,7 @@ export const Footer = ({ type = "regular" }: { type?: "small" | "regular" }): JS
 							<p className="text-xs leading-normal text-gray-700 dark:text-gray-300">
 								Get lessons and insights on how to grow your freelance business.
 							</p>
-						</div> */}
+						</div>
 					</div>
 					<div className="container px-4 py-12 mx-auto">
 						<div className="flex flex-col items-start justify-between pt-10 mt-10 border-t border-gray-200 dark:border-gray-800 md:flex-row md:items-center">

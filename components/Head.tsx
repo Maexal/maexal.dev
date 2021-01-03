@@ -2,6 +2,7 @@ import React from "react";
 import { Head as NextDocumentHead } from "next/document";
 import { default as NextHead } from "next/head";
 import { useRouter } from "next/router";
+import { useI18n } from "next-localization";
 
 import { projectConfig } from "@/project.config";
 import { getFullTitle } from "@/utils";
@@ -45,12 +46,10 @@ const _getMetaLocale = (locale = "en") => {
 	);
 };
 
-const _getRestOfHead = () => {
+const _getRestOfHeadWithoutLocale = () => {
 	const {
 		name,
 		owner,
-		abstract,
-		description,
 		faviconVersion,
 		url,
 		keywords,
@@ -64,11 +63,6 @@ const _getRestOfHead = () => {
 		<>
 			<link rel="manifest" href={`/assets/icons/site.webmanifest?v=${faviconVersion}`} />
 			<meta name="msapplication-config" content={`/assets/icons/browserconfig.xml?v=${faviconVersion}`} />
-
-			<meta name="abstract" content={abstract} />
-			<meta name="description" content={description} />
-			<meta name="summary" content={description} />
-			<meta name="og:description" content={description} />
 
 			<meta name="apple-mobile-web-app-title" content={name} />
 			<meta name="application-name" content={name} />
@@ -93,7 +87,6 @@ const _getRestOfHead = () => {
 			<meta name="og:site_name" content={name} />
 			<meta name="application-name" content={name} />
 			<meta name="msapplication-tooltip" content={`Launch ${name}`} />
-			<meta name="twitter:card" content={description} />
 			<meta name="twitter:creator" content={handle} />
 
 			<meta name="keywords" content={keywords.join(",")} />
@@ -103,6 +96,18 @@ const _getRestOfHead = () => {
 			<meta name="author" content={`${owner}, ${personal}`} />
 			<meta name="designer" content={owner} />
 			<meta name="owner" content={owner} />
+		</>
+	);
+};
+
+const _getRestOfHeadWithLocale = ({ abstract, description }: { abstract: string; description: string }) => {
+	return (
+		<>
+			<meta name="abstract" content={abstract} />
+			<meta name="description" content={description} />
+			<meta name="summary" content={description} />
+			<meta name="og:description" content={description} />
+			<meta name="twitter:card" content={description} />
 		</>
 	);
 };
@@ -182,25 +187,32 @@ export const HeadNext = ({
 	useTitleTemplate?: boolean;
 }): JSX.Element => {
 	const router = useRouter();
-
+	const i18n = useI18n();
 	const { locale } = router;
+	const { t } = i18n;
 
 	return (
 		<NextHead>
 			{_getMetaLocale(locale)}
 			{_getTitle(title, useTitleTemplate)}
+			{_getRestOfHeadWithLocale({
+				abstract: t("information.abstract"),
+				description: t("information.description"),
+			})}
 		</NextHead>
 	);
 };
 
-export const HeadDocument = (): JSX.Element => (
-	<NextDocumentHead>
-		{_getMeta()}
-		{_getIcons()}
-		{_getRestOfHead()}
-		{_getExternalStyles()}
-	</NextDocumentHead>
-);
+export const HeadDocument = (): JSX.Element => {
+	return (
+		<NextDocumentHead>
+			{_getMeta()}
+			{_getIcons()}
+			{_getRestOfHeadWithoutLocale()}
+			{_getExternalStyles()}
+		</NextDocumentHead>
+	);
+};
 
 export const Head = HeadNext;
 

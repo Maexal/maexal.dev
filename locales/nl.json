@@ -3,7 +3,11 @@
 		"404-title": "Oh nee! De pagina waar je naar op zoek bent is hier niet.",
 		"404-text": "Je hebt misschien het foute adres, of de pagina is verplaatst.",
 		"500-title": "Sorry! Er ging iets mis aan onze kant.",
-		"500-text": "Het ziet ernaar uit de onze servers niet helemaal top zijn... Probeer het later nog eens."
+		"500-text": "Het ziet ernaar uit de onze servers niet helemaal top zijn... Probeer het later nog eens.",
+		"home-hero-title-1": "Al de",
+		"home-hero-title-highlight": "verwachte resultaten",
+		"home-hero-title-2": "van je toekomstig online product halen.",
+		"home-hero-subtitle": "Dit is wat wij bij Mæxal garanderen omdat we hier naar streven."
 	},
 	"phrases": {
 		"all-rights-reserved": "Alle Rechten Voorbehouden",
@@ -20,9 +24,20 @@
 		"cancel": "annuleren",
 		"confirm": "bevestigen",
 		"send": "versturen",
-		"back": "terug"
+		"back": "terug",
+		"address": "adres",
+		"email": "email",
+		"phone": "telefoon",
+		"system": "systeem",
+		"light": "licht",
+		"dark": "donker"
 	},
-
+	"information": {
+		"abstract": "Software ontwikkelings bedrijf",
+		"address": "Best, Nederland",
+		"description": "De website van een software ontwikkelings bedrijf genaamd Mæxal gerund door een robot met passie genaamd Max Altena",
+		"last-updated": "Januari 2, 2021"
+	},
 	"navigation": {
 		"home": {
 			"name": "home",
@@ -30,27 +45,33 @@
 		},
 		"projects": {
 			"name": "projecten",
+			"id": "projecten",
 			"url": "/#projecten"
 		},
 		"services": {
 			"name": "diensten",
+			"id": "diensten",
 			"url": "/#diensten"
 		},
 		"about": {
 			"name": "over",
+			"id": "over",
 			"url": "/#over"
 		},
 		"contact": {
 			"name": "contacteer",
+			"id": "contact",
 			"url": "/#contact"
 		},
 		"privacy-policy": {
 			"name": "privacybeleid",
+			"id": "privacybeleid",
 			"capitalized-name": "Privacybeleid",
 			"url": "/privacybeleid/"
 		},
 		"terms-and-conditions": {
 			"name": "algemene voorwaarden",
+			"id": "algemene-voorwaarden",
 			"capitalized-name": "Algemene voorwaarden",
 			"url": "/algemene-voorwaarden/"
 		}

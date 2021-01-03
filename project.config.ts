@@ -11,12 +11,9 @@ interface ProjectConfig {
 	owner: string;
 	titleTemplate: string;
 	faviconVersion: string;
-	abstract: string;
-	description: string;
 	domain: string;
 	iconPath: string;
 	url: string;
-	lastUpdated: string;
 	keywords: Array<string>;
 	email: {
 		general: string;
@@ -30,6 +27,7 @@ interface ProjectConfig {
 		primary: string;
 		background: string;
 	};
+	languages: Array<{ key: string; name: string }>;
 	particles: IParticlesParams;
 }
 
@@ -39,12 +37,9 @@ export const projectConfig: ProjectConfig = {
 	owner,
 	titleTemplate: "{{title}} – {{name}}",
 	faviconVersion: "2Ia6uyFL0E",
-	abstract: "Software development company",
-	description: `The website of a software development company named ${name} run by a robot with passion called ${owner}`,
 	domain,
 	iconPath: "/assets/icons/android-chrome-512x512.png",
 	url: `https://${domain}/`,
-	lastUpdated: "December 28, 2020",
 	keywords: ["maexal", "mæxal", "max", "altena", "max altena"],
 	email: {
 		general: `hello@${domain}`,
@@ -58,6 +53,10 @@ export const projectConfig: ProjectConfig = {
 		primary: "#03aaf9",
 		background: "#ffffff",
 	},
+	languages: [
+		{ key: "en", name: "English" },
+		{ key: "nl", name: "Nederlands" },
+	],
 	particles: {
 		fpsLimit: 60,
 		pauseOnBlur: true,

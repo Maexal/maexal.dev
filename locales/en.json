@@ -3,7 +3,11 @@
 		"404-title": "Oh no! The page you're looking for isn't here.",
 		"404-text": "You might have the wrong address, or the page may have moved.",
 		"500-title": "Sorry! Something went wrong on our side.",
-		"500-text": "Seems like our servers aren't doing too well... Try again later."
+		"500-text": "Seems like our servers aren't doing too well... Try again later.",
+		"home-hero-title-1": "All the",
+		"home-hero-title-highlight": "expected results",
+		"home-hero-title-2": "of your future online product met.",
+		"home-hero-subtitle": "This is what we guarantee you here at Mæxal because we strive to meet these."
 	},
 	"phrases": {
 		"all-rights-reserved": "All Rights Reserved",
@@ -20,36 +24,55 @@
 		"cancel": "cancel",
 		"confirm": "confirm",
 		"send": "send",
-		"back": "back"
+		"back": "back",
+		"address": "address",
+		"email": "email",
+		"phone": "phone",
+		"system": "system",
+		"light": "light",
+		"dark": "dark"
+	},
+	"information": {
+		"abstract": "Software development company",
+		"address": "Best, The Netherlands",
+		"description": "The website of a software development company named Mæxal run by a robot with passion called Max Altena",
+		"last-updated": "January 2, 2021"
 	},
 	"navigation": {
 		"home": {
 			"name": "home",
+			"id": "home",
 			"url": "/"
 		},
 		"projects": {
 			"name": "projects",
+			"id": "projects",
 			"url": "/#projects"
 		},
 		"services": {
 			"name": "services",
+			"id": "services",
 			"url": "/#services"
 		},
 		"about": {
 			"name": "about",
+			"id": "about",
 			"url": "/#about"
 		},
 		"contact": {
 			"name": "contact",
+			"id": "contact",
 			"url": "/#contact"
 		},
 		"privacy-policy": {
 			"name": "privacy policy",
+			"id": "privacy-policy",
 			"capitalized-name": "Privacy Policy",
 			"url": "/privacy-policy/"
 		},
 		"terms-and-conditions": {
 			"name": "terms and conditions",
+			"id": "terms-and-conditions",
 			"capitalized-name": "Terms and Conditions",
 			"url": "/terms-and-conditions/"
 		}

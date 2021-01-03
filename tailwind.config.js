@@ -44,6 +44,9 @@ module.exports = {
 				...defaultTheme.zIndex,
 				n10: "-10",
 			},
+			height: {
+				"600px": "600px",
+			},
 			fontFamily: {
 				...defaultTheme.fontFamily,
 				sans: ["Source Sans Pro", ...defaultTheme.fontFamily.sans],

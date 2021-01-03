@@ -6,6 +6,8 @@
 
 html {
 	@apply font-sans;
+
+	scroll-behavior: smooth;
 }
 
 body {
@@ -20,7 +22,7 @@ a {
 	@apply outline-none inline-flex items-center;
 }
 
-a:not([href*="maexal.dev"]):not([href^="#"]):not([href^="/"])::after {
+a:not([href*="maexal.dev"]):not([href^="#"]):not([href^="/"]):not([href^="mailto:"]):not([href^="tel:"])::after {
 	@apply inline-block ml-1 w-5 h-5 bg-gray-900 dark:bg-gray-100;
 
 	content: "";

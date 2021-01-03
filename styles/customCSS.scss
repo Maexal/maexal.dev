@@ -6,6 +6,15 @@ section#hero {
 	}
 }
 
+section#contact {
+	&::before {
+		@apply block h-20 -mt-20;
+
+		content: "";
+		visibility: hidden;
+	}
+}
+
 div.text-page-content {
 	&::before,
 	&::after {
