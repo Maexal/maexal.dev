@@ -3,6 +3,7 @@ import { useI18n } from "next-localization";
 
 import { Footer, Head, Link, Main } from "@/components";
 import projectConfig from "@/project.config";
+import { capitalizeFirst } from "../utils";
 
 const HomePage = (): JSX.Element => {
 	const i18n = useI18n();
@@ -40,7 +41,7 @@ const HomePage = (): JSX.Element => {
 									href={t("navigation.contact.url")}
 									margin
 									elevation="hovering"
-									className="inline-flex items-center justify-center w-full mb-2 sm:w-auto sm:mb-0"
+									className="inline-flex items-center justify-center w-auto mb-2 sm:mb-0"
 								>
 									{t("phrases.contact-us")}
 								</Link>
@@ -60,10 +61,10 @@ const HomePage = (): JSX.Element => {
 				</section>
 				<section
 					id={t("navigation.contact.id")}
-					className="relative bg-blue-100 dark:bg-blue-900 text-gray-900 dark:text-gray-100 font-sans pt-20"
+					className="relative bg-blue-100 dark:bg-blue-900 text-gray-900 dark:text-gray-100 font-sans py-8"
 				>
 					<div className="container px-5 pb-20 mx-auto flex sm:flex-nowrap flex-wrap">
-						<div className="lg:w-2/3 md:w-1/2 h-600px sm:max-h-full bg-orange-100 dark:bg-orange-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+						<div className="lg:w-2/3 md:w-1/2 w-full h-600px sm:max-h-full bg-orange-200 dark:bg-orange-900 rounded-lg overflow-hidden sm:mr-10 p-8 flex items-end justify-start relative">
 							<iframe
 								width="100%"
 								height="100%"
@@ -77,38 +78,32 @@ const HomePage = (): JSX.Element => {
 								style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
 							></iframe>
 							<div className="bg-gray-100 dark:bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
-								<div className="lg:w-1/2 px-6">
-									<h2 className="font-serif font-semibold text-gray-900 dark:text-gray-100 tracking-widest text-xs">
-										{t("words.address").toLocaleUpperCase()}
-									</h2>
-									<p className="mt-1 text-gray-800 dark:text-gray-200">{t("information.address")}</p>
-								</div>
-								<div className="lg:w-1/2 px-6 mt-4 lg:mt-0">
-									<h2 className="font-serif font-semibold text-gray-900 dark:text-gray-100 tracking-widest text-xs">
+								<div className="lg:w-1/2 px-6 lg:mt-0">
+									<h2 className="font-serif mb-1 font-semibold uppercase text-gray-900 dark:text-gray-100 tracking-widest text-xs">
 										{t("words.email").toLocaleUpperCase()}
 									</h2>
 									<a
 										href={`mailto:${general}`}
-										className="text-gray-800 dark:text-gray-200 leading-relaxed"
+										className="font-mono text-gray-800 dark:text-gray-200 leading-relaxed underline"
 									>
 										{general}
 									</a>
-									<h2 className="font-serif font-semibold text-gray-900 dark:text-gray-100 tracking-widest text-xs mt-4">
+									<h2 className="font-serif mb-1 mt-4 font-semibold uppercase text-gray-900 dark:text-gray-100 tracking-widest text-xs">
 										{t("words.phone").toLocaleUpperCase()}
 									</h2>
-									<p className="text-gray-800 dark:text-gray-200 leading-relaxed">
+									<p className="font-mono text-gray-800 dark:text-gray-200 leading-relaxed whitespace-nowrap underline">
 										<a href="tel:+310639105742">+31 (0)6 39 10 57 42</a>
 									</p>
 								</div>
 							</div>
 						</div>
-						<div className="lg:w-1/3 md:w-1/2 bg-blue-200 dark:bg-blue-800 rounded-lg flex flex-col md:ml-auto w-full p-4 md:p-8 mt-8 sm:mt-0">
-							<h2 className="text-gray-900 text-lg mb-1 font-medium title-font">Contact</h2>
-							<p className="leading-relaxed mb-5 text-gray-600">
-								Post-ironic portland shabby chic echo park, banjo fashion axe
-							</p>
+						<div className="lg:w-1/3 md:w-1/2 border-blue-500 border-1 rounded-lg flex flex-col md:ml-auto w-full p-6 md:p-8 mt-8 sm:mt-0">
+							<h2 className="text-blue-900 dark:text-blue-100 font-serif text-3xl mb-4 font-medium text-center">
+								{capitalizeFirst(t("contact.heading"))}
+							</h2>
+							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400">{t("contact.sub")}</p>
 							<div className="relative mb-4">
-								<label htmlFor="name" className="leading-7 text-sm text-gray-600">
+								<label htmlFor="name" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
 									Name
 								</label>
 								<input
@@ -119,7 +114,7 @@ const HomePage = (): JSX.Element => {
 								/>
 							</div>
 							<div className="relative mb-4">
-								<label htmlFor="email" className="leading-7 text-sm text-gray-600">
+								<label htmlFor="email" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
 									Email
 								</label>
 								<input
@@ -130,7 +125,7 @@ const HomePage = (): JSX.Element => {
 								/>
 							</div>
 							<div className="relative mb-4">
-								<label htmlFor="message" className="leading-7 text-sm text-gray-600">
+								<label htmlFor="message" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
 									Message
 								</label>
 								<textarea
@@ -140,11 +135,9 @@ const HomePage = (): JSX.Element => {
 								></textarea>
 							</div>
 							<button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-								Button
+								vliegtuigje
 							</button>
-							<p className="text-xs text-gray-500 mt-3">
-								Chicharrones blog helvetica normcore iceland tousled brook viral artisan.
-							</p>
+							<p className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</p>
 						</div>
 					</div>
 				</section>

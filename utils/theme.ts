@@ -1,21 +1,14 @@
-export type Theme = "light" | "dark" | "system";
+import { Theme } from "@/types";
 
 export const checkDarkMode = (): void => {
 	if (typeof window !== "undefined")
 		if (
 			window.localStorage.theme === "dark" ||
-			(!("theme" in window.localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+			((window.localStorage.theme !== "light" || window.localStorage.theme !== "system") &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches)
 		)
 			addDarkModeClass();
 		else removeDarkModeClass();
-};
-
-export const getTypeOfTheme = (): Theme => {
-	if (typeof window !== "undefined")
-		if (window.localStorage.theme === "dark") return "dark";
-		else if (window.localStorage.theme === "light") return "light";
-		else return "system";
-	else return "system";
 };
 
 export const setTheme = (theme: Theme): void => {
@@ -30,7 +23,7 @@ export const setTheme = (theme: Theme): void => {
 			break;
 		case "system":
 		default:
-			removeThemeLocalStorage();
+			setThemeLocalStorage("system");
 
 			if (typeof window !== "undefined")
 				if (window.matchMedia("(prefers-color-scheme: dark)").matches) addDarkModeClass();
@@ -44,9 +37,9 @@ export const setThemeLocalStorage = (theme: Theme): void => {
 	switch (theme) {
 		case "light":
 		case "dark":
+		case "system":
 			addThemeLocalStorage(theme);
 			break;
-		case "system":
 		default:
 			removeThemeLocalStorage();
 			break;

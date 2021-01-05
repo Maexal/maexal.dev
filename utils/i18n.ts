@@ -1,13 +1,13 @@
-import lngDictEN from "@/locales/en.json";
-import lngDictNL from "@/locales/nl.json";
+import LanguageDictionaryEN from "@/locales/en.json";
+import LanguageDictionaryNL from "@/locales/nl.json";
+import { Language, LanguageDictionary } from "@/types";
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const getLngDict = (lng: string): object => {
-	switch (lng) {
+export const getLanguageDictionary = (language: Language): LanguageDictionary => {
+	switch (language) {
 		case "nl":
-			return lngDictNL;
+			return LanguageDictionaryNL;
 		case "en":
 		default:
-			return lngDictEN;
+			return LanguageDictionaryEN;
 	}
 };

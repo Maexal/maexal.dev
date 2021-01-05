@@ -10,11 +10,11 @@ export const Logo = ({
 	className?: string;
 }): JSX.Element => (
 	<div
-		className={`logo ${interactive ? `logo-interactive` : `logo-color`} size-${size}${
-			className ? ` ${className}` : ""
-		}`}
+		className={`logo relative select-none rounded outline-none z-10 ${
+			interactive ? `logo-interactive text-transparent` : `logo-color text-blue text-center font-bold font-serif`
+		} size-${size}${className ? ` ${className}` : ""}`}
 	>
-		M&aelig;xal
+		<span className={interactive ? `sr-only` : ``}>M&aelig;xal</span>
 	</div>
 );
 

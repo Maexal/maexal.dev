@@ -7,12 +7,7 @@ section#hero {
 }
 
 section#contact {
-	&::before {
-		@apply block h-20 -mt-20;
-
-		content: "";
-		visibility: hidden;
-	}
+	scroll-margin-top: 5rem;
 }
 
 div.text-page-content {
@@ -192,5 +187,19 @@ a.styled-button {
 				@apply translate-x-0 translate-y-0;
 			}
 		}
+	}
+}
+
+footer {
+	&.shade {
+		&::before {
+			@apply absolute inset-x-0 -top-16 w-full h-16 bg-gradient-to-b from-transparent to-blue-100 dark:to-blue-900;
+
+			content: "";
+		}
+	}
+
+	.footer-link {
+		max-width: max-content;
 	}
 }

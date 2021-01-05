@@ -45,7 +45,12 @@ module.exports = {
 				n10: "-10",
 			},
 			height: {
+				...defaultTheme.height,
 				"600px": "600px",
+			},
+			width: {
+				...defaultTheme.width,
+				34: "8.5rem",
 			},
 			fontFamily: {
 				...defaultTheme.fontFamily,

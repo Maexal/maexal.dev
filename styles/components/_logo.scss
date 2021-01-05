@@ -1,6 +1,4 @@
 .logo {
-	@apply relative select-none rounded outline-none;
-
 	--logo-width: 375px;
 	--logo-height: 95px;
 	--logo-interactive-jump: 3px;
@@ -32,8 +30,6 @@
 	}
 
 	&.logo-interactive {
-		@apply text-transparent;
-
 		--width: calc(var(--logo-width) * var(--size));
 		--height: calc(var(--logo-height) * var(--size));
 		--jump: calc(var(--logo-interactive-jump) * var(--size));
@@ -85,8 +81,6 @@
 	}
 
 	&.logo-color {
-		@apply text-blue text-center font-bold font-serif;
-
 		font-size: calc(3.8rem * var(--size));
 	}
 

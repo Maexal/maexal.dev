@@ -1,5 +1,6 @@
 import React from "react";
-import NextApp from "next/app";
+import { AppProps } from "next/app";
+import { Provider } from "react-redux";
 import { I18nProvider } from "next-localization";
 import { AnimatePresence, motion, MotionProps } from "framer-motion";
 
@@ -9,7 +10,15 @@ import "@/styles/global.scss";
 import "@/styles/customCSS.scss";
 
 import { Header, ParticlesBackground } from "@/components";
-import { checkDarkMode, getLngDict } from "@/utils";
+import {
+	checkDarkMode,
+	getLanguageFromString,
+	getLanguageDictionary,
+	getThemeFromString,
+	useLocalStorage,
+} from "@/utils";
+import { changeLanguage, changeTheme, useStore } from "@/redux";
+import { Theme } from "@/types";
 
 const motionProps: MotionProps = {
 	initial: "pageInitial",
@@ -55,39 +64,93 @@ const _getShouldParticlesBackgroundBounce = (route: string): boolean => {
 	}
 };
 
-class App extends NextApp {
-	//eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-	constructor(props) {
-		super(props);
+const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
+	checkDarkMode();
 
-		checkDarkMode();
+	if (typeof window !== "undefined")
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
 
-		if (typeof window !== "undefined")
-			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
-	}
+	const { initialReduxState } = pageProps;
+	const { route, locale } = router;
 
-	render(): JSX.Element {
-		const { Component, pageProps, router } = this.props;
+	const store = useStore(initialReduxState);
+	const [lsTheme] = useLocalStorage<Theme>("theme", "system");
 
-		return (
-			<React.StrictMode>
-				<I18nProvider lngDict={getLngDict(router.locale)} locale={router.locale}>
+	const state = store.getState();
+	const { language, theme } = state.app;
+	if (language !== locale) store.dispatch(changeLanguage(getLanguageFromString(locale)));
+	if (theme !== lsTheme) store.dispatch(changeTheme(getThemeFromString(lsTheme.toString())));
+	const languageDictionary = getLanguageDictionary(language);
+
+	return (
+		<React.StrictMode>
+			<Provider store={store}>
+				<I18nProvider lngDict={languageDictionary} locale={language}>
 					<>
 						<ParticlesBackground
-							hide={!_getShouldParticlesBackgroundShow(router.route)}
-							bouncing={_getShouldParticlesBackgroundBounce(router.route)}
+							hide={!_getShouldParticlesBackgroundShow(route)}
+							bouncing={_getShouldParticlesBackgroundBounce(route)}
 						/>
 						<Header />
 						<AnimatePresence exitBeforeEnter>
-							<motion.div key={router.route} {...motionProps}>
+							<motion.div key={route} {...motionProps}>
 								<Component {...pageProps} />
 							</motion.div>
 						</AnimatePresence>
 					</>
 				</I18nProvider>
-			</React.StrictMode>
-		);
-	}
-}
+			</Provider>
+		</React.StrictMode>
+	);
+};
+
+// class App extends NextApp {
+// 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+// 	constructor(props) {
+// 		super(props);
+
+// 		checkDarkMode();
+
+// 		if (typeof window !== "undefined")
+// 			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
+// 	}
+
+// 	render(): JSX.Element {
+// 		const { Component, pageProps, router } = this.props;
+// 		const { initialReduxState } = pageProps;
+// 		const { route, locale } = router;
+
+// 		// const store = useStore(initialReduxState);
+// 		const dispatch = useDispatch();
+// 		const [lsTheme] = useLocalStorage<Theme>("theme", "system");
+
+// 		const state = store.getState();
+// 		const { language, theme } = state;
+// 		if (language !== locale) dispatch(changeLanguage(getLanguageFromString(language)));
+// 		if (theme !== lsTheme) dispatch(changeTheme(getThemeFromString(theme)));
+// 		const languageDictionary = getLanguageDictionary(language);
+
+// 		return (
+// 			<React.StrictMode>
+// 				<Provider store={store}>
+// 					<I18nProvider lngDict={languageDictionary} locale={language}>
+// 						<>
+// 							<ParticlesBackground
+// 								hide={!_getShouldParticlesBackgroundShow(route)}
+// 								bouncing={_getShouldParticlesBackgroundBounce(route)}
+// 							/>
+// 							<Header />
+// 							<AnimatePresence exitBeforeEnter>
+// 								<motion.div key={route} {...motionProps}>
+// 									<Component {...pageProps} />
+// 								</motion.div>
+// 							</AnimatePresence>
+// 						</>
+// 					</I18nProvider>
+// 				</Provider>
+// 			</React.StrictMode>
+// 		);
+// 	}
+// }
 
 export default App;

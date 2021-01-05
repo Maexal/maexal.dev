@@ -9,12 +9,14 @@ interface ProjectConfig {
 	name: string;
 	nameSafe: string;
 	owner: string;
+	ownerURL: string;
 	titleTemplate: string;
 	faviconVersion: string;
 	domain: string;
 	iconPath: string;
 	url: string;
 	keywords: Array<string>;
+	startYear: number;
 	email: {
 		general: string;
 		personal: string;
@@ -35,9 +37,11 @@ export const projectConfig: ProjectConfig = {
 	name,
 	nameSafe,
 	owner,
+	ownerURL: "https://maxaltena.com/",
 	titleTemplate: "{{title}} – {{name}}",
 	faviconVersion: "2Ia6uyFL0E",
 	domain,
+	startYear: 2020,
 	iconPath: "/assets/icons/android-chrome-512x512.png",
 	url: `https://${domain}/`,
 	keywords: ["maexal", "mæxal", "max", "altena", "max altena"],
