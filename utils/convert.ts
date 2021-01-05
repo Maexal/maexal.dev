@@ -6,7 +6,7 @@ export const getLanguageFromString = (language: string): Language => {
 		case "nl":
 			return language;
 		default:
-			return;
+			return "en";
 	}
 };
 
@@ -17,6 +17,6 @@ export const getThemeFromString = (theme: string): Theme => {
 		case "dark":
 			return theme;
 		default:
-			return;
+			return "system";
 	}
 };

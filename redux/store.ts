@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, Store } from "node_modules/redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { ActionTypes, State, CHANGE_LANGUAGE, CHANGE_THEME } from "@/types";
 
-let store: Store<State, ActionTypes>;
+let store: Store<State, ActionTypes> | undefined;
 
 const initialState: State = {
 	app: {

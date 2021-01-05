@@ -56,6 +56,6 @@
 	],
 	"theme_color": "#03aaf7",
 	"background_color": "#ffffff",
-	"start_url": "https://maexal.dev/",
+	"start_url": "/",
 	"display": "standalone"
 }

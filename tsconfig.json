@@ -4,7 +4,7 @@
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
 		"skipLibCheck": true,
-		"strict": false,
+		"strict": true,
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"esModuleInterop": true,
@@ -20,9 +20,9 @@
 			"@/utils/*": ["utils/*"],
 			"@/styles/*": ["styles/*"],
 			"@/locales/*": ["locales/*"],
-			"@/*": ["./*"]
+			"@/*": ["*"]
 		}
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "i18next.js"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }

@@ -1,7 +1,8 @@
 import React from "react";
-import { toast } from "react-toastify";
 
-export const toastSuccess = (message: string, customPre?: JSX.Element): void => {
+export const toastSuccess = async (message: string, customPre?: JSX.Element): Promise<void> => {
+	const { toast } = await import("react-toastify");
+
 	toast.success(
 		<div className="inline-flex">
 			{customPre ? (
@@ -25,7 +26,9 @@ export const toastSuccess = (message: string, customPre?: JSX.Element): void => 
 	);
 };
 
-export const toastError = (message: string, customPre?: JSX.Element): void => {
+export const toastError = async (message: string, customPre?: JSX.Element): Promise<void> => {
+	const { toast } = await import("react-toastify");
+
 	toast.error(
 		<div className="inline-flex">
 			{customPre ? (

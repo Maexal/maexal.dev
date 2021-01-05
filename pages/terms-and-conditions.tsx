@@ -1,8 +1,12 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 import { useSelector } from "react-redux";
 
-import { Footer, Head, Link, Main } from "@/components";
+const Head = dynamic(() => import("@/components/Head"));
+const Footer = dynamic(() => import("@/components/Footer"));
+const Link = dynamic(() => import("@/components/Link"));
+const Main = dynamic(() => import("@/components/Main"));
 import { projectConfig } from "@/project.config";
 import { capitalizeFirst } from "@/utils";
 import { State } from "@/types";

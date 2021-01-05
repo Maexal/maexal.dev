@@ -68,9 +68,9 @@ export const setDarkModeClass = (theme: Theme): void => {
 };
 
 export const addDarkModeClass = (): void => {
-	document.querySelector("html").classList.add("dark");
+	document?.querySelector("html")?.classList?.add("dark");
 };
 
 export const removeDarkModeClass = (): void => {
-	document.querySelector("html").classList.remove("dark");
+	document?.querySelector("html")?.classList?.remove("dark");
 };

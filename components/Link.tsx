@@ -42,6 +42,7 @@ export const Link = ({
 						data-elevation={elevation}
 						data-color={color}
 						data-margin={margin}
+						rel="noopener noreferrer"
 					>
 						<span className="content block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
 							{children}
@@ -80,6 +81,7 @@ export const Link = ({
 								: ` underline`
 						}${className ? ` ${className}` : ``}`}
 						style={style}
+						rel="noopener noreferrer"
 					>
 						{children}
 					</a>

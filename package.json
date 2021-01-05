@@ -17,6 +17,9 @@
 	"license": "MIT",
 	"author": "Max Altena <max@maexal.dev> (https://maexal.dev/)",
 	"scripts": {
+		"analyze": "cross-env ANALYZE=true next build",
+		"analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
+		"analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
 		"build": "next build",
 		"dev": "next",
 		"eslint": "eslint .",
@@ -57,8 +60,7 @@
 		"react-toastify": "^6.2.0",
 		"redux": "^4.0.5",
 		"redux-devtools-extension": "^2.13.8",
-		"sweetalert2": "^10.12.7",
-		"sweetalert2-react-content": "^3.2.2"
+		"sweetalert2": "^10.12.7"
 	},
 	"devDependencies": {
 		"@netlify/plugin-nextjs": "^1.0.3",

@@ -1,7 +1,10 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 
-import { Head, Main, Link } from "@/components";
+const Head = dynamic(() => import("@/components/Head"));
+const Link = dynamic(() => import("@/components/Link"));
+const Main = dynamic(() => import("@/components/Main"));
 import { capitalizeFirst } from "@/utils";
 
 const NotFoundPage = (): JSX.Element => {

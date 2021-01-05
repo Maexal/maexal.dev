@@ -1,9 +1,11 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 
-import { Link, Logo } from ".";
+const Link = dynamic(() => import("@/components/Link"));
+const Logo = dynamic(() => import("@/components/Logo"));
 import { projectConfig } from "@/project.config";
 import { capitalizeFirst, getLanguageFromString, getThemeFromString } from "@/utils";
 import { State } from "@/types";
