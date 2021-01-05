@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { I18nProvider } from "next-localization";
-import { AnimatePresence, m as motion, MotionProps } from "framer-motion";
+import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.min.css";
@@ -102,11 +102,13 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
 							bouncing={_getShouldParticlesBackgroundBounce(route)}
 						/>
 						<Header />
-						<AnimatePresence exitBeforeEnter>
-							<motion.div key={route} {...motionProps}>
-								<Component {...pageProps} />
-							</motion.div>
-						</AnimatePresence>
+						<MotionConfig features={[AnimationFeature, ExitFeature]}>
+							<AnimatePresence exitBeforeEnter>
+								<motion.div key={route} {...motionProps}>
+									<Component {...pageProps} />
+								</motion.div>
+							</AnimatePresence>
+						</MotionConfig>
 						<ToastContainer {...toastContainer} />
 					</>
 				</I18nProvider>

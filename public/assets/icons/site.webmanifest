@@ -34,7 +34,7 @@
 		},
 		 {
       "src": "maskable_icon.png",
-      "sizes": "196x196",
+      "sizes": "258x258",
       "type": "image/png",
       "purpose": "any maskable"
     },
@@ -57,5 +57,6 @@
 	"theme_color": "#03aaf7",
 	"background_color": "#ffffff",
 	"start_url": "/",
-	"display": "standalone"
+	"display": "standalone",
+	"orientation": "any"
 }
