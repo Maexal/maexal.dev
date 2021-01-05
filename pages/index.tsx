@@ -15,10 +15,18 @@ const HomePage = (): JSX.Element => {
 		email: { general },
 	} = projectConfig;
 	const [loading, setLoading] = useState<boolean>(false);
-	const [timesSent, setTimesSent] = useState<number>(3);
+	const [timesSent, setTimesSent] = useState<number>(0);
 
 	const _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
 		event.preventDefault();
+
+		// eslint-disable-next-line
+		// @ts-ignore
+		const elementsArray = [...event.target.elements];
+		const formData = elementsArray.reduce((array, element) => {
+			if (element.id) array[element.id] = element.value;
+			return array;
+		}, {});
 
 		if (timesSent >= 3)
 			Swal.fire({
@@ -54,12 +62,7 @@ const HomePage = (): JSX.Element => {
 				if (result.value) {
 					setLoading(true);
 
-					EmailJS.sendForm(
-						"gmail_max_maexal_dev",
-						"template_contact",
-						event.target as HTMLFormElement,
-						"user_5SvsXTsaKD1d1swJI90vb"
-					)
+					EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
 						.then(
 							() => {
 								toastSuccess(
@@ -90,12 +93,7 @@ const HomePage = (): JSX.Element => {
 		else {
 			setLoading(true);
 
-			EmailJS.sendForm(
-				"gmail_max_maexal_dev",
-				"template_contact",
-				event.target as HTMLFormElement,
-				"user_5SvsXTsaKD1d1swJI90vb"
-			)
+			EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
 				.then(
 					() => {
 						toastSuccess(
