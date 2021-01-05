@@ -41,13 +41,13 @@
 	},
 	"contact": {
 		"heading": "Contact",
-		"sub": "Getting in contact for a project or simly to get in contact? Send your info our way and we'll be in contact asap.",
+		"sub": "Getting in contact for a project or simly to get in contact? Send your info our way and we'll be in contact as soon as possible.",
 		"name": "Name",
 		"name-placeholder": "Elon Musk",
 		"email": "Email",
 		"email-placeholder": "elon@tesla.com",
 		"message": "Message",
-		"message-placeholder": "Hey... So I was wondering...",
+		"message-placeholder": "Hey!",
 		"cta": "send",
 		"last": "We only use your data to contact you. Promise."
 	},
@@ -95,6 +95,25 @@
 			"id": "terms-and-conditions",
 			"capitalized-name": "Terms and Conditions",
 			"url": "/terms-and-conditions/"
+		}
+	},
+	"toast": {
+		"contact": {
+			"success": "Information sent! We'll be in contact as soon as possible.",
+			"error": "Oops! Something went wrong when sending your information."
+		}
+	},
+	"alert": {
+		"contact-again": {
+			"title": "Are you sure you want to send it again?",
+			"html": "You already sent something {{amount}} times, so we're just asking if you are sure.",
+			"confirm": "Send anyway",
+			"cancel": "Don't send"
+		},
+		"contact-again-too-much": {
+			"title": "Hey, you!",
+			"html": "Stop contacting us! After sending us this much, we'll get back to you later!",
+			"confirm": "Sorry!"
 		}
 	}
 }

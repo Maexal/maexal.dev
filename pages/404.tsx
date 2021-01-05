@@ -25,10 +25,10 @@ const NotFoundPage = (): JSX.Element => {
 							{t("sentences.404-text")}
 						</p>
 
-						<Link type="button" href={t("navigation.home.url")} elevation="hovering" margin>
+						<Link type="button-link" href={t("navigation.home.url")} elevation="hovering" margin>
 							{capitalizeFirst(t("phrases.back-to-safety"))}
 						</Link>
-						<Link type="button" href={t("navigation.contact.url")} margin color="blue">
+						<Link type="button-link" href={t("navigation.contact.url")} margin color="blue">
 							{capitalizeFirst(t("phrases.contact-us"))}
 						</Link>
 					</div>

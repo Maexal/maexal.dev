@@ -1,12 +1,10 @@
 import React from "react";
 import { Head as NextDocumentHead } from "next/document";
-import { default as NextHead } from "next/head";
+import NextHead from "next/head";
 import { useI18n } from "next-localization";
-import { useSelector } from "react-redux";
 
 import { projectConfig } from "@/project.config";
 import { getFullTitle } from "@/utils";
-import { State } from "@/types";
 
 const _getMeta = () => {
 	const { url } = projectConfig;
@@ -187,13 +185,12 @@ export const HeadNext = ({
 	title: string;
 	useTitleTemplate?: boolean;
 }): JSX.Element => {
-	const locale = useSelector((state: State) => state.app.language);
 	const i18n = useI18n();
-	const { t } = i18n;
+	const { t, locale } = i18n;
 
 	return (
 		<NextHead>
-			{_getMetaLocale(locale)}
+			{_getMetaLocale(locale())}
 			{_getTitle(title, useTitleTemplate)}
 			{_getRestOfHeadWithLocale({
 				abstract: t("information.abstract"),

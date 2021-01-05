@@ -1,6 +1,6 @@
 section#hero {
 	&::after {
-		@apply absolute inset-x-0 bottom-0 w-full h-16 bg-gradient-to-b from-transparent to-blue-100 dark:to-blue-900;
+		@apply absolute inset-x-0 bottom-0 w-full h-16 bg-gradient-to-b from-transparent to-primary-100 dark:to-primary-900;
 
 		content: "";
 	}
@@ -13,7 +13,7 @@ section#contact {
 div.text-page-content {
 	&::before,
 	&::after {
-		@apply absolute inset-y-0 h-full w-16 from-transparent to-blue-100 dark:to-blue-900;
+		@apply absolute inset-y-0 h-full w-16 from-transparent to-primary-100 dark:to-primary-900;
 
 		content: "";
 	}
@@ -69,15 +69,13 @@ a.nav-link {
 	}
 }
 
-a.styled-button {
-	--color: theme("colors.orange.DEFAULT");
-
+.styled-button {
 	&[data-color="orange"] {
-		--color: theme("colors.orange.DEFAULT");
+		--color: theme("colors.secondary.DEFAULT");
 	}
 
-	&[data-color="blue"] {
-		--color: theme("colors.blue.DEFAULT");
+	&[data-color="primary"] {
+		--color: theme("colors.primary.DEFAULT");
 	}
 
 	&::before,
@@ -100,10 +98,6 @@ a.styled-button {
 	&:hover {
 		&::before {
 			@apply translate-x-1 -translate-y-1;
-		}
-
-		&::after {
-			z-index: -1;
 		}
 
 		> span.content {
@@ -133,10 +127,6 @@ a.styled-button {
 		&:hover {
 			&::before {
 				@apply translate-x-2 -translate-y-2;
-			}
-
-			&::after {
-				z-index: -1;
 			}
 
 			> span.content {
@@ -169,10 +159,6 @@ a.styled-button {
 				@apply translate-x-1 -translate-y-1;
 			}
 
-			&::after {
-				z-index: -1;
-			}
-
 			> span.content {
 				@apply translate-x-1 -translate-y-1;
 			}
@@ -188,12 +174,26 @@ a.styled-button {
 			}
 		}
 	}
+
+	&.styled-button-function {
+		> span.content {
+			&::after {
+				@apply opacity-50 text-sm font-mono;
+
+				content: "()";
+			}
+		}
+	}
+
+	&[disabled] {
+		pointer-events: none;
+	}
 }
 
 footer {
 	&.shade {
 		&::before {
-			@apply absolute inset-x-0 -top-16 w-full h-16 bg-gradient-to-b from-transparent to-blue-100 dark:to-blue-900;
+			@apply absolute inset-x-0 -top-16 w-full h-16 bg-gradient-to-b from-transparent to-primary-100 dark:to-primary-900;
 
 			content: "";
 		}

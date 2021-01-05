@@ -11,7 +11,9 @@ export const Logo = ({
 }): JSX.Element => (
 	<div
 		className={`logo relative select-none rounded outline-none z-10 ${
-			interactive ? `logo-interactive text-transparent` : `logo-color text-blue text-center font-bold font-serif`
+			interactive
+				? `logo-interactive text-transparent`
+				: `logo-color text-primary text-center font-bold font-serif`
 		} size-${size}${className ? ` ${className}` : ""}`}
 	>
 		<span className={interactive ? `sr-only` : ``}>M&aelig;xal</span>

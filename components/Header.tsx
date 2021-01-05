@@ -21,7 +21,7 @@ export const Header = (): JSX.Element => {
 	return (
 		<header
 			className={`fixed z-50 top-0 inset-x-0 w-full duration-150 ease-in-out ${
-				scrolled ? `h-16 shadow-md bg-blue-100 dark:bg-blue-900` : `h-24 shadow-none bg-transparent`
+				scrolled ? `h-16 shadow-md bg-primary-100 dark:bg-primary-900` : `h-24 shadow-none bg-transparent`
 			}`}
 			style={{
 				willChange: "height, box-shadow, background-color",
@@ -50,7 +50,7 @@ export const Header = (): JSX.Element => {
 
 					<span className="w-2" /> */}
 
-					<Link type="button" href={t("navigation.contact.url")} elevation="hovering" className="mr-2">
+					<Link type="button-link" href={t("navigation.contact.url")} elevation="hovering" className="mr-2">
 						<span className="header-cta font-mono">{t("navigation.contact.name")}</span>
 					</Link>
 				</nav>

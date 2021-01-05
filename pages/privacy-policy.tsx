@@ -21,7 +21,7 @@ const PrivacyPolicyPage = (): JSX.Element => {
 			<Head title={t("navigation.privacy-policy.capitalized-name")} />
 
 			<Main>
-				<div className="px-4 py-12 pt-32 text-center border-solid border-b-1 border-blue-200 dark:border-blue-800 bg-blue-100 dark:bg-blue-900">
+				<div className="px-4 py-12 pt-32 text-center border-solid border-b-1 border-primary-200 dark:border-primary-800 bg-primary-100 dark:bg-primary-900">
 					<h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl">
 						{t("navigation.privacy-policy.capitalized-name")}
 					</h1>
@@ -29,7 +29,7 @@ const PrivacyPolicyPage = (): JSX.Element => {
 						{capitalizeFirst(t("phrases.last-updated"))}: {t("information.last-updated")}
 					</p>
 				</div>
-				<div className="relative container px-4 pt-12 pb-20 mx-auto max-w-prose bg-blue-100 dark:bg-blue-900 text-page-content">
+				<div className="relative container px-4 pt-12 pb-20 mx-auto max-w-prose bg-primary-100 dark:bg-primary-900 text-page-content">
 					<Link href={t("navigation.home.url")}>{capitalizeFirst(t("phrases.back-to-homepage"))}</Link>
 
 					{locale === "nl" && (

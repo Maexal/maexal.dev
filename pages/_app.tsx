@@ -3,11 +3,15 @@ import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { I18nProvider } from "next-localization";
 import { AnimatePresence, motion, MotionProps } from "framer-motion";
+import { ToastContainer } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.min.css";
 import "@/styles/tailwind.scss";
 import "@/styles/index.scss";
 import "@/styles/global.scss";
 import "@/styles/customCSS.scss";
+import "@/styles/toastify.scss";
+import "@/styles/swal.scss";
 
 import { Header, ParticlesBackground } from "@/components";
 import {
@@ -19,6 +23,7 @@ import {
 } from "@/utils";
 import { changeLanguage, changeTheme, useStore } from "@/redux";
 import { Theme } from "@/types";
+import { projectConfig } from "@/project.config";
 
 const motionProps: MotionProps = {
 	initial: "pageInitial",
@@ -72,6 +77,9 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
 
 	const { initialReduxState } = pageProps;
 	const { route, locale } = router;
+	const {
+		toastify: { toastContainer },
+	} = projectConfig;
 
 	const store = useStore(initialReduxState);
 	const [lsTheme] = useLocalStorage<Theme>("theme", "system");
@@ -97,60 +105,12 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
 								<Component {...pageProps} />
 							</motion.div>
 						</AnimatePresence>
+						<ToastContainer {...toastContainer} />
 					</>
 				</I18nProvider>
 			</Provider>
 		</React.StrictMode>
 	);
 };
-
-// class App extends NextApp {
-// 	// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-// 	constructor(props) {
-// 		super(props);
-
-// 		checkDarkMode();
-
-// 		if (typeof window !== "undefined")
-// 			window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
-// 	}
-
-// 	render(): JSX.Element {
-// 		const { Component, pageProps, router } = this.props;
-// 		const { initialReduxState } = pageProps;
-// 		const { route, locale } = router;
-
-// 		// const store = useStore(initialReduxState);
-// 		const dispatch = useDispatch();
-// 		const [lsTheme] = useLocalStorage<Theme>("theme", "system");
-
-// 		const state = store.getState();
-// 		const { language, theme } = state;
-// 		if (language !== locale) dispatch(changeLanguage(getLanguageFromString(language)));
-// 		if (theme !== lsTheme) dispatch(changeTheme(getThemeFromString(theme)));
-// 		const languageDictionary = getLanguageDictionary(language);
-
-// 		return (
-// 			<React.StrictMode>
-// 				<Provider store={store}>
-// 					<I18nProvider lngDict={languageDictionary} locale={language}>
-// 						<>
-// 							<ParticlesBackground
-// 								hide={!_getShouldParticlesBackgroundShow(route)}
-// 								bouncing={_getShouldParticlesBackgroundBounce(route)}
-// 							/>
-// 							<Header />
-// 							<AnimatePresence exitBeforeEnter>
-// 								<motion.div key={route} {...motionProps}>
-// 									<Component {...pageProps} />
-// 								</motion.div>
-// 							</AnimatePresence>
-// 						</>
-// 					</I18nProvider>
-// 				</Provider>
-// 			</React.StrictMode>
-// 		);
-// 	}
-// }
 
 export default App;

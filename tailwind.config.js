@@ -7,7 +7,7 @@ module.exports = {
 		extend: {
 			colors: {
 				...defaultTheme.colors,
-				blue: {
+				primary: {
 					DEFAULT: "#03aaf7",
 					100: "#f0faff",
 					200: "#b3e6fe",
@@ -19,7 +19,7 @@ module.exports = {
 					800: "#014565",
 					900: "#012332",
 				},
-				orange: {
+				secondary: {
 					DEFAULT: "#f75003",
 					100: "#fff5f0",
 					200: "#fecbb3",

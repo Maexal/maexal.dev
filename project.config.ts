@@ -1,4 +1,5 @@
 import { IParticlesParams } from "react-particles-js";
+import { ToastContainerProps } from "react-toastify";
 
 const name = "Mæxal";
 const nameSafe = "M&aelig;xal";
@@ -31,6 +32,9 @@ interface ProjectConfig {
 	};
 	languages: Array<{ key: string; name: string }>;
 	particles: IParticlesParams;
+	toastify: {
+		toastContainer: ToastContainerProps;
+	};
 }
 
 export const projectConfig: ProjectConfig = {
@@ -227,6 +231,23 @@ export const projectConfig: ProjectConfig = {
 					},
 				],
 			},
+		},
+	},
+	toastify: {
+		toastContainer: {
+			limit: 5,
+			position: "bottom-right",
+			autoClose: 7500,
+			hideProgressBar: false,
+			pauseOnHover: true,
+			pauseOnFocusLoss: true,
+			rtl: false,
+			closeOnClick: true,
+			newestOnTop: false,
+			draggable: true,
+			draggablePercent: 75,
+			role: "alert",
+			className: "toast-container",
 		},
 	},
 };

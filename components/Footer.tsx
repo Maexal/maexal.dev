@@ -49,7 +49,7 @@ export const Footer = ({
 	switch (type) {
 		case "notice-only":
 			return (
-				<footer className={`relative w-full bg-blue-100 dark:bg-blue-900${shade ? ` shade` : ``}`}>
+				<footer className={`relative w-full bg-primary-100 dark:bg-primary-900${shade ? ` shade` : ``}`}>
 					<div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
 						<div className="flex flex-col items-center justify-between pt-6 mt-6 border-t border-gray-200 dark:border-gray-800 md:flex-row">
 							<p className="mb-6 text-sm text-left text-gray-600 dark:text-gray-400 md:mb-0">
@@ -78,7 +78,7 @@ export const Footer = ({
 		case "regular":
 		default:
 			return (
-				<footer className={`relative w-full bg-blue-100 dark:bg-blue-900${shade ? ` shade` : ``}`}>
+				<footer className={`relative w-full bg-primary-100 dark:bg-primary-900${shade ? ` shade` : ``}`}>
 					<div className="container mx-auto px-8 grid grid-cols-2 gap-10 mb-3 md:grid-cols-5 lg:gap-20">
 						<div className="col-span-2 md:col-start-1">
 							<Link

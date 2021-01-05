@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { useI18n } from "next-localization";
+import EmailJS from "emailjs-com";
 
 import { Footer, Head, Link, Main } from "@/components";
 import projectConfig from "@/project.config";
-import { capitalizeFirst } from "../utils";
+import { Swal } from "@/utils";
+import { toastError, toastSuccess } from "@/utils/toastify";
 
 const HomePage = (): JSX.Element => {
 	const i18n = useI18n();
@@ -12,6 +14,115 @@ const HomePage = (): JSX.Element => {
 		name,
 		email: { general },
 	} = projectConfig;
+	const [loading, setLoading] = useState<boolean>(false);
+	const [timesSent, setTimesSent] = useState<number>(3);
+
+	const _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+		event.preventDefault();
+
+		if (timesSent >= 3)
+			Swal.fire({
+				confirmButtonText: t("alert.contact-again-too-much.confirm"),
+				title: (
+					<strong className="font-serif text-gray-900 dark:text-gray-100 text-xl">
+						{t("alert.contact-again-too-much.title")}
+					</strong>
+				),
+				html: (
+					<p className="font-sans text-gray-800 dark:text-gray-200 text-base">
+						{t("alert.contact-again-too-much.html")}
+					</p>
+				),
+			});
+		else if (timesSent >= 1)
+			Swal.fire({
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonText: t("alert.contact-again.confirm"),
+				cancelButtonText: t("alert.contact-again.cancel"),
+				title: (
+					<strong className="font-serif text-gray-900 dark:text-gray-100 text-xl">
+						{t("alert.contact-again.title")}
+					</strong>
+				),
+				html: (
+					<p className="font-sans text-gray-800 dark:text-gray-200 text-base">
+						{t("alert.contact-again.html", { amount: timesSent })}
+					</p>
+				),
+			}).then(result => {
+				if (result.value) {
+					setLoading(true);
+
+					EmailJS.sendForm(
+						"gmail_max_maexal_dev",
+						"template_contact",
+						event.target as HTMLFormElement,
+						"user_5SvsXTsaKD1d1swJI90vb"
+					)
+						.then(
+							() => {
+								toastSuccess(
+									t("toast.contact.success"),
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
+									>
+										<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+									</svg>
+								);
+								setLoading(false);
+								setTimesSent(value => value + 1);
+							},
+							() => {
+								toastError(t("toast.contact.error"));
+								setLoading(false);
+							}
+						)
+						.catch(() => {
+							toastError(t("toast.contact.error"));
+							setLoading(false);
+						});
+				}
+			});
+		else {
+			setLoading(true);
+
+			EmailJS.sendForm(
+				"gmail_max_maexal_dev",
+				"template_contact",
+				event.target as HTMLFormElement,
+				"user_5SvsXTsaKD1d1swJI90vb"
+			)
+				.then(
+					() => {
+						toastSuccess(
+							t("toast.contact.success"),
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
+							>
+								<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+							</svg>
+						);
+						setLoading(false);
+						setTimesSent(value => value + 1);
+					},
+					() => {
+						toastError(t("toast.contact.error"));
+						setLoading(false);
+					}
+				)
+				.catch(() => {
+					toastError(t("toast.contact.error"));
+					setLoading(false);
+				});
+		}
+	};
 
 	return (
 		<>
@@ -27,7 +138,7 @@ const HomePage = (): JSX.Element => {
 						<div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
 							<h1 className="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 dark:text-gray-100 md:text-6xl md:tracking-tight">
 								{t("sentences.home-hero-title-1")}{" "}
-								<span className="block font-serif w-full text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-orange-500 lg:inline">
+								<span className="block font-serif w-full text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500 lg:inline">
 									{t("sentences.home-hero-title-highlight")}
 								</span>{" "}
 								{t("sentences.home-hero-title-2")}
@@ -37,7 +148,7 @@ const HomePage = (): JSX.Element => {
 							</p>
 							<div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
 								<Link
-									type="button"
+									type="button-link"
 									href={t("navigation.contact.url")}
 									margin
 									elevation="hovering"
@@ -47,7 +158,7 @@ const HomePage = (): JSX.Element => {
 								</Link>
 
 								{/* <Link
-									type="button"
+									type="button-link"
 									href={t("navigation.about.url")}
 									margin
 									color="blue"
@@ -61,10 +172,10 @@ const HomePage = (): JSX.Element => {
 				</section>
 				<section
 					id={t("navigation.contact.id")}
-					className="relative bg-blue-100 dark:bg-blue-900 text-gray-900 dark:text-gray-100 font-sans py-8"
+					className="relative bg-primary-100 dark:bg-primary-900 text-gray-900 dark:text-gray-100 font-sans py-8"
 				>
 					<div className="container px-5 pb-20 mx-auto flex sm:flex-nowrap flex-wrap">
-						<div className="lg:w-2/3 md:w-1/2 w-full h-600px sm:max-h-full bg-orange-200 dark:bg-orange-900 rounded-lg overflow-hidden sm:mr-10 p-8 flex items-end justify-start relative">
+						<div className="lg:w-2/3 md:w-1/2 w-full h-600px sm:max-h-full bg-secondary-200 dark:bg-secondary-900 rounded-lg overflow-hidden sm:mr-10 p-8 flex items-end justify-start relative">
 							<iframe
 								width="100%"
 								height="100%"
@@ -97,49 +208,85 @@ const HomePage = (): JSX.Element => {
 								</div>
 							</div>
 						</div>
-						<div className="lg:w-1/3 md:w-1/2 border-blue-500 border-1 rounded-lg flex flex-col md:ml-auto w-full p-6 md:p-8 mt-8 sm:mt-0">
-							<h2 className="text-blue-900 dark:text-blue-100 font-serif text-3xl mb-4 font-medium text-center">
+						<div className="lg:w-1/3 md:w-1/2 border-primary-500 border-1 rounded-lg flex flex-col md:ml-auto w-full p-6 md:p-8 mt-8 sm:mt-0">
+							<h2 className="text-primary-900 dark:text-primary-100 font-serif text-3xl mb-4 font-medium text-center">
 								{t("contact.heading")}
 							</h2>
-							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400">{t("contact.sub")}</p>
-							<div className="relative mb-4">
-								<label htmlFor="name" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
-									{t("contact.name")}
-								</label>
-								<input
-									type="text"
-									id="name"
-									name="name"
-									placeholder={t("contact.name-placeholder")}
-									className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-								/>
-							</div>
-							<div className="relative mb-4">
-								<label htmlFor="email" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
-									{t("contact.email")}
-								</label>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									placeholder={t("contact.email-placeholder")}
-									className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
-								/>
-							</div>
-							<div className="relative mb-4">
-								<label htmlFor="message" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
-									{t("contact.message")}
-								</label>
-								<textarea
-									id="message"
-									name="message"
-									placeholder={t("contact.message-placeholder")}
-									className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-24 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
-								></textarea>
-							</div>
-							<button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-								{t("contact.cta")}()
-							</button>
+							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400 min-h-28">
+								{t("contact.sub")}
+							</p>
+							<form
+								id="contact-form"
+								className="flex-grow flex flex-col items-center"
+								onSubmit={_handleSubmit}
+							>
+								<div className="relative mb-4 w-full">
+									<label
+										htmlFor="name"
+										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
+									>
+										{t("contact.name")}
+									</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										autoComplete="name"
+										placeholder={t("contact.name-placeholder")}
+										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out ${
+											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
+										}`}
+										required
+										disabled={loading}
+									/>
+								</div>
+								<div className="relative mb-4 w-full">
+									<label
+										htmlFor="email"
+										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
+									>
+										{t("contact.email")}
+									</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										autoComplete="email"
+										placeholder={t("contact.email-placeholder")}
+										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out ${
+											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
+										}`}
+										required
+										disabled={loading}
+									/>
+								</div>
+								<div className="relative mb-4 w-full">
+									<label
+										htmlFor="message"
+										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
+									>
+										{t("contact.message")}
+									</label>
+									<textarea
+										id="message"
+										name="message"
+										placeholder={t("contact.message-placeholder")}
+										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 h-18 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 resize-none leading-6 transition-colors duration-150 ease-in-out ${
+											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
+										}`}
+										required
+										disabled={loading}
+									></textarea>
+								</div>
+								<Link
+									href="/#"
+									type="button-function"
+									className="w-full lg:mx-auto lg:w-auto"
+									disabled={loading}
+								>
+									{t("contact.cta")}
+								</Link>
+							</form>
 							<small className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</small>
 						</div>
 					</div>
