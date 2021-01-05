@@ -169,7 +169,6 @@ const _getExternalStyles = () => {
 	return (
 		<>
 			<link rel="preconnect" href="https://fonts.googleapis.com/" />
-			<link rel="preconnect" href="https://raw.githubusercontent.com/" />
 			<link
 				rel="stylesheet"
 				href="https://fonts.googleapis.com/css2?family=Merriweather:wght@800;900&family=Source+Sans+Pro&family=Fira+Code&display=swap"
