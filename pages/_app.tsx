@@ -16,13 +16,7 @@ import "@/styles/swal.scss";
 
 const Header = dynamic(() => import("@/components/Header"));
 const ParticlesBackground = dynamic(() => import("@/components/ParticlesBackground"));
-import {
-	checkDarkMode,
-	getLanguageFromString,
-	getLanguageDictionary,
-	getThemeFromString,
-	useLocalStorage,
-} from "@/utils";
+import { getLanguageFromString, getLanguageDictionary, getThemeFromString, useLocalStorage } from "@/utils";
 import { changeLanguage, changeTheme, useStore } from "@/redux";
 import { Theme } from "@/types";
 import { projectConfig } from "@/project.config";
@@ -72,10 +66,16 @@ const _getShouldParticlesBackgroundBounce = (route: string): boolean => {
 };
 
 const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
-	checkDarkMode();
+	import("@/utils").then(utils => {
+		utils.checkDarkMode();
+	});
 
 	if (typeof window !== "undefined")
-		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () =>
+			import("@/utils").then(utils => {
+				utils.checkDarkMode();
+			})
+		);
 
 	const { initialReduxState } = pageProps;
 	const { route, locale = "en" } = router;

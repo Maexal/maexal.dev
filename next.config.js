@@ -14,7 +14,6 @@ module.exports = withBundleAnalyzer(
 			disable: process.env.NODE_ENV === "development",
 			register: true,
 			scope: "/",
-			sw: "/serviceworker.js",
 		},
 		sassOptions: {
 			includePaths: [path.join(__dirname, "styles")],
