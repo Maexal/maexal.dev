@@ -6,7 +6,6 @@ import { I18nProvider } from "next-localization";
 import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 
-import "react-toastify/dist/ReactToastify.min.css";
 import "@/styles/tailwind.scss";
 import "@/styles/index.scss";
 import "@/styles/global.scss";
@@ -16,6 +15,7 @@ import "@/styles/swal.scss";
 
 const Header = dynamic(() => import("@/components/Header"));
 const ParticlesBackground = dynamic(() => import("@/components/ParticlesBackground"));
+
 import { getLanguageFromString, getLanguageDictionary, getThemeFromString, useLocalStorage } from "@/utils";
 import { changeLanguage, changeTheme, useStore } from "@/redux";
 import { Theme } from "@/types";

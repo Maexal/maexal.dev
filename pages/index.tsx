@@ -7,6 +7,8 @@ const Head = dynamic(() => import("@/components/Head"));
 const Link = dynamic(() => import("@/components/Link"));
 const Main = dynamic(() => import("@/components/Main"));
 
+import "react-toastify/dist/ReactToastify.min.css";
+
 import projectConfig from "@/project.config";
 import { toastError, toastSuccess } from "@/utils/toastify";
 
