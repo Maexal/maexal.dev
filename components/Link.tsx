@@ -35,7 +35,6 @@ export const Link = ({
 				<NextLink {...props}>
 					<a
 						target={target}
-						disabled={disabled}
 						className={`styled-button cursor-pointer outline-none rounded focus:outline-none select-none no-underline inline-block relative w-auto text-center text-white border-none bg-transparent py-1 px-3 font-mono${
 							margin ? ` m-2` : ``
 						}${className ? ` ${className}` : ``}`}
@@ -75,7 +74,6 @@ export const Link = ({
 				<NextLink {...props}>
 					<a
 						target={target}
-						disabled={disabled}
 						className={`cursor-pointer outline-none rounded focus:outline-none${
 							navLink
 								? ` nav-link select-none no-underline py-1 px-3 mr-2 duration-150 ease-in-out hover:px-1 active:px-2 font-mono`
