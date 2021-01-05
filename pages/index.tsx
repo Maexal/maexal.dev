@@ -99,45 +99,48 @@ const HomePage = (): JSX.Element => {
 						</div>
 						<div className="lg:w-1/3 md:w-1/2 border-blue-500 border-1 rounded-lg flex flex-col md:ml-auto w-full p-6 md:p-8 mt-8 sm:mt-0">
 							<h2 className="text-blue-900 dark:text-blue-100 font-serif text-3xl mb-4 font-medium text-center">
-								{capitalizeFirst(t("contact.heading"))}
+								{t("contact.heading")}
 							</h2>
 							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400">{t("contact.sub")}</p>
 							<div className="relative mb-4">
 								<label htmlFor="name" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
-									Name
+									{t("contact.name")}
 								</label>
 								<input
 									type="text"
 									id="name"
 									name="name"
+									placeholder={t("contact.name-placeholder")}
 									className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
 								/>
 							</div>
 							<div className="relative mb-4">
 								<label htmlFor="email" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
-									Email
+									{t("contact.email")}
 								</label>
 								<input
 									type="email"
 									id="email"
 									name="email"
+									placeholder={t("contact.email-placeholder")}
 									className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
 								/>
 							</div>
 							<div className="relative mb-4">
 								<label htmlFor="message" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
-									Message
+									{t("contact.message")}
 								</label>
 								<textarea
 									id="message"
 									name="message"
+									placeholder={t("contact.message-placeholder")}
 									className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-24 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
 								></textarea>
 							</div>
 							<button className="text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-								vliegtuigje
+								{t("contact.cta")}()
 							</button>
-							<p className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</p>
+							<small className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</small>
 						</div>
 					</div>
 				</section>

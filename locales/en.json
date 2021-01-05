@@ -40,8 +40,15 @@
 		"last-updated": "January 5, 2021"
 	},
 	"contact": {
-		"heading": "contact",
+		"heading": "Contact",
 		"sub": "Getting in contact for a project or simly to get in contact? Send your info our way and we'll be in contact asap.",
+		"name": "Name",
+		"name-placeholder": "Elon Musk",
+		"email": "Email",
+		"email-placeholder": "elon@tesla.com",
+		"message": "Message",
+		"message-placeholder": "Hey... So I was wondering...",
+		"cta": "send",
 		"last": "We only use your data to contact you. Promise."
 	},
 	"footer": {
