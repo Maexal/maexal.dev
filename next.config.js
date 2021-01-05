@@ -34,7 +34,7 @@ module.exports = withBundleAnalyzer(
 			],
 		},
 		images: {
-			domains: ["raw.githubusercontent.com", "media.giphy.com"],
+			domains: ["media.giphy.com"],
 		},
 		async rewrites() {
 			return [

@@ -125,107 +125,102 @@ export const projectConfig: ProjectConfig = {
 				type: ["image"],
 				image: [
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/code.svg",
+						src: "https://maexal.dev/assets/vectors/code.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/terminal.svg",
+						src: "https://maexal.dev/assets/vectors/terminal.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/cloud.svg",
+						src: "https://maexal.dev/assets/vectors/cloud.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/database.svg",
+						src: "https://maexal.dev/assets/vectors/database.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/server.svg",
+						src: "https://maexal.dev/assets/vectors/server.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/beaker.svg",
+						src: "https://maexal.dev/assets/vectors/beaker.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/at-symbol.svg",
+						src: "https://maexal.dev/assets/vectors/at-symbol.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/chip.svg",
+						src: "https://maexal.dev/assets/vectors/chip.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src:
-							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/desktop-computer.svg",
+						src: "https://maexal.dev/assets/vectors/desktop-computer.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src:
-							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/device-mobile.svg",
+						src: "https://maexal.dev/assets/vectors/device-mobile.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src:
-							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/device-tablet.svg",
+						src: "https://maexal.dev/assets/vectors/device-tablet.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/globe-alt.svg",
+						src: "https://maexal.dev/assets/vectors/globe-alt.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/hashtag.svg",
+						src: "https://maexal.dev/assets/vectors/hashtag.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/heart.svg",
+						src: "https://maexal.dev/assets/vectors/heart.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/light-bulb.svg",
+						src: "https://maexal.dev/assets/vectors/light-bulb.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src:
-							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/lightning-bolt.svg",
+						src: "https://maexal.dev/assets/vectors/lightning-bolt.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src:
-							"https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/paper-airplane.svg",
+						src: "https://maexal.dev/assets/vectors/paper-airplane.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/sparkles.svg",
+						src: "https://maexal.dev/assets/vectors/sparkles.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/star.svg",
+						src: "https://maexal.dev/assets/vectors/star.svg",
 						height: 20,
 						width: 20,
 					},
 					{
-						src: "https://raw.githubusercontent.com/tailwindlabs/heroicons/master/src/solid/support.svg",
+						src: "https://maexal.dev/assets/vectors/support.svg",
 						height: 20,
 						width: 20,
 					},
