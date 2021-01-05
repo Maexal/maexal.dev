@@ -1,7 +1,9 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 
-import { Logo, Link } from ".";
+const Link = dynamic(() => import("@/components/Link"));
+const Logo = dynamic(() => import("@/components/Logo"));
 
 export const Header = (): JSX.Element => {
 	const i18n = useI18n();

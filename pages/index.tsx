@@ -1,24 +1,29 @@
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
-import EmailJS from "emailjs-com";
 
-import { Footer, Head, Link, Main } from "@/components";
+const Footer = dynamic(() => import("@/components/Footer"));
+const Head = dynamic(() => import("@/components/Head"));
+const Link = dynamic(() => import("@/components/Link"));
+const Main = dynamic(() => import("@/components/Main"));
+
 import projectConfig from "@/project.config";
-import { Swal } from "@/utils";
 import { toastError, toastSuccess } from "@/utils/toastify";
 
 const HomePage = (): JSX.Element => {
+	const [loading, setLoading] = useState<boolean>(false);
+	const [timesSent, setTimesSent] = useState<number>(0);
 	const i18n = useI18n();
 	const { t } = i18n;
 	const {
 		name,
 		email: { general },
 	} = projectConfig;
-	const [loading, setLoading] = useState<boolean>(false);
-	const [timesSent, setTimesSent] = useState<number>(0);
 
-	const _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+	const _handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		event.preventDefault();
+
+		const Swal = (await import("sweetalert2")).default;
 
 		// eslint-disable-next-line
 		// @ts-ignore
@@ -31,16 +36,8 @@ const HomePage = (): JSX.Element => {
 		if (timesSent >= 3)
 			Swal.fire({
 				confirmButtonText: t("alert.contact-again-too-much.confirm"),
-				title: (
-					<strong className="font-serif text-gray-900 dark:text-gray-100 text-xl">
-						{t("alert.contact-again-too-much.title")}
-					</strong>
-				),
-				html: (
-					<p className="font-sans text-gray-800 dark:text-gray-200 text-base">
-						{t("alert.contact-again-too-much.html")}
-					</p>
-				),
+				title: t("alert.contact-again-too-much.title"), // font-serif text-gray-900 dark:text-gray-100 text-xl
+				html: t("alert.contact-again-too-much.html"), // font-sans text-gray-800 dark:text-gray-200 text-base
 			});
 		else if (timesSent >= 1)
 			Swal.fire({
@@ -48,19 +45,13 @@ const HomePage = (): JSX.Element => {
 				showCancelButton: true,
 				confirmButtonText: t("alert.contact-again.confirm"),
 				cancelButtonText: t("alert.contact-again.cancel"),
-				title: (
-					<strong className="font-serif text-gray-900 dark:text-gray-100 text-xl">
-						{t("alert.contact-again.title")}
-					</strong>
-				),
-				html: (
-					<p className="font-sans text-gray-800 dark:text-gray-200 text-base">
-						{t("alert.contact-again.html", { amount: timesSent })}
-					</p>
-				),
-			}).then(result => {
+				title: t("alert.contact-again.title"), // font-serif text-gray-900 dark:text-gray-100 text-xl
+				html: t("alert.contact-again.html", { amount: timesSent }), // font-sans text-gray-800 dark:text-gray-200 text-base
+			}).then(async result => {
 				if (result.value) {
 					setLoading(true);
+
+					const EmailJS = (await import("emailjs-com")).default;
 
 					EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
 						.then(
@@ -92,6 +83,8 @@ const HomePage = (): JSX.Element => {
 			});
 		else {
 			setLoading(true);
+
+			const EmailJS = (await import("emailjs-com")).default;
 
 			EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
 				.then(

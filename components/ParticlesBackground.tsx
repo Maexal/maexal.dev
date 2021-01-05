@@ -1,5 +1,8 @@
 import React from "react";
-import Particles, { IParticlesParams } from "react-particles-js";
+import dynamic from "next/dynamic";
+import { IParticlesParams } from "react-particles-js";
+
+const Particles = dynamic(() => import("react-particles-js"));
 
 import { projectConfig } from "@/project.config";
 
@@ -11,13 +14,14 @@ export const ParticlesBackground = ({
 	hide?: boolean;
 }): JSX.Element => {
 	const { particles } = projectConfig;
+	const move = particles.particles ? (particles.particles.move ? particles.particles.move : {}) : {};
 
 	const params: IParticlesParams = {
 		...particles,
 		particles: {
 			...particles.particles,
 			move: {
-				...particles.particles.move,
+				...move,
 				outMode: bouncing ? "bounce" : "out",
 			},
 		},

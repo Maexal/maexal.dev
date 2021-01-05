@@ -1,10 +1,14 @@
 import React from "react";
+import { NextPageContext } from "next";
+import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 
-import { Head, Link, Main } from "@/components";
+const Head = dynamic(() => import("@/components/Head"));
+const Link = dynamic(() => import("@/components/Link"));
+const Main = dynamic(() => import("@/components/Main"));
 import { capitalizeFirst } from "@/utils";
 
-const ErrorPage = ({ statusCode = null }: { statusCode?: number }): JSX.Element => {
+const ErrorPage = ({ statusCode = null }: { statusCode?: number | null }): JSX.Element => {
 	const i18n = useI18n();
 	const { t } = i18n;
 
@@ -44,7 +48,7 @@ const ErrorPage = ({ statusCode = null }: { statusCode?: number }): JSX.Element 
 	);
 };
 
-ErrorPage.getInitialProps = async ({ res, err }) => {
+ErrorPage.getInitialProps = async ({ res, err }: NextPageContext) => {
 	let statusCode = null;
 	if (res) ({ statusCode } = res);
 	else if (err) ({ statusCode } = err);

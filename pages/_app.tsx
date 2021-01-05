@@ -1,8 +1,9 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { I18nProvider } from "next-localization";
-import { AnimatePresence, motion, MotionProps } from "framer-motion";
+import { AnimatePresence, m as motion, MotionProps } from "framer-motion";
 import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.min.css";
@@ -13,7 +14,8 @@ import "@/styles/customCSS.scss";
 import "@/styles/toastify.scss";
 import "@/styles/swal.scss";
 
-import { Header, ParticlesBackground } from "@/components";
+const Header = dynamic(() => import("@/components/Header"));
+const ParticlesBackground = dynamic(() => import("@/components/ParticlesBackground"));
 import {
 	checkDarkMode,
 	getLanguageFromString,
@@ -76,7 +78,7 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
 		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
 
 	const { initialReduxState } = pageProps;
-	const { route, locale } = router;
+	const { route, locale = "en" } = router;
 	const {
 		toastify: { toastContainer },
 	} = projectConfig;

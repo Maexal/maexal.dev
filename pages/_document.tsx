@@ -1,7 +1,8 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import NextDocument, { Html, Main, NextScript, DocumentContext } from "next/document";
 
-import { HeadDocument } from "@/components/Head";
+const HeadDocument = dynamic(() => import("../components/Head").then(mod => mod.HeadDocument) as any);
 
 class Document extends NextDocument {
 	render(): JSX.Element {
