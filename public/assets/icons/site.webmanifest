@@ -32,6 +32,12 @@
 			"sizes": "192x192",
 			"type": "image/png"
 		},
+		 {
+      "src": "maskable_icon.png",
+      "sizes": "196x196",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
 		{
 			"src": "android-chrome-256x256.png?v=2Ia6uyFL0E",
 			"sizes": "256x256",
@@ -48,7 +54,7 @@
 			"type": "image/png"
 		}
 	],
-	"theme_color": "#ffffff",
+	"theme_color": "#03aaf7",
 	"background_color": "#ffffff",
 	"start_url": "https://maexal.dev/",
 	"display": "standalone"

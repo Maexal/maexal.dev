@@ -12,7 +12,16 @@
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
-		"jsx": "preserve"
+		"jsx": "preserve",
+		"baseUrl": "./",
+		"paths": {
+			"@/components/*": ["components/*"],
+			"@/pages/*": ["pages/*"],
+			"@/utils/*": ["utils/*"],
+			"@/styles/*": ["styles/*"],
+			"@/locales/*": ["locales/*"],
+			"@/*": ["./*"]
+		}
 	},
 	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "i18next.js"],
 	"exclude": ["node_modules"]

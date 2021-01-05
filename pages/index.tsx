@@ -1,74 +1,299 @@
-import Head from "next/head";
-import { Logo } from "../components";
+import React, { useState } from "react";
 import { useI18n } from "next-localization";
+import EmailJS from "emailjs-com";
 
-const Homepage = () => {
+import { Footer, Head, Link, Main } from "@/components";
+import projectConfig from "@/project.config";
+import { Swal } from "@/utils";
+import { toastError, toastSuccess } from "@/utils/toastify";
+
+const HomePage = (): JSX.Element => {
 	const i18n = useI18n();
+	const { t } = i18n;
+	const {
+		name,
+		email: { general },
+	} = projectConfig;
+	const [loading, setLoading] = useState<boolean>(false);
+	const [timesSent, setTimesSent] = useState<number>(0);
+
+	const _handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+		event.preventDefault();
+
+		// eslint-disable-next-line
+		// @ts-ignore
+		const elementsArray = [...event.target.elements];
+		const formData = elementsArray.reduce((array, element) => {
+			if (element.id) array[element.id] = element.value;
+			return array;
+		}, {});
+
+		if (timesSent >= 3)
+			Swal.fire({
+				confirmButtonText: t("alert.contact-again-too-much.confirm"),
+				title: (
+					<strong className="font-serif text-gray-900 dark:text-gray-100 text-xl">
+						{t("alert.contact-again-too-much.title")}
+					</strong>
+				),
+				html: (
+					<p className="font-sans text-gray-800 dark:text-gray-200 text-base">
+						{t("alert.contact-again-too-much.html")}
+					</p>
+				),
+			});
+		else if (timesSent >= 1)
+			Swal.fire({
+				icon: "warning",
+				showCancelButton: true,
+				confirmButtonText: t("alert.contact-again.confirm"),
+				cancelButtonText: t("alert.contact-again.cancel"),
+				title: (
+					<strong className="font-serif text-gray-900 dark:text-gray-100 text-xl">
+						{t("alert.contact-again.title")}
+					</strong>
+				),
+				html: (
+					<p className="font-sans text-gray-800 dark:text-gray-200 text-base">
+						{t("alert.contact-again.html", { amount: timesSent })}
+					</p>
+				),
+			}).then(result => {
+				if (result.value) {
+					setLoading(true);
+
+					EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
+						.then(
+							() => {
+								toastSuccess(
+									t("toast.contact.success"),
+									<svg
+										xmlns="http://www.w3.org/2000/svg"
+										viewBox="0 0 20 20"
+										fill="currentColor"
+										className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
+									>
+										<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+									</svg>
+								);
+								setLoading(false);
+								setTimesSent(value => value + 1);
+							},
+							() => {
+								toastError(t("toast.contact.error"));
+								setLoading(false);
+							}
+						)
+						.catch(() => {
+							toastError(t("toast.contact.error"));
+							setLoading(false);
+						});
+				}
+			});
+		else {
+			setLoading(true);
+
+			EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
+				.then(
+					() => {
+						toastSuccess(
+							t("toast.contact.success"),
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 20 20"
+								fill="currentColor"
+								className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
+							>
+								<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+							</svg>
+						);
+						setLoading(false);
+						setTimesSent(value => value + 1);
+					},
+					() => {
+						toastError(t("toast.contact.error"));
+						setLoading(false);
+					}
+				)
+				.catch(() => {
+					toastError(t("toast.contact.error"));
+					setLoading(false);
+				});
+		}
+	};
 
 	return (
-		<div className="home bg-gray-100 dark:bg-gray-800">
-			<Head>
-				<title>M&#230;xal</title>
-			</Head>
+		<>
+			<Head title={`${name}: ${t("information.abstract")}`} useTitleTemplate={false} />
 
-			<div className="banner bg-blue-600 dark:bg-blue-800 z-30">
-				<div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
-					<div className="flex items-center justify-between flex-wrap">
-						<div className="w-0 flex-1 flex items-center">
-							<span className="flex p-2 rounded-lg bg-blue-700 dark:bg-blue-900">
-								<svg
-									className="h-6 w-6 text-white"
-									xmlns="http://www.w3.org/2000/svg"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									aria-hidden="true"
-								>
-									<path
-										strokeLinecap="round"
-										strokeLinejoin="round"
-										strokeWidth="2"
-										d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
-									/>
-								</svg>
-							</span>
-							<p className="ml-3 font-medium text-white truncate">
-								<span className="md:hidden">{i18n.t("banner-short")}</span>
-								<span className="hidden md:inline">{i18n.t("banner-long")}</span>
+			<Main>
+				<section
+					id="hero"
+					className="relative bg-transparent pt-20 font-sans"
+					style={{ height: "calc(100vh - 6rem)" }}
+				>
+					<div className="container h-full px-4 py-24 mx-auto flex flex-col justify-center items-center">
+						<div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
+							<h1 className="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 dark:text-gray-100 md:text-6xl md:tracking-tight">
+								{t("sentences.home-hero-title-1")}{" "}
+								<span className="block font-serif w-full text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500 lg:inline">
+									{t("sentences.home-hero-title-highlight")}
+								</span>{" "}
+								{t("sentences.home-hero-title-2")}
+							</h1>
+							<p className="px-0 mb-6 text-lg text-gray-600 dark:text-gray-400 md:text-xl lg:px-24">
+								{t("sentences.home-hero-subtitle")}
 							</p>
+							<div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
+								<Link
+									type="button-link"
+									href={t("navigation.contact.url")}
+									margin
+									elevation="hovering"
+									className="inline-flex items-center justify-center w-auto mb-2 sm:mb-0"
+								>
+									{t("phrases.contact-us")}
+								</Link>
+
+								{/* <Link
+									type="button-link"
+									href={t("navigation.about.url")}
+									margin
+									color="blue"
+									className="inline-flex items-center justify-center w-full mb-2 sm:w-auto sm:mb-0"
+								>
+									{t("phrases.get-to-know-us")}
+								</Link> */}
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</section>
+				<section
+					id={t("navigation.contact.id")}
+					className="relative bg-primary-100 dark:bg-primary-900 text-gray-900 dark:text-gray-100 font-sans py-8"
+				>
+					<div className="container px-5 pb-20 mx-auto flex sm:flex-nowrap flex-wrap">
+						<div className="lg:w-2/3 md:w-1/2 w-full h-600px sm:max-h-full bg-secondary-200 dark:bg-secondary-900 rounded-lg overflow-hidden sm:mr-10 p-8 flex items-end justify-start relative">
+							<iframe
+								width="100%"
+								height="100%"
+								className="absolute inset-0"
+								frameBorder={0}
+								title="map"
+								marginHeight={0}
+								marginWidth={0}
+								scrolling="0"
+								src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=Maexal,Best,Netherlands&amp;ie=UTF8&amp;t=&amp;z=7&amp;iwloc=B&amp;output=embed"
+								style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
+							></iframe>
+							<div className="bg-gray-100 dark:bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
+								<div className="lg:w-1/2 px-6 lg:mt-0">
+									<h2 className="font-serif mb-1 font-semibold uppercase text-gray-900 dark:text-gray-100 tracking-widest text-xs">
+										{t("words.email").toLocaleUpperCase()}
+									</h2>
+									<a
+										href={`mailto:${general}`}
+										className="font-mono text-gray-800 dark:text-gray-200 leading-relaxed underline"
+									>
+										{general}
+									</a>
+									<h2 className="font-serif mb-1 mt-4 font-semibold uppercase text-gray-900 dark:text-gray-100 tracking-widest text-xs">
+										{t("words.phone").toLocaleUpperCase()}
+									</h2>
+									<p className="font-mono text-gray-800 dark:text-gray-200 leading-relaxed whitespace-nowrap underline">
+										<a href="tel:+310639105742">+31 (0)6 39 10 57 42</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div className="lg:w-1/3 md:w-1/2 border-primary-500 border-1 rounded-lg flex flex-col md:ml-auto w-full p-6 md:p-8 mt-8 sm:mt-0">
+							<h2 className="text-primary-900 dark:text-primary-100 font-serif text-3xl mb-4 font-medium text-center">
+								{t("contact.heading")}
+							</h2>
+							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400 min-h-28">
+								{t("contact.sub")}
+							</p>
+							<form
+								id="contact-form"
+								className="flex-grow flex flex-col items-center"
+								onSubmit={_handleSubmit}
+							>
+								<div className="relative mb-4 w-full">
+									<label
+										htmlFor="name"
+										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
+									>
+										{t("contact.name")}
+									</label>
+									<input
+										type="text"
+										id="name"
+										name="name"
+										autoComplete="name"
+										placeholder={t("contact.name-placeholder")}
+										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out ${
+											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
+										}`}
+										required
+										disabled={loading}
+									/>
+								</div>
+								<div className="relative mb-4 w-full">
+									<label
+										htmlFor="email"
+										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
+									>
+										{t("contact.email")}
+									</label>
+									<input
+										type="email"
+										id="email"
+										name="email"
+										autoComplete="email"
+										placeholder={t("contact.email-placeholder")}
+										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out ${
+											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
+										}`}
+										required
+										disabled={loading}
+									/>
+								</div>
+								<div className="relative mb-4 w-full">
+									<label
+										htmlFor="message"
+										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
+									>
+										{t("contact.message")}
+									</label>
+									<textarea
+										id="message"
+										name="message"
+										placeholder={t("contact.message-placeholder")}
+										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 h-18 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 resize-none leading-6 transition-colors duration-150 ease-in-out ${
+											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
+										}`}
+										required
+										disabled={loading}
+									></textarea>
+								</div>
+								<Link
+									href="/#"
+									type="button-function"
+									className="w-full lg:mx-auto lg:w-auto"
+									disabled={loading}
+								>
+									{t("contact.cta")}
+								</Link>
+							</form>
+							<small className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</small>
+						</div>
+					</div>
+				</section>
+			</Main>
 
-			<main className="z-10">
-				<h1 className="m-4">
-					<Logo interactive size={80} />
-				</h1>
-				<p className="text-black dark:text-white">{i18n.t("contact-us-through")}:</p>
-				<a href="mailto:hello@maexal.dev">
-					<button className="elevated cool-one">
-						<span className="font-mono">hello@maexal.dev</span>
-					</button>
-				</a>
-			</main>
-
-			<footer className="z-20">
-				<div className="font-mono text-black dark:text-white">
-					<strong className="font-mono">{i18n.t("coc")}:</strong>78183251
-				</div>
-				<div className="font-mono text-black dark:text-white">
-					<strong className="font-mono">{i18n.t("vat")}:</strong>NL003297690B50
-				</div>
-				<div className="font-mono text-black dark:text-white">
-					<strong className="font-mono">IBAN:</strong>NL14 BUNQ 2044 3278 72
-				</div>
-				<div className="font-mono text-black dark:text-white">
-					<strong className="font-mono">BIC:</strong>BUNQNL2AXXX
-				</div>
-			</footer>
-		</div>
+			<Footer />
+		</>
 	);
 };
 
-export default Homepage;
+export default HomePage;

@@ -1,10 +1,119 @@
 {
-	"coc": "COC",
-	"vat": "VAT",
-	"contact-us-through": "Contact us through",
-	"banner-short": "We are starting to working on a brand new website!",
-	"banner-long": "Big news! We're excited to announce that we started working on a brand new website!",
-	"back-to-safety": "Back to safety",
-	"not-found": "Not found",
-	"whoops": "Whoops, something went wrong!"
+	"sentences": {
+		"404-title": "Oh no! The page you're looking for isn't here.",
+		"404-text": "You might have the wrong address, or the page may have moved.",
+		"500-title": "Sorry! Something went wrong on our side.",
+		"500-text": "Seems like our servers aren't doing too well... Try again later.",
+		"home-hero-title-1": "All the",
+		"home-hero-title-highlight": "expected results",
+		"home-hero-title-2": "of your future online product met.",
+		"home-hero-subtitle": "This is what we guarantee you here at Mæxal because we strive to meet these."
+	},
+	"phrases": {
+		"all-rights-reserved": "All Rights Reserved",
+		"back-to-safety": "back to safety",
+		"page-not-found": "page not found",
+		"get-to-know-us": "get to know us",
+		"contact-us": "contact us",
+		"last-updated": "last updated",
+		"back-to-homepage": "back to homepage",
+		"error-with-status": "Error {{ statusCode }}: Internal server error",
+		"error-without-status": "Error: Internal server error"
+	},
+	"words": {
+		"cancel": "cancel",
+		"confirm": "confirm",
+		"send": "send",
+		"back": "back",
+		"address": "address",
+		"email": "email",
+		"phone": "phone",
+		"system": "system",
+		"light": "light",
+		"dark": "dark",
+		"language": "language",
+		"theme": "theme"
+	},
+	"information": {
+		"abstract": "Software development company",
+		"description": "The website of a software development company named Mæxal run by a robot with passion called Max Altena",
+		"last-updated": "January 5, 2021"
+	},
+	"contact": {
+		"heading": "Contact",
+		"sub": "Getting in contact for a project or simly to get in contact? Send your info our way and we'll be in contact as soon as possible.",
+		"name": "Name",
+		"name-placeholder": "Elon Musk",
+		"email": "Email",
+		"email-placeholder": "elon@tesla.com",
+		"message": "Message",
+		"message-placeholder": "Hey!",
+		"cta": "send",
+		"last": "We only use your data to contact you. Promise."
+	},
+	"footer": {
+		"description-1": "The website of a software development company named Mæxal run by a robot with passion called",
+		"description-2": ".",
+		"social": {
+			"heading": "socials"
+		}
+	},
+	"navigation": {
+		"home": {
+			"name": "home",
+			"id": "home",
+			"url": "/"
+		},
+		"projects": {
+			"name": "projects",
+			"id": "projects",
+			"url": "/#projects"
+		},
+		"services": {
+			"name": "services",
+			"id": "services",
+			"url": "/#services"
+		},
+		"about": {
+			"name": "about",
+			"id": "about",
+			"url": "/#about"
+		},
+		"contact": {
+			"name": "contact",
+			"id": "contact",
+			"url": "/#contact"
+		},
+		"privacy-policy": {
+			"name": "privacy policy",
+			"id": "privacy-policy",
+			"capitalized-name": "Privacy Policy",
+			"url": "/privacy-policy/"
+		},
+		"terms-and-conditions": {
+			"name": "terms and conditions",
+			"id": "terms-and-conditions",
+			"capitalized-name": "Terms and Conditions",
+			"url": "/terms-and-conditions/"
+		}
+	},
+	"toast": {
+		"contact": {
+			"success": "Information sent! We'll be in contact as soon as possible.",
+			"error": "Oops! Something went wrong when sending your information."
+		}
+	},
+	"alert": {
+		"contact-again": {
+			"title": "Are you sure you want to send it again?",
+			"html": "You already sent something {{amount}} times, so we're just asking if you are sure.",
+			"confirm": "Send anyway",
+			"cancel": "Don't send"
+		},
+		"contact-again-too-much": {
+			"title": "Hey, you!",
+			"html": "Stop contacting us! After sending us this much, we'll get back to you later!",
+			"confirm": "Sorry!"
+		}
+	}
 }

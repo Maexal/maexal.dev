@@ -33,45 +33,76 @@ providers = [
 ]
 sitemapPath = "/sitemap.xml"
 
+# Dutch pages
+
 [[redirects]]
 conditions = {Language = ["nl"]}
 from = "/"
 status = 301
-to = "/nl"
+to = "/nl/"
+
+# English pages
+
+[[redirects]]
+from = "/"
+status = 301
+to = "/en/"
+
+[[redirects]]
+from = "/terms"
+status = 301
+to = "/en/terms-and-conditions/"
+
+[[redirects]]
+from = "/conditions"
+status = 301
+to = "/en/terms-and-conditions/"
+
+[[redirects]]
+from = "/terms-and-conditions"
+status = 301
+to = "/en/terms-and-conditions/"
+
+[[redirects]]
+from = "/privacy"
+status = 301
+to = "/en/privacy-policy/"
+
+[[redirects]]
+from = "/privacy-policy"
+status = 301
+to = "/en/privacy-policy/"
+
+# 404 pages
 
 [[redirects]]
 conditions = {Language = ["nl"]}
 from = "/404"
 status = 301
-to = "/nl/404"
+to = "/nl/404/"
 
 [[redirects]]
 from = "/nl/*"
 status = 404
-to = "/nl/404"
-
-[[redirects]]
-from = "/"
-status = 301
-to = "/en"
+to = "/nl/404/"
 
 [[redirects]]
 from = "/404"
 status = 301
-to = "/en/404"
+to = "/en/404/"
 
 [[redirects]]
 from = "/en/*"
 status = 404
-to = "/en/404"
+to = "/en/404/"
 
 [[redirects]]
 conditions = {Language = ["nl"]}
 from = "/*"
 status = 301
-to = "/nl/404"
+to = "/nl/404/"
 
 [[redirects]]
 from = "/*"
 status = 301
-to = "/en/404"
+to = "/en/404/"
