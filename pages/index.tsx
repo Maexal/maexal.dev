@@ -270,7 +270,7 @@ const HomePage = (): JSX.Element => {
 									></textarea>
 								</div>
 								<Link
-									href="/#"
+									href="#"
 									type="button-function"
 									className="w-full lg:mx-auto lg:w-auto"
 									disabled={loading}
@@ -278,7 +278,7 @@ const HomePage = (): JSX.Element => {
 									{t("contact.cta")}
 								</Link>
 							</form>
-							<small className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</small>
+							<small className="text-xs text-gray-300 mt-3 h-4">{t("contact.last")}</small>
 						</div>
 					</div>
 				</section>

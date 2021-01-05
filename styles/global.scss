@@ -22,12 +22,12 @@ a {
 	@apply outline-none inline-flex items-center;
 }
 
-a:not([href*="https://maexal.dev/"]):not([href*="https://maxaltena.com/"]):not([href^="#"]):not([href^="/"]):not([href^="mailto:"]):not([href^="tel:"])::after
+a:not([href*="localhost:3000"]):not([href*="https://maexal.dev/"]):not([href*="https://maxaltena.com/"]):not([href^="#"]):not([href^="/"]):not([href^="mailto:"]):not([href^="tel:"])::after
 {
 	@apply inline-block ml-1 w-5 h-5 bg-gray-900 dark:bg-gray-100;
 
 	content: "";
-	mask: url("https://maexal.dev/assets/vectors/external-link.svg");
+	mask: url("/assets/vectors/external-link.svg");
 }
 
 h1,
