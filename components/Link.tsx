@@ -44,7 +44,7 @@ export const Link = ({
 						data-margin={margin}
 						rel="noopener noreferrer"
 					>
-						<span className="content block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
+						<span className="content inline-block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
 							{children}
 						</span>
 					</a>
@@ -64,7 +64,7 @@ export const Link = ({
 					data-margin={margin}
 					onClick={onClick}
 				>
-					<span className="content block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
+					<span className="content inline-block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
 						{children}
 					</span>
 				</button>
