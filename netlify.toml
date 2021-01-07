@@ -57,9 +57,19 @@ from = "/"
 status = 301
 to = "/nl/"
 
+[[redirects]]
+from = "/nl"
+status = 301
+to = "/nl/"
+
 # English pages
 [[redirects]]
 from = "/"
+status = 301
+to = "/en/"
+
+[[redirects]]
+from = "/en"
 status = 301
 to = "/en/"
 
