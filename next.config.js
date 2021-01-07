@@ -26,10 +26,6 @@ module.exports = withBundleAnalyzer(
 					domain: "maexal.dev",
 					defaultLocale: "en",
 				},
-				{
-					domain: "maexal.nl",
-					defaultLocale: "nl",
-				},
 			],
 		},
 		images: {
