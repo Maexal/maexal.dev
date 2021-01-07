@@ -50,7 +50,7 @@
 	"dependencies": {
 		"emailjs-com": "^2.6.4",
 		"framer-motion": "^3.1.4",
-		"next": "^10.0.4",
+		"next": "^10.0.5",
 		"next-localization": "^0.11.0",
 		"next-pwa": "^5.0.2",
 		"react": "^17.0.1",
