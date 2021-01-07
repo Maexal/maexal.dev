@@ -62,6 +62,16 @@ from = "/nl"
 status = 301
 to = "/nl/"
 
+[[redirects]]
+from = "/nl/terms-and-conditions/"
+status = 301
+to = "/nl/algemene-voorwaarden/"
+
+[[redirects]]
+from = "/nl/privacy-policy/"
+status = 301
+to = "/nl/privacybeleid/"
+
 # English pages
 [[redirects]]
 from = "/"
