@@ -89,7 +89,7 @@
 		"netlify-plugin-submit-sitemap": "^0.2.3",
 		"postcss": "^8.2.4",
 		"prettier": "^2.2.1",
-		"sass": "^1.32.4",
+		"sass": "^1.32.5",
 		"snyk": "^1.437.4",
 		"sort-package-json": "^1.48.1",
 		"tailwindcss": "^2.0.2",
