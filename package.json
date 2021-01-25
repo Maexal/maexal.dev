@@ -60,7 +60,7 @@
 		"react-toastify": "^6.2.0",
 		"redux": "^4.0.5",
 		"redux-devtools-extension": "^2.13.8",
-		"sweetalert2": "^10.13.0"
+		"sweetalert2": "^10.13.1"
 	},
 	"devDependencies": {
 		"@netlify/plugin-lighthouse": "^1.4.2",
