@@ -1,11 +1,11 @@
 import { useState } from "react";
 
-export const useLocalStorage = <T>(key: string, initialValue: T): (T | ((value: T | ((val: T) => T)) => void))[] => {
-	const [storedValue, setStoredValue] = useState<T>(() => {
+export const useLocalStorage = (key: string, initialValue: string): (string | ((value: string) => void))[] => {
+	const [storedValue, setStoredValue] = useState<string>(() => {
 		try {
 			if (typeof window !== "undefined") {
 				const item = window.localStorage.getItem(key);
-				return item ? JSON.parse(item) : initialValue;
+				return item ? item : initialValue;
 			} else return initialValue;
 		} catch (error) {
 			console.warn(error);
@@ -13,11 +13,10 @@ export const useLocalStorage = <T>(key: string, initialValue: T): (T | ((value: 
 		}
 	});
 
-	const setValue = (value: T | ((val: T) => T)) => {
+	const setValue = (value: string) => {
 		try {
-			const valueToStore = value instanceof Function ? value(storedValue) : value;
-			setStoredValue(valueToStore);
-			if (typeof window !== "undefined") window.localStorage.setItem(key, JSON.stringify(valueToStore));
+			setStoredValue(value);
+			if (typeof window !== "undefined") window.localStorage.setItem(key, value);
 		} catch (error) {
 			console.warn(error);
 		}

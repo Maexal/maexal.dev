@@ -18,7 +18,7 @@ const ErrorPage = ({ statusCode = null }: { statusCode?: number | null }): JSX.E
 		<>
 			<Head title={errorText} />
 
-			<Main fullPage className="container px-4 py-24 mx-auto flex flex-col justify-center items-center">
+			<Main fullPage spaced>
 				<div className="grid items-center w-full grid-cols-1 gap-10 mx-auto md:w-4/5 lg:grid-cols-2 xl:gap-32">
 					<div>
 						<p className="text-left font-mono mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase">

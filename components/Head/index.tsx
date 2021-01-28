@@ -2,9 +2,9 @@ import React from "react";
 import { Head as NextDocumentHead } from "next/document";
 import NextHead from "next/head";
 import { useI18n } from "next-localization";
-
 import { projectConfig } from "@/project.config";
 import { getFullTitle } from "@/utils";
+import { lightTheme as theme } from "@/styles";
 
 const _getMeta = () => {
 	const { url } = projectConfig;
@@ -55,7 +55,6 @@ const _getRestOfHeadWithoutLocale = () => {
 		iconPath,
 		email: { personal },
 		twitter: { handle },
-		colors: { primary, background },
 	} = projectConfig;
 
 	return (
@@ -66,10 +65,10 @@ const _getRestOfHeadWithoutLocale = () => {
 			<meta name="apple-mobile-web-app-title" content={name} />
 			<meta name="application-name" content={name} />
 
-			<meta name="msapplication-TileColor" content={primary} />
-			<meta name="theme-color" content={background} />
-			<meta name="apple-mobile-web-app-status-bar-style" content={background} />
-			<meta name="msapplication-navbutton-color" content={background} />
+			<meta name="msapplication-TileColor" content={theme.colors.primary} />
+			<meta name="theme-color" content={theme.colors.background} />
+			<meta name="apple-mobile-web-app-status-bar-style" content={theme.colors.background} />
+			<meta name="msapplication-navbutton-color" content={theme.colors.background} />
 
 			<meta name="url" content={url} />
 			<meta name="identifier-URL" content={url} />
@@ -112,10 +111,7 @@ const _getRestOfHeadWithLocale = ({ abstract, description }: { abstract: string;
 };
 
 const _getIcons = () => {
-	const {
-		faviconVersion,
-		colors: { primary },
-	} = projectConfig;
+	const { faviconVersion } = projectConfig;
 
 	return (
 		<>
@@ -148,7 +144,11 @@ const _getIcons = () => {
 				sizes="192x192"
 				href={`/assets/icons/android-chrome-192x192.png?v=${faviconVersion}`}
 			/>
-			<link rel="mask-icon" href={`/assets/icons/safari-pinned-tab.svg?v=${faviconVersion}`} color={primary} />
+			<link
+				rel="mask-icon"
+				href={`/assets/icons/safari-pinned-tab.svg?v=${faviconVersion}`}
+				color={theme.colors.primary}
+			/>
 			<link rel="shortcut icon" href={`/assets/icons/favicon.ico?v=${faviconVersion}`} />
 			<meta name="msapplication-TileImage" content={`/assets/icons/mstile-144x144.png?v=${faviconVersion}`} />
 		</>

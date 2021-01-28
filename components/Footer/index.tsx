@@ -3,27 +3,24 @@ import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
-
-const Link = dynamic(() => import("@/components/Link"));
-const Logo = dynamic(() => import("@/components/Logo"));
-import { projectConfig } from "@/project.config";
 import { capitalizeFirst, getLanguageFromString, getThemeFromString } from "@/utils";
 import { State } from "@/types";
 import { changeLanguage, changeTheme } from "@/redux";
+import { projectConfig } from "@/project.config";
+import * as Styled from "./styles";
+import type { Props } from "./types";
+import { FooterNotice } from "./Notice";
 
-export const Footer = ({
-	type = "regular",
-	shade = false,
-}: {
-	type?: "regular" | "notice-only";
-	shade?: boolean;
-}): JSX.Element => {
+const Link = dynamic(() => import("@/components/Link"));
+const Logo = dynamic(() => import("@/components/Logo"));
+
+export const Footer = ({ type = "regular", ...props }: Props): JSX.Element => {
 	const router = useRouter();
 	const appState = useSelector((state: State) => state.app);
 	const dispatch = useDispatch();
 	const i18n = useI18n();
 	const { t } = i18n;
-	const { name, owner, ownerURL, languages, startYear } = projectConfig;
+	const { owner, ownerURL, languages } = projectConfig;
 
 	const _changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>): void =>
 		dispatch(changeLanguage(getLanguageFromString(event.target.value), router));
@@ -31,63 +28,25 @@ export const Footer = ({
 	const _changeTheme = (event: React.ChangeEvent<HTMLSelectElement>): void =>
 		dispatch(changeTheme(getThemeFromString(event.target.value)));
 
-	// <footer data-type={type}>
-	// 	<div className="footer-wrapper">
-	// 		<div className="font-mono text-black dark:text-white">
-	// 			<strong className="font-mono">KVK:</strong>78183251
-	// 		</div>
-	// 		<div className="font-mono text-black dark:text-white">
-	// 			<strong className="font-mono">BTW:</strong>NL003297690B50
-	// 		</div>
-	// 		<div className="font-mono text-black dark:text-white">
-	// 			<strong className="font-mono">IBAN:</strong>NL14 BUNQ 2044 3278 72
-	// 		</div>
-	// 		<div className="font-mono text-black dark:text-white">
-	// 			<strong className="font-mono">BIC:</strong>BUNQNL2AXXX
-	// 		</div>
-	// 	</div>
-	// </footer>
-
 	switch (type) {
 		case "notice-only":
 			return (
-				<footer className={`relative w-full bg-primary-100 dark:bg-primary-900${shade ? ` shade` : ``}`}>
-					<div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
-						<div className="flex flex-col items-center justify-between pt-6 mt-6 border-t border-gray-200 dark:border-gray-800 md:flex-row">
-							<p className="mb-6 text-sm text-left text-gray-600 dark:text-gray-400 md:mb-0">
-								&copy; Copyright {startYear}-{new Date().getFullYear()} {name}.{" "}
-								{t("phrases.all-rights-reserved")}.
-							</p>
-							<div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
-								<Link
-									href={t("navigation.terms-and-conditions.url")}
-									className="text-sm text-gray-600 dark:text-gray-400"
-								>
-									{t("navigation.terms-and-conditions.capitalized-name")}
-								</Link>
-								<Link
-									href={t("navigation.privacy-policy.url")}
-									className="text-sm text-gray-600 dark:text-gray-400"
-								>
-									{t("navigation.privacy-policy.capitalized-name")}
-								</Link>
-							</div>
-						</div>
-					</div>
-				</footer>
+				<Styled.Footer {...props}>
+					<FooterNotice />
+				</Styled.Footer>
 			);
 
 		case "regular":
 		default:
 			return (
-				<footer className={`relative w-full bg-primary-100 dark:bg-primary-900${shade ? ` shade` : ``}`}>
-					<div className="container mx-auto px-8 grid grid-cols-2 gap-10 mb-3 md:grid-cols-5 lg:gap-20">
+				<Styled.Footer {...props}>
+					<Styled.Container>
 						<div className="col-span-2 md:col-start-1">
 							<Link
-								href={t("navigation.home.url")}
+								href={t("Styled.Columnigation.home.url")}
 								className="inline-flex relative justify-center items-center select-none no-underline"
 							>
-								<Logo interactive size={40} />
+								<Logo />
 							</Link>
 							<p className="my-4 text-xs leading-normal text-gray-800 dark:text-gray-200">
 								{t("footer.description-1")}{" "}
@@ -131,8 +90,16 @@ export const Footer = ({
 								</label>
 							</div>
 						</div>
-						<nav className="col-span-1 md:col-start-4 grid grid-flow-row"></nav>
-						<nav className="col-span-1 md:col-start-5 grid grid-flow-row">
+						<Styled.Column
+							css={`
+								--grid-column-start: 4;
+							`}
+						></Styled.Column>
+						<Styled.Column
+							css={`
+								--grid-column-start: 5;
+							`}
+						>
 							<p className="mb-3 text-xs font-semibold tracking-wider text-gray-800 dark:text-gray-200 uppercase">
 								{t("footer.social.heading")}
 							</p>
@@ -171,31 +138,10 @@ export const Footer = ({
 							>
 								Twitter
 							</Link>
-						</nav>
-					</div>
-					<div className="container mx-auto px-4 md:px-8 py-8 md:py-12">
-						<div className="flex flex-col items-center justify-between pt-6 mt-6 border-t border-gray-200 dark:border-gray-800 md:flex-row">
-							<p className="mb-6 text-sm text-left text-gray-600 dark:text-gray-400 md:mb-0">
-								&copy; Copyright {startYear}-{new Date().getFullYear()} {name}.{" "}
-								{t("phrases.all-rights-reserved")}.
-							</p>
-							<div className="flex items-start justify-start space-x-6 md:items-center md:justify-center">
-								<Link
-									href={t("navigation.terms-and-conditions.url")}
-									className="text-sm text-gray-600 dark:text-gray-400"
-								>
-									{t("navigation.terms-and-conditions.capitalized-name")}
-								</Link>
-								<Link
-									href={t("navigation.privacy-policy.url")}
-									className="text-sm text-gray-600 dark:text-gray-400"
-								>
-									{t("navigation.privacy-policy.capitalized-name")}
-								</Link>
-							</div>
-						</div>
-					</div>
-				</footer>
+						</Styled.Column>
+					</Styled.Container>
+					<FooterNotice />
+				</Styled.Footer>
 			);
 	}
 };

@@ -36,7 +36,7 @@ export const Header = (): JSX.Element => {
 					style={{ display: "inherit" }}
 					className="inline-flex relative justify-center items-center select-none no-underline h-full"
 				>
-					<Logo interactive size={40} />
+					<Logo />
 				</Link>
 
 				<nav className="ml-auto flex flex-wrap items-center text-base justify-center font-mono">

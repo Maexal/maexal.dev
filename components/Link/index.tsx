@@ -1,19 +1,6 @@
-import React, { CSSProperties } from "react";
-import { default as NextLink, LinkProps as NextLinkProps } from "next/link";
-
-export interface LinkProps extends NextLinkProps {
-	children?: React.ReactNode;
-	navLink?: boolean;
-	className?: string;
-	style?: CSSProperties;
-	type?: "normal" | "button" | "button-function" | "button-link";
-	elevation?: "flat" | "hovering" | "flying";
-	color?: "orange" | "blue";
-	margin?: boolean;
-	disabled?: boolean;
-	target?: "_blank";
-	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
-}
+import React from "react";
+import { default as NextLink } from "next/link";
+import type { LinkProps } from "./types";
 
 export const Link = ({
 	navLink = false,

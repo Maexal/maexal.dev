@@ -1,114 +1,45 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import { AppProps } from "next/app";
+import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { I18nProvider } from "next-localization";
-import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from "framer-motion";
 import { ToastContainer } from "react-toastify";
-
 import "@/styles/tailwind.scss";
-import "@/styles/index.scss";
-import "@/styles/global.scss";
 import "@/styles/customCSS.scss";
-import "@/styles/toastify.scss";
-import "@/styles/swal.scss";
-
-const Header = dynamic(() => import("@/components/Header"));
-const ParticlesBackground = dynamic(() => import("@/components/ParticlesBackground"));
-
-import { getLanguageFromString, getLanguageDictionary, getThemeFromString, useLocalStorage } from "@/utils";
-import { changeLanguage, changeTheme, useStore } from "@/redux";
-import { Theme } from "@/types";
-import { projectConfig } from "@/project.config";
-
-const motionProps: MotionProps = {
-	initial: "pageInitial",
-	animate: "pageAnimate",
-	exit: "pageExit",
-	variants: {
-		pageInitial: {
-			opacity: 0,
-		},
-		pageAnimate: {
-			opacity: 1,
-		},
-		pageExit: {
-			opacity: 0,
-		},
-	},
-	transition: {
-		duration: 0.15,
-		ease: "easeInOut",
-	},
-};
-
-const _getShouldParticlesBackgroundShow = (route: string): boolean => {
-	switch (route) {
-		case "/terms-and-conditions":
-		case "/privacy-policy":
-		case "/404":
-		case "/":
-		default:
-			return true;
-	}
-};
-
-const _getShouldParticlesBackgroundBounce = (route: string): boolean => {
-	switch (route) {
-		case "/":
-		case "/privacy-policy":
-		case "/terms-and-conditions":
-			return false;
-		case "/404":
-		default:
-			return true;
-	}
-};
+import { getLanguageDictionary, getLanguageFromString, getThemeFromString, useLocalStorage } from "@/utils";
+import { useStore, changeLanguage, changeTheme } from "@/redux";
+import projectConfig from "@/project.config";
 
 const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
+	// Redux store setup
+	const { initialReduxState } = pageProps;
+	const store = useStore(initialReduxState);
+
+	// Dark mode setup
 	import("@/utils").then(utils => {
 		utils.checkDarkMode();
+		utils.addListenerForTheme();
 	});
 
-	if (typeof window !== "undefined")
-		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () =>
-			import("@/utils").then(utils => {
-				utils.checkDarkMode();
-			})
-		);
+	// Language setup
+	const state = store.getState();
+	const { language, theme } = state.app;
+	const { locale = "en" } = router;
 
-	const { initialReduxState } = pageProps;
-	const { route, locale = "en" } = router;
+	const [lsTheme] = useLocalStorage("theme", "system");
+
+	if (language !== locale) store.dispatch(changeLanguage(getLanguageFromString(locale)));
+	if (theme !== lsTheme) store.dispatch(changeTheme(getThemeFromString(lsTheme.toString())));
+
 	const {
 		toastify: { toastContainer },
 	} = projectConfig;
 
-	const store = useStore(initialReduxState);
-	const [lsTheme] = useLocalStorage<Theme>("theme", "system");
-
-	const state = store.getState();
-	const { language, theme } = state.app;
-	if (language !== locale) store.dispatch(changeLanguage(getLanguageFromString(locale)));
-	if (theme !== lsTheme) store.dispatch(changeTheme(getThemeFromString(lsTheme.toString())));
-	const languageDictionary = getLanguageDictionary(language);
-
 	return (
 		<React.StrictMode>
 			<Provider store={store}>
-				<I18nProvider lngDict={languageDictionary} locale={language}>
+				<I18nProvider lngDict={getLanguageDictionary(language)} locale={language}>
 					<>
-						<ParticlesBackground
-							hide={!_getShouldParticlesBackgroundShow(route)}
-							bouncing={_getShouldParticlesBackgroundBounce(route)}
-						/>
-						<Header />
-						<MotionConfig features={[AnimationFeature, ExitFeature]}>
-							<AnimatePresence exitBeforeEnter>
-								<motion.div key={route} {...motionProps}>
-									<Component {...pageProps} />
-								</motion.div>
-							</AnimatePresence>
-						</MotionConfig>
+						<Component {...pageProps} />
 						<ToastContainer {...toastContainer} />
 					</>
 				</I18nProvider>

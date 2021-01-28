@@ -1,6 +1,7 @@
-const path = require("path");
-const withPWA = require("next-pwa");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
+const path = await import("path");
+const nextBuildId = await import("next-build-id");
+const withPWA = await import("next-pwa");
+const withBundleAnalyzer = await import("@next/bundle-analyzer")({
 	enabled: process.env.ANALYZE === "true",
 });
 
@@ -15,18 +16,13 @@ module.exports = withBundleAnalyzer(
 			register: true,
 			scope: "/",
 		},
+		generateBuildId: () => nextBuildId({ dir: __dirname }),
 		sassOptions: {
 			includePaths: [path.join(__dirname, "styles")],
 		},
 		i18n: {
 			locales: ["en", "nl"],
 			defaultLocale: "en",
-			domains: [
-				{
-					domain: "maexal.dev",
-					defaultLocale: "en",
-				},
-			],
 		},
 		images: {
 			domains: ["media.giphy.com"],

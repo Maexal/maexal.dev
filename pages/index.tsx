@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.min.css";
 
 import projectConfig from "@/project.config";
 import { toastError, toastSuccess } from "@/utils/toastify";
+import { Page } from "@/components";
 
 const HomePage = (): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(false);
@@ -118,7 +119,7 @@ const HomePage = (): JSX.Element => {
 	};
 
 	return (
-		<>
+		<Page>
 			<Head title={`${name}: ${t("information.abstract")}`} useTitleTemplate={false} />
 
 			<Main>
@@ -287,7 +288,7 @@ const HomePage = (): JSX.Element => {
 			</Main>
 
 			<Footer />
-		</>
+		</Page>
 	);
 };
 

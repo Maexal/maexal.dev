@@ -19,6 +19,9 @@ LICENSE
 .next
 public
 .snyk
+.babelrc
+.huskyrc
+.lintstagedrc
 
 # Project specific
 dist

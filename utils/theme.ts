@@ -7,18 +7,18 @@ export const checkDarkMode = (): void => {
 			((window.localStorage.theme !== "light" || window.localStorage.theme !== "system") &&
 				window.matchMedia("(prefers-color-scheme: dark)").matches)
 		)
-			addDarkModeClass();
-		else removeDarkModeClass();
+			addDarkMode();
+		else removeDarkMode();
 };
 
 export const setTheme = (theme: Theme): void => {
 	switch (theme) {
 		case "light":
-			removeDarkModeClass();
+			removeDarkMode();
 			setThemeLocalStorage(theme);
 			break;
 		case "dark":
-			addDarkModeClass();
+			addDarkMode();
 			setThemeLocalStorage(theme);
 			break;
 		case "system":
@@ -26,10 +26,24 @@ export const setTheme = (theme: Theme): void => {
 			setThemeLocalStorage("system");
 
 			if (typeof window !== "undefined")
-				if (window.matchMedia("(prefers-color-scheme: dark)").matches) addDarkModeClass();
-				else removeDarkModeClass();
-			else removeDarkModeClass();
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) addDarkMode();
+				else removeDarkMode();
+			else removeDarkMode();
 			break;
+	}
+};
+
+export const getTheme = (theme: Theme): Theme => {
+	switch (theme) {
+		case "light":
+		case "dark":
+			return theme;
+		case "system":
+		default:
+			if (typeof window !== "undefined")
+				if (window.matchMedia("(prefers-color-scheme: dark)").matches) return "dark";
+				else return "light";
+			else return "light";
 	}
 };
 
@@ -54,23 +68,15 @@ export const removeThemeLocalStorage = (): void => {
 	if (typeof window !== "undefined") window.localStorage.removeItem("theme");
 };
 
-export const setDarkModeClass = (theme: Theme): void => {
-	switch (theme) {
-		case "dark":
-			addDarkModeClass();
-			break;
-		case "light":
-		case "system":
-		default:
-			removeDarkModeClass();
-			break;
-	}
-};
-
-export const addDarkModeClass = (): void => {
+export const addDarkMode = (): void => {
 	document?.querySelector("html")?.classList?.add("dark");
 };
 
-export const removeDarkModeClass = (): void => {
+export const removeDarkMode = (): void => {
 	document?.querySelector("html")?.classList?.remove("dark");
+};
+
+export const addListenerForTheme = (): void => {
+	if (typeof window !== "undefined")
+		window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => checkDarkMode());
 };

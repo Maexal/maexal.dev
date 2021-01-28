@@ -1,4 +1,3 @@
-import { IParticlesParams } from "react-particles-js";
 import { ToastContainerProps } from "react-toastify";
 
 const name = "Mæxal";
@@ -6,7 +5,14 @@ const nameSafe = "M&aelig;xal";
 const owner = "Max Altena";
 const domain = "maexal.dev";
 
-interface ProjectConfig {
+const company = {
+	kvk: "78183251",
+	bic: "BUNQNL2AXXX",
+	iban: "NL14 BUNQ 2044 3278 72",
+	btw: "NL003297690B50",
+};
+
+export interface ProjectConfig {
 	name: string;
 	nameSafe: string;
 	owner: string;
@@ -18,6 +24,7 @@ interface ProjectConfig {
 	url: string;
 	keywords: Array<string>;
 	startYear: number;
+	company: typeof company;
 	email: {
 		general: string;
 		personal: string;
@@ -26,12 +33,7 @@ interface ProjectConfig {
 	twitter: {
 		handle: string;
 	};
-	colors: {
-		primary: string;
-		background: string;
-	};
 	languages: Array<{ key: string; name: string }>;
-	particles: IParticlesParams;
 	toastify: {
 		toastContainer: ToastContainerProps;
 	};
@@ -49,6 +51,7 @@ export const projectConfig: ProjectConfig = {
 	iconPath: "/assets/icons/android-chrome-512x512.png",
 	url: `https://${domain}/`,
 	keywords: ["maexal", "mæxal", "max", "altena", "max altena"],
+	company,
 	email: {
 		general: `hello@${domain}`,
 		personal: `max@${domain}`,
@@ -57,177 +60,10 @@ export const projectConfig: ProjectConfig = {
 	twitter: {
 		handle: "maexal_dev",
 	},
-	colors: {
-		primary: "#03aaf9",
-		background: "#ffffff",
-	},
 	languages: [
 		{ key: "en", name: "English" },
 		{ key: "nl", name: "Nederlands" },
 	],
-	particles: {
-		fpsLimit: 60,
-		pauseOnBlur: true,
-		detectRetina: true,
-		autoPlay: true,
-		pauseOnOutsideViewport: true,
-		particles: {
-			number: {
-				value: 10,
-				density: {
-					enable: true,
-					area: 150,
-				},
-			},
-			move: {
-				speed: 1,
-				random: true,
-				outMode: "out",
-			},
-			rotate: {
-				random: true,
-				animation: {
-					enable: true,
-					speed: 1,
-					sync: false,
-				},
-			},
-			collisions: {
-				enable: true,
-			},
-			color: {
-				value: "#ffffff",
-			},
-			lineLinked: {
-				enable: false,
-			},
-			size: {
-				value: 16,
-				random: true,
-				animation: {
-					enable: true,
-					speed: 0.5,
-					minimumValue: 8,
-					sync: false,
-				},
-			},
-			opacity: {
-				value: 0.75,
-				random: true,
-				animation: {
-					enable: true,
-					speed: 0.5,
-					minimumValue: 0.25,
-					sync: false,
-				},
-			},
-			shape: {
-				type: ["image"],
-				image: [
-					{
-						src: "/assets/vectors/code.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/terminal.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/cloud.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/database.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/server.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/beaker.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/at-symbol.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/chip.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/desktop-computer.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/device-mobile.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/device-tablet.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/globe-alt.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/hashtag.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/heart.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/light-bulb.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/lightning-bolt.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/paper-airplane.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/sparkles.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/star.svg",
-						height: 20,
-						width: 20,
-					},
-					{
-						src: "/assets/vectors/support.svg",
-						height: 20,
-						width: 20,
-					},
-				],
-			},
-		},
-	},
 	toastify: {
 		toastContainer: {
 			limit: 5,
