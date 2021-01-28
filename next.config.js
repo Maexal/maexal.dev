@@ -1,7 +1,8 @@
-const path = await import("path");
-const nextBuildId = await import("next-build-id");
-const withPWA = await import("next-pwa");
-const withBundleAnalyzer = await import("@next/bundle-analyzer")({
+/* eslint-disable @typescript-eslint/no-var-requires */
+const path = require("path");
+const nextBuildId = require("next-build-id");
+const withPWA = require("next-pwa");
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
 	enabled: process.env.ANALYZE === "true",
 });
 

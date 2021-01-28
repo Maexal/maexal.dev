@@ -1,4 +1,5 @@
-const defaultTheme = await import("tailwindcss/defaultTheme");
+/* eslint-disable @typescript-eslint/no-var-requires */
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
 	purge: ["./pages/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
