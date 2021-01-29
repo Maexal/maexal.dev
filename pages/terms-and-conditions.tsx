@@ -2,14 +2,15 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 import { useSelector } from "react-redux";
+import { projectConfig } from "@/project.config";
+import { capitalizeFirst } from "@/utils";
+import { State } from "@/types";
 
+const Page = dynamic(() => import("@/components/Page"));
 const Head = dynamic(() => import("@/components/Head"));
 const Footer = dynamic(() => import("@/components/Footer"));
 const Link = dynamic(() => import("@/components/Link"));
 const Main = dynamic(() => import("@/components/Main"));
-import { projectConfig } from "@/project.config";
-import { capitalizeFirst } from "@/utils";
-import { State } from "@/types";
 
 const TermsAndConditionsPage = (): JSX.Element => {
 	const locale = useSelector((state: State) => state.app.language);
@@ -21,7 +22,7 @@ const TermsAndConditionsPage = (): JSX.Element => {
 	} = projectConfig;
 
 	return (
-		<>
+		<Page>
 			<Head title={t("navigation.terms-and-conditions.capitalized-name")} />
 
 			<Main>
@@ -287,7 +288,7 @@ const TermsAndConditionsPage = (): JSX.Element => {
 			</Main>
 
 			<Footer type="notice-only" shade />
-		</>
+		</Page>
 	);
 };
 

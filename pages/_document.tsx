@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import dynamic from "next/dynamic";
-import NextDocument, { Html, Main, NextScript, DocumentContext } from "next/document";
+import NextDocument, { Html, Main, NextScript, DocumentContext, DocumentInitialProps } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
-const HeadDocument = dynamic(() => import("../components/Head").then(module => module.HeadDocument) as any);
+const HeadDocument = dynamic(() => import("@/components/Head").then(module => module.HeadDocument) as any);
 
 class Document extends NextDocument {
-	static getInitialProps = async (context: DocumentContext): Promise<any> => {
+	static getInitialProps = async (context: DocumentContext): Promise<DocumentInitialProps> => {
 		const sheet = new ServerStyleSheet();
 		const originalRenderPage = context.renderPage;
 		const initialProps = await NextDocument.getInitialProps(context);

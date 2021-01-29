@@ -43,7 +43,7 @@ export const Footer = ({ type = "regular", ...props }: Props): JSX.Element => {
 					<Styled.Container>
 						<div className="col-span-2 md:col-start-1">
 							<Link
-								href={t("Styled.Columnigation.home.url")}
+								href={t("navigation.home.url")}
 								className="inline-flex relative justify-center items-center select-none no-underline"
 							>
 								<Logo />

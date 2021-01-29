@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 
@@ -22,19 +22,45 @@ const HomePage = (): JSX.Element => {
 		name,
 		email: { general },
 	} = projectConfig;
+	const form = useRef();
+
+	const _sendForm = async (formData: FormData): Promise<void> => {
+		setLoading(true);
+
+		fetch("/", {
+			method: "POST",
+			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+			// @ts-ignore
+			body: new URLSearchParams(formData).toString(),
+		})
+			.then(() => {
+				toastSuccess(
+					t("toast.contact.success"),
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 20 20"
+						fill="currentColor"
+						className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
+					>
+						<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+					</svg>
+				);
+				setLoading(false);
+				setTimesSent(value => value + 1);
+			})
+			.catch(error => {
+				console.error(error);
+				toastError(t("toast.contact.error"));
+				setLoading(false);
+			});
+	};
 
 	const _handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		event.preventDefault();
 
 		const Swal = (await import("sweetalert2")).default;
 
-		// eslint-disable-next-line
-		// @ts-ignore
-		const elementsArray = [...event.target.elements];
-		const formData = elementsArray.reduce((array, element) => {
-			if (element.id) array[element.id] = element.value;
-			return array;
-		}, {});
+		const formData = new FormData(form.current);
 
 		if (timesSent >= 3)
 			Swal.fire({
@@ -51,71 +77,9 @@ const HomePage = (): JSX.Element => {
 				title: t("alert.contact-again.title"), // font-serif text-gray-900 dark:text-gray-100 text-xl
 				html: t("alert.contact-again.html", { amount: timesSent }), // font-sans text-gray-800 dark:text-gray-200 text-base
 			}).then(async result => {
-				if (result.value) {
-					setLoading(true);
-
-					const EmailJS = (await import("emailjs-com")).default;
-
-					EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
-						.then(
-							() => {
-								toastSuccess(
-									t("toast.contact.success"),
-									<svg
-										xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 20 20"
-										fill="currentColor"
-										className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
-									>
-										<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-									</svg>
-								);
-								setLoading(false);
-								setTimesSent(value => value + 1);
-							},
-							() => {
-								toastError(t("toast.contact.error"));
-								setLoading(false);
-							}
-						)
-						.catch(() => {
-							toastError(t("toast.contact.error"));
-							setLoading(false);
-						});
-				}
+				if (result.value) _sendForm(formData);
 			});
-		else {
-			setLoading(true);
-
-			const EmailJS = (await import("emailjs-com")).default;
-
-			EmailJS.send("gmail_max_maexal_dev", "template_contact", formData, "user_5SvsXTsaKD1d1swJI90vb")
-				.then(
-					() => {
-						toastSuccess(
-							t("toast.contact.success"),
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 20 20"
-								fill="currentColor"
-								className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
-							>
-								<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-							</svg>
-						);
-						setLoading(false);
-						setTimesSent(value => value + 1);
-					},
-					() => {
-						toastError(t("toast.contact.error"));
-						setLoading(false);
-					}
-				)
-				.catch(() => {
-					toastError(t("toast.contact.error"));
-					setLoading(false);
-				});
-		}
+		else _sendForm(formData);
 	};
 
 	return (
@@ -213,6 +177,9 @@ const HomePage = (): JSX.Element => {
 								id="contact-form"
 								className="flex-grow flex flex-col items-center"
 								onSubmit={_handleSubmit}
+								name="contact"
+								data-netlify="true"
+								ref={form.current}
 							>
 								<div className="relative mb-4 w-full">
 									<label

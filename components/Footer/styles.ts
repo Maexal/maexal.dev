@@ -30,8 +30,8 @@ export const Container = styled(GlobalContainer)`
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 0.75rem;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
 	display: grid;
 	grid-template-columns: repeat(2, minmax(10px, 1fr));
 	gap: 2.5rem;

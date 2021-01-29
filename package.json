@@ -1,6 +1,6 @@
 {
 	"name": "maexal.dev",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"private": true,
 	"description": "Business website and portfolio of Maexal",
 	"keywords": [
@@ -31,11 +31,10 @@
 		"preview": "netlify build && netlify deploy",
 		"sort-package-json": "sort-package-json",
 		"start": "cross-env NODE_ENV=production next start",
-		"test": "npm run test:snyk",
+		"test": "snyk test && npm run test:snyk",
 		"test:snyk": "snyk test"
 	},
 	"dependencies": {
-		"emailjs-com": "^2.6.4",
 		"framer-motion": "^3.2.1",
 		"next": "^10.0.5",
 		"next-build-id": "^3.0.0",
@@ -47,8 +46,7 @@
 		"react-toastify": "^7.0.2",
 		"redux": "^4.0.5",
 		"styled-components": "^5.2.1",
-		"sweetalert2": "^10.14.0",
-		"use-dark-mode": "^2.3.1"
+		"sweetalert2": "^10.14.0"
 	},
 	"devDependencies": {
 		"@netlify/plugin-lighthouse": "^1.4.2",

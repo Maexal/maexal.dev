@@ -64,7 +64,7 @@ export const Logo = styled.div`
 	}
 
 	&:focus-visible {
-		box-shadow: 0 0 0 0 #ffffff, 0 0 0 calc(3px + 0) ${({ theme }) => theme.colors.primary}, 0 0 transparent;
+		box-shadow: 0 0 0 0 #ffffff, 0 0 0 calc(3px + 0) ${({ theme }) => theme.colors.primary.DEFAULT}, 0 0 transparent;
 	}
 
 	> span {
