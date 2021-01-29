@@ -1,6 +1,9 @@
+import dynamic from "next/dynamic";
 import styled from "styled-components";
 import { Container as GlobalContainer, device } from "@/styles";
 import type { StyledProps } from "./types";
+
+const ComponentLink = dynamic(() => import("@/components/Link"));
 
 export const Footer = styled.footer<StyledProps>`
 	position: relative;
@@ -20,10 +23,6 @@ export const Footer = styled.footer<StyledProps>`
 			background-image: linear-gradient(to bottom, transparent, ${theme.colors.gray[100]};
 		}
 	`}
-
-	.footer-link {
-		max-width: max-content;
-	}
 `;
 
 export const Container = styled(GlobalContainer)`
@@ -53,4 +52,23 @@ export const Column = styled.nav`
 	@media ${device.laptop} {
 		grid-column-start: var(--grid-column-start, 1);
 	}
+`;
+
+export const Paragraph = styled.p`
+	margin-bottom: 0.75rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	color: ${({ theme }) => theme.colors.gray[800]};
+`;
+
+export const Link = styled(ComponentLink)`
+	margin-bottom: 0.5rem;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	font-weight: 500;
+	color: ${({ theme }) => theme.colors.gray[700]};
+	max-width: max-content;
 `;

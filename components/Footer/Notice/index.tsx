@@ -26,3 +26,5 @@ export const FooterNotice = (): JSX.Element => {
 		</Styled.Container>
 	);
 };
+
+export default FooterNotice;

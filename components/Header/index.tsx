@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
+import * as Styled from "./styles";
 
 const Link = dynamic(() => import("@/components/Link"));
 const Logo = dynamic(() => import("@/components/Logo"));
@@ -21,15 +22,7 @@ export const Header = (): JSX.Element => {
 	}, []);
 
 	return (
-		<header
-			className={`fixed z-50 top-0 inset-x-0 w-full duration-150 ease-in-out ${
-				scrolled ? `h-16 shadow-md bg-primary-100 dark:bg-primary-900` : `h-24 shadow-none bg-transparent`
-			}`}
-			style={{
-				willChange: "height, box-shadow, background-color",
-				transitionProperty: "height, box-shadow, background-color",
-			}}
-		>
+		<Styled.Header scrolled={scrolled}>
 			<div className="container h-full mx-auto flex flex-wrap p-4 items-center">
 				<Link
 					href={t("navigation.home.url")}
@@ -57,7 +50,7 @@ export const Header = (): JSX.Element => {
 					</Link>
 				</nav>
 			</div>
-		</header>
+		</Styled.Header>
 	);
 };
 
