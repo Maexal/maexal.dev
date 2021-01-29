@@ -37,7 +37,7 @@ const _getMeta = () => {
 	);
 };
 
-const _getMetaLocale = (locale = "en") => {
+const _getMetaLocale = (locale: string) => {
 	return (
 		<>
 			<meta httpEquiv="content-language" content={locale} />
@@ -65,7 +65,7 @@ const _getRestOfHeadWithoutLocale = () => {
 			<meta name="apple-mobile-web-app-title" content={name} />
 			<meta name="application-name" content={name} />
 
-			<meta name="msapplication-TileColor" content={theme.colors.primary} />
+			<meta name="msapplication-TileColor" content={theme.colors.primary.DEFAULT} />
 			<meta name="theme-color" content={theme.colors.background} />
 			<meta name="apple-mobile-web-app-status-bar-style" content={theme.colors.background} />
 			<meta name="msapplication-navbutton-color" content={theme.colors.background} />
@@ -147,7 +147,7 @@ const _getIcons = () => {
 			<link
 				rel="mask-icon"
 				href={`/assets/icons/safari-pinned-tab.svg?v=${faviconVersion}`}
-				color={theme.colors.primary}
+				color={theme.colors.primary.DEFAULT}
 			/>
 			<link rel="shortcut icon" href={`/assets/icons/favicon.ico?v=${faviconVersion}`} />
 			<meta name="msapplication-TileImage" content={`/assets/icons/mstile-144x144.png?v=${faviconVersion}`} />

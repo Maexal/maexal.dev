@@ -23,11 +23,11 @@ const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
 	// Language setup
 	const state = store.getState();
 	const { language, theme } = state.app;
-	const { locale = "en" } = router;
+	const { locale } = router;
 
 	const [lsTheme] = useLocalStorage("theme", "system");
 
-	if (language !== locale) store.dispatch(changeLanguage(getLanguageFromString(locale)));
+	if (locale && language !== locale) store.dispatch(changeLanguage(getLanguageFromString(locale)));
 	if (theme !== lsTheme) store.dispatch(changeTheme(getThemeFromString(lsTheme.toString())));
 
 	const {

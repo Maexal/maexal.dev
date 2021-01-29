@@ -24,6 +24,40 @@ module.exports = withBundleAnalyzer(
 		i18n: {
 			locales: ["en", "nl"],
 			defaultLocale: "en",
+			domains: [
+				{
+					domain: "maexal.dev",
+					defaultLocale: "en",
+				},
+				{
+					domain: "maexal.nl",
+					defaultLocale: "nl",
+				},
+				{
+					domain: "maexal.site",
+					defaultLocale: "en",
+				},
+				{
+					domain: "maexal.site",
+					defaultLocale: "en",
+				},
+				{
+					domain: "maexal.online",
+					defaultLocale: "en",
+				},
+				{
+					domain: "maexal.com",
+					defaultLocale: "en",
+				},
+				{
+					domain: "maexal.eu",
+					defaultLocale: "en",
+				},
+				{
+					domain: "maexal.shop",
+					defaultLocale: "en",
+				},
+			],
 		},
 		images: {
 			domains: ["media.giphy.com"],
