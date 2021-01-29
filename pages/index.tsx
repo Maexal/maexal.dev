@@ -65,8 +65,8 @@ const HomePage = (): JSX.Element => {
 		if (timesSent >= 3)
 			Swal.fire({
 				confirmButtonText: t("alert.contact-again-too-much.confirm"),
-				title: t("alert.contact-again-too-much.title"), // font-serif text-gray-900 dark:text-gray-100 text-xl
-				html: t("alert.contact-again-too-much.html"), // font-sans text-gray-800 dark:text-gray-200 text-base
+				title: t("alert.contact-again-too-much.title"),
+				html: t("alert.contact-again-too-much.html"),
 			});
 		else if (timesSent >= 1)
 			Swal.fire({
@@ -74,8 +74,8 @@ const HomePage = (): JSX.Element => {
 				showCancelButton: true,
 				confirmButtonText: t("alert.contact-again.confirm"),
 				cancelButtonText: t("alert.contact-again.cancel"),
-				title: t("alert.contact-again.title"), // font-serif text-gray-900 dark:text-gray-100 text-xl
-				html: t("alert.contact-again.html", { amount: timesSent }), // font-sans text-gray-800 dark:text-gray-200 text-base
+				title: t("alert.contact-again.title"),
+				html: t("alert.contact-again.html", { amount: timesSent }),
 			}).then(async result => {
 				if (result.value) _sendForm(formData);
 			});
@@ -255,8 +255,7 @@ const HomePage = (): JSX.Element => {
 										disabled={loading}
 									></textarea>
 								</div>
-								<Link
-									type="button-function"
+								<span
 									css={`
 										width: 100%;
 										@media ${device.laptop} {
@@ -265,10 +264,11 @@ const HomePage = (): JSX.Element => {
 											width: auto;
 										}
 									`}
-									disabled={loading}
 								>
-									{t("contact.cta")}
-								</Link>
+									<Link href="#" type="button-function" disabled={loading}>
+										{t("contact.cta")}
+									</Link>
+								</span>
 							</form>
 							<small className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</small>
 						</div>

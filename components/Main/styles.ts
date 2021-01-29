@@ -26,4 +26,7 @@ export const MainContainer = styled(GlobalContainer)`
 	padding-bottom: 6rem;
 	margin-left: auto;
 	margin-right: auto;
+	min-height: 100vh;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
 `;

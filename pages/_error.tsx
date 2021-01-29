@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
 
 const Head = dynamic(() => import("@/components/Head"));
-const Link = dynamic(() => import("@/components/Link"));
 const Main = dynamic(() => import("@/components/Main"));
-import { capitalizeFirst } from "@/utils";
+const Page = dynamic(() => import("@/components/Page"));
+const PageErrorContent = dynamic(() => import("@/components/Pages/Error"));
 
 const ErrorPage = ({ statusCode = null }: { statusCode?: number | null }): JSX.Element => {
 	const i18n = useI18n();
@@ -15,48 +15,13 @@ const ErrorPage = ({ statusCode = null }: { statusCode?: number | null }): JSX.E
 	const errorText = statusCode ? t("phrases.error-with-status", { statusCode }) : t("phrases.error-without-status");
 
 	return (
-		<>
+		<Page>
 			<Head title={errorText} />
 
 			<Main fullPage spaced>
-				<div className="grid items-center w-full grid-cols-1 gap-10 mx-auto md:w-4/5 lg:grid-cols-2 xl:gap-32">
-					<div>
-						<p className="text-left font-mono mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase">
-							{errorText}
-						</p>
-						<h1 className="font-serif mb-4 text-2xl font-extrabold leading-tight tracking-tight text-left text-gray-900 dark:text-gray-100 md:text-4xl">
-							{t("sentences.500-title")}
-						</h1>
-						<p className="font-sans mb-5 text-base text-left text-gray-800 dark:text-gray-200 md:text-xl">
-							{t("sentences.500-text")}
-						</p>
-						<span
-							css={`
-								margin: 1.5rem;
-							`}
-						>
-							<Link type="button-link" href={t("navigation.home.url")} elevation="hovering">
-								{capitalizeFirst(t("phrases.back-to-safety"))}
-							</Link>
-						</span>
-
-						<span
-							css={`
-								margin: 1.5rem;
-							`}
-						>
-							<Link type="button-link" href={t("navigation.contact.url")} elevation="hovering">
-								{capitalizeFirst(t("phrases.contact-us"))}
-							</Link>
-						</span>
-					</div>
-					<div
-						className="w-full h-full py-48 bg-gray-200 dark:bg-gray-800 rounded-lg bg-center bg-cover bg-no-repeat"
-						style={{ backgroundImage: `url("https://media.giphy.com/media/Fs0vJPEU1l6sU/giphy.gif")` }}
-					></div>
-				</div>
+				<PageErrorContent errorText={errorText} />
 			</Main>
-		</>
+		</Page>
 	);
 };
 
