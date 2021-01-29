@@ -1,16 +1,14 @@
-import { CSSProperties } from "react";
 import { LinkProps as NextLinkProps } from "next/link";
 
-export interface LinkProps extends NextLinkProps {
+export interface LinkProps extends NextLinkProps, StyledButtonProps {
 	children?: React.ReactNode;
-	navLink?: boolean;
-	className?: string;
-	style?: CSSProperties;
-	type?: "normal" | "button" | "button-function" | "button-link";
-	elevation?: "flat" | "hovering" | "flying";
-	color?: "orange" | "blue";
-	margin?: boolean;
-	disabled?: boolean;
+	type?: "normal" | "navigation-link" | "navigation-button" | "button" | "button-function" | "button-link";
 	target?: "_blank";
 	onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+}
+
+export interface StyledButtonProps {
+	color?: "orange" | "blue";
+	elevation?: "flat" | "hovering" | "flying";
+	disabled?: boolean;
 }

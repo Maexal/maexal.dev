@@ -30,13 +30,25 @@ const ErrorPage = ({ statusCode = null }: { statusCode?: number | null }): JSX.E
 						<p className="font-sans mb-5 text-base text-left text-gray-800 dark:text-gray-200 md:text-xl">
 							{t("sentences.500-text")}
 						</p>
+						<span
+							css={`
+								margin: 1.5rem;
+							`}
+						>
+							<Link type="button-link" href={t("navigation.home.url")} elevation="hovering">
+								{capitalizeFirst(t("phrases.back-to-safety"))}
+							</Link>
+						</span>
 
-						<Link type="button-link" href={t("navigation.home.url")} elevation="hovering" margin>
-							{capitalizeFirst(t("phrases.back-to-safety"))}
-						</Link>
-						<Link type="button-link" href={t("navigation.contact.url")} margin color="blue">
-							{capitalizeFirst(t("phrases.contact-us"))}
-						</Link>
+						<span
+							css={`
+								margin: 1.5rem;
+							`}
+						>
+							<Link type="button-link" href={t("navigation.contact.url")} elevation="hovering">
+								{capitalizeFirst(t("phrases.contact-us"))}
+							</Link>
+						</span>
 					</div>
 					<div
 						className="w-full h-full py-48 bg-gray-200 dark:bg-gray-800 rounded-lg bg-center bg-cover bg-no-repeat"

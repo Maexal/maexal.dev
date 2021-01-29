@@ -167,7 +167,7 @@ export const GlobalStyles = createGlobalStyle`
 		align-items: center;
 	}
 
-	a:not([href*="localhost"]):not([href*="https://maexal.dev/"]):not([href*="https://maxaltena.com/"]):not([href^="#"]):not([href^="/"]):not([href^="mailto:"]):not([href^="tel:"])::after
+	a:not([href*="localhost:3000"]):not([href*="https://maexal.dev/"]):not([href*="https://maxaltena.com/"]):not([href^="#"]):not([href^="/"]):not([href^="mailto:"]):not([href^="tel:"])::after
 	{
 		content: "";
 		mask: url("/assets/vectors/external-link.svg");

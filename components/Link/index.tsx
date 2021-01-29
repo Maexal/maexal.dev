@@ -1,16 +1,13 @@
 import React from "react";
 import { default as NextLink } from "next/link";
+import * as Styled from "./styles";
 import type { LinkProps } from "./types";
 
 export const Link = ({
-	navLink = false,
 	children,
-	className,
-	style,
 	type = "normal",
-	elevation = "flat",
+	elevation = "hovering",
 	color = "orange",
-	margin = false,
 	disabled = false,
 	target,
 	onClick,
@@ -19,59 +16,53 @@ export const Link = ({
 	switch (type) {
 		case "button-link":
 			return (
-				<NextLink {...props}>
-					<a
-						target={target}
-						className={`styled-button cursor-pointer outline-none rounded focus:outline-none select-none no-underline inline-block relative w-auto text-center text-white border-none bg-transparent py-1 px-3 font-mono${
-							margin ? ` m-2` : ``
-						}${className ? ` ${className}` : ``}`}
-						style={style}
-						data-elevation={elevation}
-						data-color={color}
-						data-margin={margin}
-						rel="noopener noreferrer"
-					>
-						<span className="content inline-block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
-							{children}
-						</span>
-					</a>
+				<NextLink passHref {...props}>
+					<Styled.Button as="a" target={target} color={color} elevation={elevation} disabled={disabled}>
+						<span>{children}</span>
+					</Styled.Button>
 				</NextLink>
 			);
-		case "button":
 		case "button-function":
 			return (
-				<button
+				<Styled.ButtonFunction
+					as="button"
+					color={color}
+					elevation={elevation}
 					disabled={disabled}
-					className={`styled-button cursor-pointer outline-none rounded focus:outline-none select-none no-underline inline-block relative w-auto text-center text-white border-none bg-transparent py-1 px-3 font-mono${
-						margin ? ` m-2` : ``
-					}${type === "button-function" ? ` styled-button-function` : ``}${className ? ` ${className}` : ``}`}
-					style={style}
-					data-elevation={elevation}
-					data-color={color}
-					data-margin={margin}
 					onClick={onClick}
 				>
-					<span className="content inline-block text-white relative text-base transform-gpu duration-150 ease-in-out font-mono z-10">
-						{children}
-					</span>
-				</button>
+					<span>{children}</span>
+				</Styled.ButtonFunction>
 			);
+		case "button":
+			return (
+				<Styled.Button as="button" color={color} elevation={elevation} disabled={disabled} onClick={onClick}>
+					<span>{children}</span>
+				</Styled.Button>
+			);
+		case "navigation-link":
+			return (
+				<NextLink passHref {...props}>
+					<Styled.NavigationLink>{children}</Styled.NavigationLink>
+				</NextLink>
+			);
+
+		case "navigation-button":
+			return (
+				<NextLink passHref {...props}>
+					<Styled.ButtonFunction color={color} elevation={elevation} disabled={disabled}>
+						<span>{children}</span>
+					</Styled.ButtonFunction>
+				</NextLink>
+			);
+
 		case "normal":
 		default:
 			return (
-				<NextLink {...props}>
-					<a
-						target={target}
-						className={`cursor-pointer outline-none rounded focus:outline-none${
-							navLink
-								? ` nav-link select-none no-underline py-1 px-3 mr-2 duration-150 ease-in-out hover:px-1 active:px-2 font-mono`
-								: ` underline`
-						}${className ? ` ${className}` : ``}`}
-						style={style}
-						rel="noopener noreferrer"
-					>
+				<NextLink passHref {...props}>
+					<Styled.Link target={target} rel="noopener noreferrer">
 						{children}
-					</a>
+					</Styled.Link>
 				</NextLink>
 			);
 	}

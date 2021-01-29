@@ -23,33 +23,29 @@ export const Header = (): JSX.Element => {
 
 	return (
 		<Styled.Header scrolled={scrolled}>
-			<div className="container h-full mx-auto flex flex-wrap p-4 items-center">
-				<Link
-					href={t("navigation.home.url")}
-					style={{ display: "inherit" }}
-					className="inline-flex relative justify-center items-center select-none no-underline h-full"
-				>
+			<Styled.Container>
+				<Styled.Logo href={t("navigation.home.url")}>
 					<Logo />
-				</Link>
+				</Styled.Logo>
 
-				<nav className="ml-auto flex flex-wrap items-center text-base justify-center font-mono">
-					{/* <Link href={t("navigation.projects.url")} navLink>
+				<Styled.Navigation>
+					{/* <Link href={t("navigation.projects.url")} type="navigation-link">
 						{capitalizeFirst(t("navigation.projects.name"))}
-					</Link>
-					<Link href={t("navigation.services.url")} navLink>
+					</Link> */}
+					{/* <Link href={t("navigation.services.url")} type="navigation-link">
 						{capitalizeFirst(t("navigation.services.name"))}
-					</Link>
-					<Link href={t("navigation.about.url")} navLink>
+					</Link> */}
+					{/* <Link href={t("navigation.about.url")} type="navigation-link">
 						{capitalizeFirst(t("navigation.about.name"))}
-					</Link>
+					</Link> */}
 
-					<span className="w-2" /> */}
+					{/* <Spacer axis="horizontal" size={1} unit="rem" /> */}
 
-					<Link type="button-link" href={t("navigation.contact.url")} elevation="hovering" className="mr-2">
-						<span className="header-cta font-mono">{t("navigation.contact.name")}</span>
+					<Link type="navigation-button" href={t("navigation.contact.url")} elevation="hovering">
+						{t("navigation.contact.name")}
 					</Link>
-				</nav>
-			</div>
+				</Styled.Navigation>
+			</Styled.Container>
 		</Styled.Header>
 	);
 };

@@ -1,17 +1,17 @@
 import React, { useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { useI18n } from "next-localization";
+import projectConfig from "@/project.config";
+import { toastError, toastSuccess } from "@/utils";
+import { device } from "@/styles";
+import { Page } from "@/components";
+
+import "react-toastify/dist/ReactToastify.min.css";
 
 const Footer = dynamic(() => import("@/components/Footer"));
 const Head = dynamic(() => import("@/components/Head"));
 const Link = dynamic(() => import("@/components/Link"));
 const Main = dynamic(() => import("@/components/Main"));
-
-import "react-toastify/dist/ReactToastify.min.css";
-
-import projectConfig from "@/project.config";
-import { toastError, toastSuccess } from "@/utils/toastify";
-import { Page } from "@/components";
 
 const HomePage = (): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(false);
@@ -105,25 +105,41 @@ const HomePage = (): JSX.Element => {
 								{t("sentences.home-hero-subtitle")}
 							</p>
 							<div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
-								<Link
-									type="button-link"
-									href={t("navigation.contact.url")}
-									margin
-									elevation="hovering"
-									className="inline-flex items-center justify-center w-auto mb-2 sm:mb-0"
+								<span
+									css={`
+										margin: 0.5rem;
+										display: inline-flex;
+										justify-content: center;
+										align-items: center;
+										width: auto;
+										@media ${device.mobileM} {
+											margin-bottom: 0;
+										}
+									`}
 								>
-									{t("phrases.contact-us")}
-								</Link>
+									<Link type="button-link" href={t("navigation.contact.url")} elevation="hovering">
+										{t("phrases.contact-us")}
+									</Link>
+								</span>
 
-								{/* <Link
-									type="button-link"
-									href={t("navigation.about.url")}
-									margin
-									color="blue"
-									className="inline-flex items-center justify-center w-full mb-2 sm:w-auto sm:mb-0"
+								{/* <Spacer axis="horizontal" size={1} unit="rem" /> */}
+
+								{/* <span
+									css={`
+										margin: 0.5rem;
+										display: inline-flex;
+										justify-content: center;
+										align-items: center;
+										width: auto;
+										@media ${device.mobileM} {
+											margin-bottom: 0;
+										}
+									`}
 								>
-									{t("phrases.get-to-know-us")}
-								</Link> */}
+									<Link type="button-link" href={t("navigation.about.url")}>
+										{t("phrases.get-to-know-us")}
+									</Link>
+								</span> */}
 							</div>
 						</div>
 					</div>
@@ -240,9 +256,15 @@ const HomePage = (): JSX.Element => {
 									></textarea>
 								</div>
 								<Link
-									href="#"
 									type="button-function"
-									className="w-full lg:mx-auto lg:w-auto"
+									css={`
+										width: 100%;
+										@media ${device.laptop} {
+											margin-left: auto;
+											margin-right: auto;
+											width: auto;
+										}
+									`}
 									disabled={loading}
 								>
 									{t("contact.cta")}

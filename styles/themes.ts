@@ -1,5 +1,6 @@
 export interface Color {
 	DEFAULT: string;
+	0?: string;
 	100?: string;
 	200?: string;
 	300?: string;
@@ -9,6 +10,7 @@ export interface Color {
 	700?: string;
 	800?: string;
 	900?: string;
+	1000?: string;
 }
 
 export interface Theme {
@@ -75,6 +77,7 @@ export const lightTheme: Theme = {
 		background: "#ffffff",
 		gray: {
 			DEFAULT: "#757575",
+			0: "#ffffff",
 			100: "#f2f2f2",
 			200: "#d9d9d9",
 			300: "#9c9c9c",
@@ -84,6 +87,7 @@ export const lightTheme: Theme = {
 			700: "#5c5c5c",
 			800: "#363636",
 			900: "#2b2b2b",
+			1000: "#000000",
 		},
 		primary: {
 			DEFAULT: "#03aaf7",
@@ -128,6 +132,7 @@ export const darkTheme: Theme = {
 		background: "#0e0e0e",
 		gray: {
 			DEFAULT: "#757575",
+			0: "#000000",
 			100: "#2b2b2b",
 			200: "#363636",
 			300: "#5c5c5c",
@@ -137,6 +142,7 @@ export const darkTheme: Theme = {
 			700: "#9c9c9c",
 			800: "#d9d9d9",
 			900: "#f2f2f2",
+			1000: "#ffffff",
 		},
 		primary: {
 			DEFAULT: "#03aaf7",
