@@ -29,6 +29,5 @@
 	"prettier.singleQuote": true,
 	"prettier.tabWidth": 2,
 	"prettier.useTabs": true,
-	"prettier.endOfLine": "lf",
-	"scss.validate": false
+	"prettier.endOfLine": "lf"
 }

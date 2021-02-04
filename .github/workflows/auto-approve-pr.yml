@@ -3,6 +3,7 @@ name: ✅ Automatically approve pull request
 on:
   pull_request:
     branches:
+      - development
       - production
 
 jobs:
@@ -11,6 +12,6 @@ jobs:
     steps:
       - name: ✅ Automatically approve
         uses: hmarr/auto-approve-action@v2.0.0
-        if: github.actor == 'MaxAltena' || github.actor == 'github-actions[bot]' || github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
+        if: github.actor == 'github-actions[bot]' || github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]'
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
