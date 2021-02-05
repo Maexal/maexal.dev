@@ -80,7 +80,7 @@
 		"prettier": "^2.2.1",
 		"redux-devtools-extension": "^2.13.8",
 		"sass": "^1.32.6",
-		"snyk": "^1.441.0",
+		"snyk": "^1.445.0",
 		"sort-package-json": "^1.48.1",
 		"tailwindcss": "^2.0.2",
 		"typescript": "^4.1.3"
