@@ -79,7 +79,7 @@
 		"postcss": "^8.2.6",
 		"prettier": "^2.2.1",
 		"redux-devtools-extension": "^2.13.8",
-		"sass": "^1.32.6",
+		"sass": "^1.32.7",
 		"snyk": "^1.450.0",
 		"sort-package-json": "^1.48.1",
 		"tailwindcss": "^2.0.3",
