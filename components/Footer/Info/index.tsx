@@ -4,7 +4,7 @@ import { useI18n } from 'next-localization';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { capitalizeFirst, getLanguageFromString, getThemeFromString } from '@/utils';
-import { State } from '@/types';
+import type { State } from '@/types';
 import { changeLanguage, changeTheme } from '@/redux';
 import { projectConfig } from '@/project.config';
 import * as Styled from './styles';

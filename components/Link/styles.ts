@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import type { StyledButtonProps } from './types';
+import type { StyledProps } from './types';
 
 export const Link = styled.a`
 	cursor: pointer;
@@ -65,7 +65,7 @@ export const NavigationLink = styled(Link)`
 	}
 `;
 
-export const Button = styled.a<StyledButtonProps>`
+export const Button = styled.a<StyledProps>`
 	--color: ${({ color, theme }) => (color === 'blue' ? theme.colors.primary.DEFAULT : theme.colors.secondary.DEFAULT)};
 
 	position: relative;

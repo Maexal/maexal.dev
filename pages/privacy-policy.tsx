@@ -4,7 +4,7 @@ import { useI18n } from 'next-localization';
 import { useSelector } from 'react-redux';
 import { projectConfig } from '@/project.config';
 import { capitalizeFirst } from '@/utils';
-import { State } from '@/types';
+import type { State } from '@/types';
 
 const Page = dynamic(() => import('@/components/Page'));
 const Head = dynamic(() => import('@/components/Head'));

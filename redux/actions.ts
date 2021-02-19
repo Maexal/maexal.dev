@@ -1,6 +1,9 @@
-import { ActionTypes, CHANGE_LANGUAGE, CHANGE_THEME, Language, Theme } from '@/types';
-import { setTheme } from '@/utils';
 import { NextRouter } from 'next/router';
+import { setTheme } from '@/utils';
+import type { ActionTypes, Language, Theme } from '@/types';
+
+export const CHANGE_THEME = '@APP/CHANGE_THEME';
+export const CHANGE_LANGUAGE = '@APP/CHANGE_LANGUAGE';
 
 export const changeTheme = (theme: Theme): ActionTypes => {
 	setTheme(theme);

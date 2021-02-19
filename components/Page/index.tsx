@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from 'framer-motion';
 import { ThemeProvider } from 'styled-components';
-import { State } from '@/types';
+import type { State } from '@/types';
 import { themes, ResetStyles, ToastifyStyles, SwalStyles, GlobalStyles } from '@/styles';
 import { getTheme } from '@/utils';
 

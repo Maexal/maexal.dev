@@ -1,4 +1,4 @@
-import { Theme } from '@/types';
+import type { Theme } from '@/types';
 
 export const checkDarkMode = (): void => {
 	if (typeof window !== 'undefined')

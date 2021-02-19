@@ -1,7 +1,7 @@
 import React from 'react';
 import { default as NextLink } from 'next/link';
 import * as Styled from './styles';
-import type { LinkProps } from './types';
+import type { Props } from './types';
 
 export const Link = ({
 	children,
@@ -12,7 +12,7 @@ export const Link = ({
 	target,
 	onClick,
 	...props
-}: LinkProps): JSX.Element => {
+}: Props): JSX.Element => {
 	switch (type) {
 		case 'button-link':
 			return (

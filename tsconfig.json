@@ -18,11 +18,19 @@
 		"baseUrl": "./",
 		"paths": {
 			"@/components/*": ["components/*"],
+			"@/components": ["components"],
 			"@/pages/*": ["pages/*"],
+			"@/pages": ["pages"],
 			"@/utils/*": ["utils/*"],
+			"@/utils": ["utils"],
 			"@/styles/*": ["styles/*"],
+			"@/styles": ["styles"],
 			"@/locales/*": ["locales/*"],
-			"@/*": ["*"]
+			"@/locales": ["locales"],
+			"@/redux/*": ["redux/*"],
+			"@/redux": ["redux"],
+			"@/types/*": ["types/*"],
+			"@/types": ["types"]
 		}
 	},
 	"include": ["next-env.d.ts", "styled.d.ts", "**/*.ts", "**/*.tsx"],
