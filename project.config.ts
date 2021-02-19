@@ -4,6 +4,7 @@ const name = "Mæxal";
 const nameSafe = "M&aelig;xal";
 const owner = "Max Altena";
 const domain = "maexal.dev";
+const faviconVersion = "2Ia6uyFL0E";
 
 const company = {
 	kvk: "78183251",
@@ -45,10 +46,10 @@ export const projectConfig: ProjectConfig = {
 	owner,
 	ownerURL: "https://maxaltena.com/",
 	titleTemplate: "{{title}} – {{name}}",
-	faviconVersion: "2Ia6uyFL0E",
+	faviconVersion,
 	domain,
 	startYear: 2020,
-	iconPath: "/assets/icons/android-chrome-512x512.png",
+	iconPath: `/assets/icons/android-chrome-512x512.png?v=${faviconVersion}`,
 	url: `https://${domain}/`,
 	keywords: ["maexal", "mæxal", "max", "altena", "max altena"],
 	company,

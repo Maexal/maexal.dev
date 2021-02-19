@@ -18,15 +18,15 @@ const _getMeta = () => {
 			<meta charSet="utf-8" />
 			<link rel="author" href="humans.txt" />
 			<link rel="alternate" href={url} hrefLang="x-default" />
-			<link rel="alternate" href={`${url}en`} hrefLang="en" />
-			<link rel="alternate" href={`${url}nl`} hrefLang="nl" />
+			<link rel="alternate" href={`${url}en/`} hrefLang="en" />
+			<link rel="alternate" href={`${url}nl/`} hrefLang="nl" />
 			<meta httpEquiv="X-UA-Compatible" content="chrome=1" />
 			<meta name="mobile-web-app-capable" content="yes" />
 			<meta name="apple-mobile-web-app-capable" content="yes" />
 			<meta name="apple-touch-fullscreen" content="yes" />
 			<meta name="mssmarttagspreventparsing" content="true" />
 			<meta name="classification" content="Website" />
-			<meta name="og:type" content="website" />
+			<meta property="og:type" content="website" />
 			<meta name="rating" content="General" />
 			<meta name="revisit-after" content="7 days" />
 			<meta httpEquiv="Expires" content="0" />
@@ -72,24 +72,25 @@ const _getRestOfHeadWithoutLocale = () => {
 
 			<meta name="url" content={url} />
 			<meta name="identifier-URL" content={url} />
-			<meta name="og:url" content={url} />
+			<meta property="og:url" content={url} />
 			<meta name="msapplication-starturl" content={url} />
 
 			<meta name="reply-to" content={personal} />
-			<meta name="og:email" content={personal} />
+			<meta property="og:email" content={personal} />
 
 			<meta name="subject" content={name} />
 			<meta name="copyright" content={name} />
 			<meta name="topic" content={name} />
-			<meta name="og:title" content={name} />
-			<meta name="og:site_name" content={name} />
+			<meta property="og:title" content={name} />
+			<meta property="og:site_name" content={name} />
 			<meta name="application-name" content={name} />
 			<meta name="msapplication-tooltip" content={`Launch ${name}`} />
-			<meta name="twitter:creator" content={handle} />
+			<meta name="twitter:site" content={handle} />
 
 			<meta name="keywords" content={keywords.join(",")} />
 
 			<meta property="og:image" content={iconPath} />
+			<meta property="twitter:image" content={iconPath} />
 
 			<meta name="author" content={`${owner}, ${personal}`} />
 			<meta name="designer" content={owner} />
@@ -104,7 +105,7 @@ const _getRestOfHeadWithLocale = ({ abstract, description }: { abstract: string;
 			<meta name="abstract" content={abstract} />
 			<meta name="description" content={description} />
 			<meta name="summary" content={description} />
-			<meta name="og:description" content={description} />
+			<meta property="og:description" content={description} />
 			<meta name="twitter:card" content={description} />
 		</>
 	);
