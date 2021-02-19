@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react";
-import dynamic from "next/dynamic";
-import { useI18n } from "next-localization";
-import projectConfig from "@/project.config";
-import { toastError, toastSuccess } from "@/utils";
-import { device } from "@/styles";
-import { Page } from "@/components";
+import React, { useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { useI18n } from 'next-localization';
+import projectConfig from '@/project.config';
+import { toastError, toastSuccess } from '@/utils';
+import { device } from '@/styles';
+import { Page } from '@/components';
 
-import "react-toastify/dist/ReactToastify.min.css";
+import 'react-toastify/dist/ReactToastify.min.css';
 
-const Footer = dynamic(() => import("@/components/Footer"));
-const Head = dynamic(() => import("@/components/Head"));
-const Link = dynamic(() => import("@/components/Link"));
-const Main = dynamic(() => import("@/components/Main"));
+const Footer = dynamic(() => import('@/components/Footer'));
+const Head = dynamic(() => import('@/components/Head'));
+const Link = dynamic(() => import('@/components/Link'));
+const Main = dynamic(() => import('@/components/Main'));
 
 const HomePage = (): JSX.Element => {
 	const [loading, setLoading] = useState<boolean>(false);
@@ -27,15 +27,15 @@ const HomePage = (): JSX.Element => {
 	const _sendForm = async (formData: FormData): Promise<void> => {
 		setLoading(true);
 
-		fetch("/", {
-			method: "POST",
-			headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		fetch('/', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
 			// @ts-ignore
 			body: new URLSearchParams(formData).toString(),
 		})
 			.then(() => {
 				toastSuccess(
-					t("toast.contact.success"),
+					t('toast.contact.success'),
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 20 20"
@@ -43,14 +43,14 @@ const HomePage = (): JSX.Element => {
 						className="inline-block text-white w-8 h-8 mr-2 -mt-1 transform-gpu rotate-45"
 					>
 						<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-					</svg>
+					</svg>,
 				);
 				setLoading(false);
-				setTimesSent(value => value + 1);
+				setTimesSent((value) => value + 1);
 			})
-			.catch(error => {
+			.catch((error) => {
 				console.error(error);
-				toastError(t("toast.contact.error"));
+				toastError(t('toast.contact.error'));
 				setLoading(false);
 			});
 	};
@@ -58,25 +58,25 @@ const HomePage = (): JSX.Element => {
 	const _handleSubmit = async (event: React.FormEvent<HTMLFormElement>): Promise<void> => {
 		event.preventDefault();
 
-		const Swal = (await import("sweetalert2")).default;
+		const Swal = (await import('sweetalert2')).default;
 
 		const formData = new FormData(form.current);
 
 		if (timesSent >= 3)
 			Swal.fire({
-				confirmButtonText: t("alert.contact-again-too-much.confirm"),
-				title: t("alert.contact-again-too-much.title"),
-				html: t("alert.contact-again-too-much.html"),
+				confirmButtonText: t('alert.contact-again-too-much.confirm'),
+				title: t('alert.contact-again-too-much.title'),
+				html: t('alert.contact-again-too-much.html'),
 			});
 		else if (timesSent >= 1)
 			Swal.fire({
-				icon: "warning",
+				icon: 'warning',
 				showCancelButton: true,
-				confirmButtonText: t("alert.contact-again.confirm"),
-				cancelButtonText: t("alert.contact-again.cancel"),
-				title: t("alert.contact-again.title"),
-				html: t("alert.contact-again.html", { amount: timesSent }),
-			}).then(async result => {
+				confirmButtonText: t('alert.contact-again.confirm'),
+				cancelButtonText: t('alert.contact-again.cancel'),
+				title: t('alert.contact-again.title'),
+				html: t('alert.contact-again.html', { amount: timesSent }),
+			}).then(async (result) => {
 				if (result.value) _sendForm(formData);
 			});
 		else _sendForm(formData);
@@ -84,25 +84,21 @@ const HomePage = (): JSX.Element => {
 
 	return (
 		<Page>
-			<Head title={`${name}: ${t("information.abstract")}`} useTitleTemplate={false} />
+			<Head title={`${name}: ${t('information.abstract')}`} useTitleTemplate={false} />
 
 			<Main>
-				<section
-					id="hero"
-					className="relative bg-transparent pt-20 font-sans"
-					style={{ height: "calc(100vh - 6rem)" }}
-				>
+				<section id="hero" className="relative bg-transparent pt-20 font-sans" style={{ height: 'calc(100vh - 6rem)' }}>
 					<div className="container h-full px-4 py-24 mx-auto flex flex-col justify-center items-center">
 						<div className="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
 							<h1 className="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 dark:text-gray-100 md:text-6xl md:tracking-tight">
-								{t("sentences.home-hero-title-1")}{" "}
+								{t('sentences.home-hero-title-1')}{' '}
 								<span className="block font-serif w-full text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-500 lg:inline">
-									{t("sentences.home-hero-title-highlight")}
-								</span>{" "}
-								{t("sentences.home-hero-title-2")}
+									{t('sentences.home-hero-title-highlight')}
+								</span>{' '}
+								{t('sentences.home-hero-title-2')}
 							</h1>
 							<p className="px-0 mb-6 text-lg text-gray-600 dark:text-gray-400 md:text-xl lg:px-24">
-								{t("sentences.home-hero-subtitle")}
+								{t('sentences.home-hero-subtitle')}
 							</p>
 							<div className="mb-4 space-x-0 md:space-x-2 md:mb-8">
 								<span
@@ -117,8 +113,8 @@ const HomePage = (): JSX.Element => {
 										}
 									`}
 								>
-									<Link type="button-link" href={t("navigation.contact.url")} elevation="hovering">
-										{t("phrases.contact-us")}
+									<Link type="button-link" href={t('navigation.contact.url')} elevation="hovering">
+										{t('phrases.contact-us')}
 									</Link>
 								</span>
 
@@ -145,7 +141,7 @@ const HomePage = (): JSX.Element => {
 					</div>
 				</section>
 				<section
-					id={t("navigation.contact.id")}
+					id={t('navigation.contact.id')}
 					className="relative bg-primary-100 dark:bg-primary-900 text-gray-900 dark:text-gray-100 font-sans py-8"
 				>
 					<div className="container px-5 pb-20 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -160,12 +156,12 @@ const HomePage = (): JSX.Element => {
 								marginWidth={0}
 								scrolling="0"
 								src="https://maps.google.com/maps?width=100%&amp;height=100%&amp;hl=en&amp;q=Maexal,Best,Netherlands&amp;ie=UTF8&amp;t=&amp;z=7&amp;iwloc=B&amp;output=embed"
-								style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
+								style={{ filter: 'grayscale(1) contrast(1.2) opacity(0.4)' }}
 							></iframe>
 							<div className="bg-gray-100 dark:bg-gray-900 relative flex flex-wrap py-6 rounded shadow-md">
 								<div className="lg:w-1/2 px-6 lg:mt-0">
 									<h2 className="font-serif mb-1 font-semibold uppercase text-gray-900 dark:text-gray-100 tracking-widest text-xs">
-										{t("words.email").toLocaleUpperCase()}
+										{t('words.email').toLocaleUpperCase()}
 									</h2>
 									<a
 										href={`mailto:${general}`}
@@ -174,7 +170,7 @@ const HomePage = (): JSX.Element => {
 										{general}
 									</a>
 									<h2 className="font-serif mb-1 mt-4 font-semibold uppercase text-gray-900 dark:text-gray-100 tracking-widest text-xs">
-										{t("words.phone").toLocaleUpperCase()}
+										{t('words.phone').toLocaleUpperCase()}
 									</h2>
 									<p className="font-mono text-gray-800 dark:text-gray-200 leading-relaxed whitespace-nowrap underline">
 										<a href="tel:+310639105742">+31 (0)6 39 10 57 42</a>
@@ -184,11 +180,9 @@ const HomePage = (): JSX.Element => {
 						</div>
 						<div className="lg:w-1/3 md:w-1/2 border-primary-500 border-1 rounded-lg flex flex-col md:ml-auto w-full p-6 md:p-8 mt-8 sm:mt-0">
 							<h2 className="text-primary-900 dark:text-primary-100 font-serif text-3xl mb-4 font-medium text-center">
-								{t("contact.heading")}
+								{t('contact.heading')}
 							</h2>
-							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400 min-h-28">
-								{t("contact.sub")}
-							</p>
+							<p className="leading-relaxed mb-5 text-gray-600 dark:text-gray-400 min-h-28">{t('contact.sub')}</p>
 							<form
 								id="contact-form"
 								className="flex-grow flex flex-col items-center"
@@ -198,18 +192,15 @@ const HomePage = (): JSX.Element => {
 								ref={form.current}
 							>
 								<div className="relative mb-4 w-full">
-									<label
-										htmlFor="name"
-										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
-									>
-										{t("contact.name")}
+									<label htmlFor="name" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
+										{t('contact.name')}
 									</label>
 									<input
 										type="text"
 										id="name"
 										name="name"
 										autoComplete="name"
-										placeholder={t("contact.name-placeholder")}
+										placeholder={t('contact.name-placeholder')}
 										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out ${
 											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
 										}`}
@@ -218,18 +209,15 @@ const HomePage = (): JSX.Element => {
 									/>
 								</div>
 								<div className="relative mb-4 w-full">
-									<label
-										htmlFor="email"
-										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
-									>
-										{t("contact.email")}
+									<label htmlFor="email" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
+										{t('contact.email')}
 									</label>
 									<input
 										type="email"
 										id="email"
 										name="email"
 										autoComplete="email"
-										placeholder={t("contact.email-placeholder")}
+										placeholder={t('contact.email-placeholder')}
 										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 leading-8 transition-colors duration-150 ease-in-out ${
 											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
 										}`}
@@ -238,16 +226,13 @@ const HomePage = (): JSX.Element => {
 									/>
 								</div>
 								<div className="relative mb-4 w-full">
-									<label
-										htmlFor="message"
-										className="leading-7 text-sm text-gray-600 dark:text-gray-400"
-									>
-										{t("contact.message")}
+									<label htmlFor="message" className="leading-7 text-sm text-gray-600 dark:text-gray-400">
+										{t('contact.message')}
 									</label>
 									<textarea
 										id="message"
 										name="message"
-										placeholder={t("contact.message-placeholder")}
+										placeholder={t('contact.message-placeholder')}
 										className={`w-full rounded border border-gray-300 dark:border-gray-700 focus:border-primary-500 focus:ring-2 focus:ring-primary-400 h-18 text-base outline-none text-gray-700 dark:text-gray-300 py-1 px-3 resize-none leading-6 transition-colors duration-150 ease-in-out ${
 											loading ? `bg-gray-300 dark:bg-gray-700` : `bg-gray-50 dark:bg-gray-900`
 										}`}
@@ -266,11 +251,11 @@ const HomePage = (): JSX.Element => {
 									`}
 								>
 									<Link href="#" type="button-function" disabled={loading}>
-										{t("contact.cta")}
+										{t('contact.cta')}
 									</Link>
 								</span>
 							</form>
-							<small className="text-xs text-gray-500 mt-3 h-4">{t("contact.last")}</small>
+							<small className="text-xs text-gray-500 mt-3 h-4">{t('contact.last')}</small>
 						</div>
 					</div>
 				</section>

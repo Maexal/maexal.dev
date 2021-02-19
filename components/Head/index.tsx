@@ -1,10 +1,10 @@
-import React from "react";
-import { Head as NextDocumentHead } from "next/document";
-import NextHead from "next/head";
-import { useI18n } from "next-localization";
-import { projectConfig } from "@/project.config";
-import { getFullTitle } from "@/utils";
-import { lightTheme as theme } from "@/styles";
+import React from 'react';
+import { Head as NextDocumentHead } from 'next/document';
+import NextHead from 'next/head';
+import { useI18n } from 'next-localization';
+import { projectConfig } from '@/project.config';
+import { getFullTitle } from '@/utils';
+import { lightTheme as theme } from '@/styles';
 
 const _getMeta = () => {
 	const { url } = projectConfig;
@@ -87,7 +87,7 @@ const _getRestOfHeadWithoutLocale = () => {
 			<meta name="msapplication-tooltip" content={`Launch ${name}`} />
 			<meta name="twitter:site" content={handle} />
 
-			<meta name="keywords" content={keywords.join(",")} />
+			<meta name="keywords" content={keywords.join(',')} />
 
 			<meta property="og:image" content={iconPath} />
 			<meta property="twitter:image" content={iconPath} />
@@ -116,29 +116,15 @@ const _getIcons = () => {
 
 	return (
 		<>
-			<link
-				rel="icon"
-				type="image/png"
-				sizes="16x16"
-				href={`/assets/icons/favicon-16x16.png?v=${faviconVersion}`}
-			/>
-			<link
-				rel="icon"
-				type="image/png"
-				sizes="32x32"
-				href={`/assets/icons/favicon-32x32.png?v=${faviconVersion}`}
-			/>
+			<link rel="icon" type="image/png" sizes="16x16" href={`/assets/icons/favicon-16x16.png?v=${faviconVersion}`} />
+			<link rel="icon" type="image/png" sizes="32x32" href={`/assets/icons/favicon-32x32.png?v=${faviconVersion}`} />
 			<link
 				rel="icon"
 				type="image/png"
 				sizes="194x194"
 				href={`/assets/icons/favicon-194x194.png?v=${faviconVersion}`}
 			/>
-			<link
-				rel="apple-touch-icon"
-				sizes="180x180"
-				href={`/assets/icons/apple-touch-icon.png?v=${faviconVersion}`}
-			/>
+			<link rel="apple-touch-icon" sizes="180x180" href={`/assets/icons/apple-touch-icon.png?v=${faviconVersion}`} />
 			<link
 				rel="icon"
 				type="image/png"
@@ -157,7 +143,7 @@ const _getIcons = () => {
 };
 
 const _getTitle = (title?: string, useTitleTemplate = true) => {
-	let titleOutput = "";
+	let titleOutput = '';
 
 	if (title && useTitleTemplate) titleOutput = getFullTitle(title);
 	else if (title && !useTitleTemplate) titleOutput = title;
@@ -193,8 +179,8 @@ export const HeadNext = ({
 			{_getMetaLocale(locale())}
 			{_getTitle(title, useTitleTemplate)}
 			{_getRestOfHeadWithLocale({
-				abstract: t("information.abstract"),
-				description: t("information.description"),
+				abstract: t('information.abstract'),
+				description: t('information.description'),
 			})}
 		</NextHead>
 	);

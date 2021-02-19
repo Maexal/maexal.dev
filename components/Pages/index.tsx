@@ -1,2 +1,2 @@
-export * from "./404";
-export * from "./Error";
+export * from './404';
+export * from './Error';

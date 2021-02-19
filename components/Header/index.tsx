@@ -1,10 +1,10 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { useI18n } from "next-localization";
-import * as Styled from "./styles";
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { useI18n } from 'next-localization';
+import * as Styled from './styles';
 
-const Link = dynamic(() => import("@/components/Link"));
-const Logo = dynamic(() => import("@/components/Logo"));
+const Link = dynamic(() => import('@/components/Link'));
+const Logo = dynamic(() => import('@/components/Logo'));
 
 export const Header = (): JSX.Element => {
 	const i18n = useI18n();
@@ -17,14 +17,14 @@ export const Header = (): JSX.Element => {
 			else setScrolled(false);
 		};
 
-		window.addEventListener("scroll", _handleScroll);
-		return () => window.removeEventListener("scroll", _handleScroll);
+		window.addEventListener('scroll', _handleScroll);
+		return () => window.removeEventListener('scroll', _handleScroll);
 	}, []);
 
 	return (
 		<Styled.Header scrolled={scrolled}>
 			<Styled.Container>
-				<Styled.Logo href={t("navigation.home.url")}>
+				<Styled.Logo href={t('navigation.home.url')}>
 					<Logo />
 				</Styled.Logo>
 
@@ -41,8 +41,8 @@ export const Header = (): JSX.Element => {
 
 					{/* <Spacer axis="horizontal" size={1} unit="rem" /> */}
 
-					<Link type="navigation-button" href={t("navigation.contact.url")} elevation="hovering">
-						{t("navigation.contact.name")}
+					<Link type="navigation-button" href={t('navigation.contact.url')} elevation="hovering">
+						{t('navigation.contact.name')}
 					</Link>
 				</Styled.Navigation>
 			</Styled.Container>

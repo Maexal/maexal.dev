@@ -1,8 +1,8 @@
-import dynamic from "next/dynamic";
-import styled from "styled-components";
-import { Container as GlobalContainer, device } from "@/styles";
+import dynamic from 'next/dynamic';
+import styled from 'styled-components';
+import { Container as GlobalContainer, device } from '@/styles';
 
-const ComponentLink = dynamic(() => import("@/components/Link"));
+const ComponentLink = dynamic(() => import('@/components/Link'));
 
 export const Container = styled(GlobalContainer)`
 	margin-left: auto;

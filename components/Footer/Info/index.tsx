@@ -1,16 +1,16 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { useI18n } from "next-localization";
-import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
-import { capitalizeFirst, getLanguageFromString, getThemeFromString } from "@/utils";
-import { State } from "@/types";
-import { changeLanguage, changeTheme } from "@/redux";
-import { projectConfig } from "@/project.config";
-import * as Styled from "./styles";
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { useI18n } from 'next-localization';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { capitalizeFirst, getLanguageFromString, getThemeFromString } from '@/utils';
+import { State } from '@/types';
+import { changeLanguage, changeTheme } from '@/redux';
+import { projectConfig } from '@/project.config';
+import * as Styled from './styles';
 
-const Link = dynamic(() => import("@/components/Link"));
-const Logo = dynamic(() => import("@/components/Logo"));
+const Link = dynamic(() => import('@/components/Link'));
+const Logo = dynamic(() => import('@/components/Logo'));
 
 export const FooterInfo = (): JSX.Element => {
 	const router = useRouter();
@@ -28,35 +28,35 @@ export const FooterInfo = (): JSX.Element => {
 
 	return (
 		<Styled.Wrapper>
-			<Styled.LogoLink href={t("navigation.home.url")}>
+			<Styled.LogoLink href={t('navigation.home.url')}>
 				<Logo />
 			</Styled.LogoLink>
 			<Styled.Paragraph>
-				{t("footer.description-1")}
+				{t('footer.description-1')}
 				<Link href={ownerURL} target="_blank">
 					{owner}
 				</Link>
-				{t("footer.description-2")}
+				{t('footer.description-2')}
 			</Styled.Paragraph>
 			<Styled.OptionsContainer>
 				<Styled.Label>
-					<Styled.Span>{t("words.language")}</Styled.Span>
+					<Styled.Span>{t('words.language')}</Styled.Span>
 					<Styled.Select value={appState.language} onChange={_changeLanguage}>
 						{languages.map(
 							({ key, name }: { key: string; name: string }): JSX.Element => (
 								<option key={key} value={key}>
 									{name}
 								</option>
-							)
+							),
 						)}
 					</Styled.Select>
 				</Styled.Label>
 				<Styled.Label>
-					<Styled.Span>{t("words.theme")}</Styled.Span>
+					<Styled.Span>{t('words.theme')}</Styled.Span>
 					<Styled.Select value={appState.theme} onChange={_changeTheme}>
-						<option value="system">{capitalizeFirst(t("words.system"))}</option>
-						<option value="light">{capitalizeFirst(t("words.light"))}</option>
-						<option value="dark">{capitalizeFirst(t("words.dark"))}</option>
+						<option value="system">{capitalizeFirst(t('words.system'))}</option>
+						<option value="light">{capitalizeFirst(t('words.light'))}</option>
+						<option value="dark">{capitalizeFirst(t('words.dark'))}</option>
 					</Styled.Select>
 				</Styled.Label>
 			</Styled.OptionsContainer>

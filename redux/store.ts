@@ -1,14 +1,14 @@
-import { useMemo } from "react";
-import { createStore, applyMiddleware, Store } from "node_modules/redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { ActionTypes, State, CHANGE_LANGUAGE, CHANGE_THEME } from "@/types";
+import { useMemo } from 'react';
+import { createStore, applyMiddleware, Store } from 'node_modules/redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import { ActionTypes, State, CHANGE_LANGUAGE, CHANGE_THEME } from '@/types';
 
 let store: Store<State, ActionTypes> | undefined;
 
 const initialState: State = {
 	app: {
-		theme: "system",
-		language: "en",
+		theme: 'system',
+		language: 'en',
 	},
 };
 
@@ -49,7 +49,7 @@ export const initializeStore = (preloadedState: State): Store<State, ActionTypes
 		store = undefined;
 	}
 
-	if (typeof window === "undefined") return _store;
+	if (typeof window === 'undefined') return _store;
 	if (!store) store = _store;
 
 	return _store;

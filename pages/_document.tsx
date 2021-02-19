@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React from "react";
-import dynamic from "next/dynamic";
-import NextDocument, { Html, Main, NextScript, DocumentContext, DocumentInitialProps } from "next/document";
-import { ServerStyleSheet } from "styled-components";
+import React from 'react';
+import dynamic from 'next/dynamic';
+import NextDocument, { Html, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
 
-const HeadDocument = dynamic(() => import("@/components/Head").then(module => module.HeadDocument) as any);
+const HeadDocument = dynamic(() => import('@/components/Head').then((module) => module.HeadDocument) as any);
 
 class Document extends NextDocument {
 	static getInitialProps = async (context: DocumentContext): Promise<DocumentInitialProps> => {
@@ -13,11 +13,11 @@ class Document extends NextDocument {
 		const initialProps = await NextDocument.getInitialProps(context);
 
 		try {
-			if (process.env.NODE_ENV !== "production") return initialProps;
+			if (process.env.NODE_ENV !== 'production') return initialProps;
 
 			context.renderPage = () =>
 				originalRenderPage({
-					enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
+					enhanceApp: (App) => (props) => sheet.collectStyles(<App {...props} />),
 				});
 
 			return {

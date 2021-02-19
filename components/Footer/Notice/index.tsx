@@ -1,7 +1,7 @@
-import React from "react";
-import { useI18n } from "next-localization";
-import projectConfig from "@/project.config";
-import * as Styled from "./styles";
+import React from 'react';
+import { useI18n } from 'next-localization';
+import projectConfig from '@/project.config';
+import * as Styled from './styles';
 
 export const FooterNotice = (): JSX.Element => {
 	const i18n = useI18n();
@@ -12,14 +12,14 @@ export const FooterNotice = (): JSX.Element => {
 		<Styled.Container>
 			<Styled.Wrapper>
 				<Styled.Copyright>
-					&copy; Copyright {startYear}-{new Date().getFullYear()} {name}. {t("phrases.all-rights-reserved")}.
+					&copy; Copyright {startYear}-{new Date().getFullYear()} {name}. {t('phrases.all-rights-reserved')}.
 				</Styled.Copyright>
 				<Styled.Links>
-					<Styled.Link href={t("navigation.terms-and-conditions.url")}>
-						{t("navigation.terms-and-conditions.capitalized-name")}
+					<Styled.Link href={t('navigation.terms-and-conditions.url')}>
+						{t('navigation.terms-and-conditions.capitalized-name')}
 					</Styled.Link>
-					<Styled.Link href={t("navigation.privacy-policy.url")}>
-						{t("navigation.privacy-policy.capitalized-name")}
+					<Styled.Link href={t('navigation.privacy-policy.url')}>
+						{t('navigation.privacy-policy.capitalized-name')}
 					</Styled.Link>
 				</Styled.Links>
 			</Styled.Wrapper>

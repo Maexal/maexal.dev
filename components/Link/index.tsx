@@ -1,20 +1,20 @@
-import React from "react";
-import { default as NextLink } from "next/link";
-import * as Styled from "./styles";
-import type { LinkProps } from "./types";
+import React from 'react';
+import { default as NextLink } from 'next/link';
+import * as Styled from './styles';
+import type { LinkProps } from './types';
 
 export const Link = ({
 	children,
-	type = "normal",
-	elevation = "hovering",
-	color = "orange",
+	type = 'normal',
+	elevation = 'hovering',
+	color = 'orange',
 	disabled = false,
 	target,
 	onClick,
 	...props
 }: LinkProps): JSX.Element => {
 	switch (type) {
-		case "button-link":
+		case 'button-link':
 			return (
 				<NextLink passHref {...props}>
 					<Styled.Button as="a" target={target} color={color} elevation={elevation} disabled={disabled}>
@@ -22,32 +22,26 @@ export const Link = ({
 					</Styled.Button>
 				</NextLink>
 			);
-		case "button-function":
+		case 'button-function':
 			return (
-				<Styled.ButtonFunction
-					as="button"
-					color={color}
-					elevation={elevation}
-					disabled={disabled}
-					onClick={onClick}
-				>
+				<Styled.ButtonFunction as="button" color={color} elevation={elevation} disabled={disabled} onClick={onClick}>
 					<span>{children}</span>
 				</Styled.ButtonFunction>
 			);
-		case "button":
+		case 'button':
 			return (
 				<Styled.Button as="button" color={color} elevation={elevation} disabled={disabled} onClick={onClick}>
 					<span>{children}</span>
 				</Styled.Button>
 			);
-		case "navigation-link":
+		case 'navigation-link':
 			return (
 				<NextLink passHref {...props}>
 					<Styled.NavigationLink>{children}</Styled.NavigationLink>
 				</NextLink>
 			);
 
-		case "navigation-button":
+		case 'navigation-button':
 			return (
 				<NextLink passHref {...props}>
 					<Styled.ButtonFunction color={color} elevation={elevation} disabled={disabled}>
@@ -56,7 +50,7 @@ export const Link = ({
 				</NextLink>
 			);
 
-		case "normal":
+		case 'normal':
 		default:
 			return (
 				<NextLink passHref {...props}>

@@ -1,11 +1,11 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { useI18n } from "next-localization";
-import { capitalizeFirst } from "@/utils";
-import * as Styled from "./styles";
-import type { Props } from "./types";
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { useI18n } from 'next-localization';
+import { capitalizeFirst } from '@/utils';
+import * as Styled from './styles';
+import type { Props } from './types';
 
-const Link = dynamic(() => import("@/components/Link"));
+const Link = dynamic(() => import('@/components/Link'));
 
 export const PageErrorContent = ({ errorText }: Props): JSX.Element => {
 	const i18n = useI18n();
@@ -15,8 +15,8 @@ export const PageErrorContent = ({ errorText }: Props): JSX.Element => {
 		<Styled.Wrapper>
 			<div>
 				<Styled.Label>{errorText}</Styled.Label>
-				<Styled.Heading>{t("sentences.500-title")}</Styled.Heading>
-				<Styled.Paragraph>{t("sentences.500-text")}</Styled.Paragraph>
+				<Styled.Heading>{t('sentences.500-title')}</Styled.Heading>
+				<Styled.Paragraph>{t('sentences.500-text')}</Styled.Paragraph>
 
 				<span
 					css={`
@@ -25,12 +25,12 @@ export const PageErrorContent = ({ errorText }: Props): JSX.Element => {
 						margin-left: 0.25rem;
 					`}
 				>
-					<Link type="button-link" href={t("navigation.home.url")} elevation="hovering">
-						{capitalizeFirst(t("phrases.back-to-safety"))}
+					<Link type="button-link" href={t('navigation.home.url')} elevation="hovering">
+						{capitalizeFirst(t('phrases.back-to-safety'))}
 					</Link>
 				</span>
-				<Link type="button-link" href={t("navigation.contact.url")} color="blue">
-					{capitalizeFirst(t("phrases.contact-us"))}
+				<Link type="button-link" href={t('navigation.contact.url')} color="blue">
+					{capitalizeFirst(t('phrases.contact-us'))}
 				</Link>
 			</div>
 			<Styled.Image />

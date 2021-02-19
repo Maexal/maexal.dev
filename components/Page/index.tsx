@@ -1,19 +1,19 @@
-import React from "react";
-import dynamic from "next/dynamic";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from "framer-motion";
-import { ThemeProvider } from "styled-components";
-import { State } from "@/types";
-import { themes, ResetStyles, ToastifyStyles, SwalStyles, GlobalStyles } from "@/styles";
-import { getTheme } from "@/utils";
+import React from 'react';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from 'framer-motion';
+import { ThemeProvider } from 'styled-components';
+import { State } from '@/types';
+import { themes, ResetStyles, ToastifyStyles, SwalStyles, GlobalStyles } from '@/styles';
+import { getTheme } from '@/utils';
 
-const Header = dynamic(() => import("@/components/Header"));
+const Header = dynamic(() => import('@/components/Header'));
 
 const motionProps: MotionProps = {
-	initial: "pageInitial",
-	animate: "pageAnimate",
-	exit: "pageExit",
+	initial: 'pageInitial',
+	animate: 'pageAnimate',
+	exit: 'pageExit',
 	variants: {
 		pageInitial: {
 			opacity: 0,
@@ -27,7 +27,7 @@ const motionProps: MotionProps = {
 	},
 	transition: {
 		duration: 0.15,
-		ease: "easeInOut",
+		ease: 'easeInOut',
 	},
 };
 
@@ -36,7 +36,7 @@ export const Page = ({ children }: { children: React.ReactNode }): JSX.Element =
 	const { route } = useRouter();
 
 	return (
-		<ThemeProvider theme={getTheme(appState.theme) === "dark" ? themes.darkTheme : themes.lightTheme}>
+		<ThemeProvider theme={getTheme(appState.theme) === 'dark' ? themes.darkTheme : themes.lightTheme}>
 			<ResetStyles />
 			<GlobalStyles />
 			<ToastifyStyles />

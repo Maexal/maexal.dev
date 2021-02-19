@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Logo = styled.div`
 	--logo-width: 375px;
@@ -23,7 +23,7 @@ export const Logo = styled.div`
 
 	&::before,
 	&::after {
-		content: "";
+		content: '';
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -35,7 +35,7 @@ export const Logo = styled.div`
 	}
 
 	&::before {
-		background-image: url("/assets/vectors/logo-outline-only-blue.svg");
+		background-image: url('/assets/vectors/logo-outline-only-blue.svg');
 		z-index: -2;
 		transform: var(--pos-0);
 	}
@@ -44,7 +44,7 @@ export const Logo = styled.div`
 		transition-property: transform;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-duration: 150ms;
-		background-image: url("/assets/vectors/logo-filled-only-blue.svg");
+		background-image: url('/assets/vectors/logo-filled-only-blue.svg');
 		z-index: -1;
 		transform: var(--pos-1);
 		will-change: transform;

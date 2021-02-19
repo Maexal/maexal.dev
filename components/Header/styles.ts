@@ -1,9 +1,9 @@
-import dynamic from "next/dynamic";
-import styled from "styled-components";
-import { Container as GlobalContainer } from "@/styles";
-import type { StyledProps } from "./types";
+import dynamic from 'next/dynamic';
+import styled from 'styled-components';
+import { Container as GlobalContainer } from '@/styles';
+import type { StyledProps } from './types';
 
-const ComponentLink = dynamic(() => import("@/components/Link"));
+const ComponentLink = dynamic(() => import('@/components/Link'));
 
 export const Header = styled.header<StyledProps>`
 	position: fixed;

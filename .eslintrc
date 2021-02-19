@@ -35,13 +35,15 @@
 		"prettier/prettier": [
 			"error",
 			{
-				"arrowParens": "avoid",
+				"trailingComma": "all",
+				"arrowParens": "always",
 				"bracketSpacing": true,
 				"printWidth": 120,
 				"semi": true,
-				"singleQuote": false,
-				"tabWidth": 4,
-				"useTabs": true
+				"singleQuote": true,
+				"tabWidth": 2,
+				"useTabs": true,
+				"endOfLine": "lf"
 			}
 		]
 	}

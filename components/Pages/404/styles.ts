@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "@/styles";
+import styled from 'styled-components';
+import { device } from '@/styles';
 
 export const Wrapper = styled.div`
 	display: grid;
@@ -74,7 +74,7 @@ export const Image = styled.div`
 	padding-bottom: 12rem;
 	border-radius: 0.5rem;
 	background-color: ${({ theme }) => theme.colors.gray[200]};
-	background-image: url("https://media.giphy.com/media/hEc4k5pN17GZq/giphy.gif");
+	background-image: url('https://media.giphy.com/media/hEc4k5pN17GZq/giphy.gif');
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;

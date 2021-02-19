@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 export const toastSuccess = async (message: string, customPre?: JSX.Element): Promise<void> => {
-	const { toast } = await import("react-toastify");
+	const { toast } = await import('react-toastify');
 
 	toast.success(
 		<div className="inline-flex">
@@ -22,12 +22,12 @@ export const toastSuccess = async (message: string, customPre?: JSX.Element): Pr
 				</svg>
 			)}
 			<p className="text-sm">{message}</p>
-		</div>
+		</div>,
 	);
 };
 
 export const toastError = async (message: string, customPre?: JSX.Element): Promise<void> => {
-	const { toast } = await import("react-toastify");
+	const { toast } = await import('react-toastify');
 
 	toast.error(
 		<div className="inline-flex">
@@ -48,6 +48,6 @@ export const toastError = async (message: string, customPre?: JSX.Element): Prom
 				</svg>
 			)}
 			<p className="text-sm">{message}</p>
-		</div>
+		</div>,
 	);
 };

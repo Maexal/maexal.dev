@@ -1,23 +1,23 @@
-import React from "react";
-import { useI18n } from "next-localization";
-import * as Styled from "./styles";
-import type { Props } from "./types";
-import { FooterNotice } from "./Notice";
-import { FooterInfo } from "./Info";
+import React from 'react';
+import { useI18n } from 'next-localization';
+import * as Styled from './styles';
+import type { Props } from './types';
+import { FooterNotice } from './Notice';
+import { FooterInfo } from './Info';
 
-export const Footer = ({ type = "regular", ...props }: Props): JSX.Element => {
+export const Footer = ({ type = 'regular', ...props }: Props): JSX.Element => {
 	const i18n = useI18n();
 	const { t } = i18n;
 
 	switch (type) {
-		case "notice-only":
+		case 'notice-only':
 			return (
 				<Styled.Footer {...props}>
 					<FooterNotice />
 				</Styled.Footer>
 			);
 
-		case "regular":
+		case 'regular':
 		default:
 			return (
 				<Styled.Footer {...props}>
@@ -33,7 +33,7 @@ export const Footer = ({ type = "regular", ...props }: Props): JSX.Element => {
 								--grid-column-start: 5;
 							`}
 						>
-							<Styled.Paragraph>{t("footer.social.heading")}</Styled.Paragraph>
+							<Styled.Paragraph>{t('footer.social.heading')}</Styled.Paragraph>
 							<Styled.Link href="https://github.com/maexal/" target="_blank">
 								GitHub
 							</Styled.Link>

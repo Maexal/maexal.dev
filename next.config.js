@@ -1,77 +1,77 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require("path");
-const nextBuildId = require("next-build-id");
-const withPWA = require("next-pwa");
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
-	enabled: process.env.ANALYZE === "true",
+const path = require('path');
+const nextBuildId = require('next-build-id');
+const withPWA = require('next-pwa');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true',
 });
 
 module.exports = withBundleAnalyzer(
 	withPWA({
-		target: "serverless",
+		target: 'serverless',
 		reactStrictMode: true,
 		trailingSlash: true,
 		pwa: {
-			dest: "public",
-			disable: process.env.NODE_ENV === "development",
+			dest: 'public',
+			disable: process.env.NODE_ENV === 'development',
 			register: true,
-			scope: "/",
+			scope: '/',
 		},
 		generateBuildId: () => nextBuildId({ dir: __dirname }),
 		sassOptions: {
-			includePaths: [path.join(__dirname, "styles")],
+			includePaths: [path.join(__dirname, 'styles')],
 		},
 		i18n: {
-			locales: ["en", "nl"],
-			defaultLocale: "en",
+			locales: ['en', 'nl'],
+			defaultLocale: 'en',
 			domains: [
 				{
-					domain: "maexal.dev",
-					defaultLocale: "en",
+					domain: 'maexal.dev',
+					defaultLocale: 'en',
 				},
 				{
-					domain: "maexal.nl",
-					defaultLocale: "nl",
+					domain: 'maexal.nl',
+					defaultLocale: 'nl',
 				},
 				{
-					domain: "maexal.site",
-					defaultLocale: "en",
+					domain: 'maexal.site',
+					defaultLocale: 'en',
 				},
 				{
-					domain: "maexal.site",
-					defaultLocale: "en",
+					domain: 'maexal.site',
+					defaultLocale: 'en',
 				},
 				{
-					domain: "maexal.online",
-					defaultLocale: "en",
+					domain: 'maexal.online',
+					defaultLocale: 'en',
 				},
 				{
-					domain: "maexal.com",
-					defaultLocale: "en",
+					domain: 'maexal.com',
+					defaultLocale: 'en',
 				},
 				{
-					domain: "maexal.eu",
-					defaultLocale: "en",
+					domain: 'maexal.eu',
+					defaultLocale: 'en',
 				},
 				{
-					domain: "maexal.shop",
-					defaultLocale: "en",
+					domain: 'maexal.shop',
+					defaultLocale: 'en',
 				},
 			],
 		},
 		images: {
-			domains: ["media.giphy.com"],
+			domains: ['media.giphy.com'],
 		},
 		async rewrites() {
 			return [
 				{
-					source: "/nl/algemene-voorwaarden/",
-					destination: "/en/terms-and-conditions/",
+					source: '/nl/algemene-voorwaarden/',
+					destination: '/en/terms-and-conditions/',
 					locale: false,
 				},
 				{
-					source: "/nl/privacybeleid/",
-					destination: "/en/privacy-policy/",
+					source: '/nl/privacybeleid/',
+					destination: '/en/privacy-policy/',
 					locale: false,
 				},
 			];
@@ -79,21 +79,21 @@ module.exports = withBundleAnalyzer(
 		async redirects() {
 			return [
 				{
-					source: "/terms",
-					destination: "/terms-and-conditions/",
+					source: '/terms',
+					destination: '/terms-and-conditions/',
 					permanent: true,
 				},
 				{
-					source: "/conditions",
-					destination: "/terms-and-conditions/",
+					source: '/conditions',
+					destination: '/terms-and-conditions/',
 					permanent: true,
 				},
 				{
-					source: "/privacy",
-					destination: "/privacy-policy/",
+					source: '/privacy',
+					destination: '/privacy-policy/',
 					permanent: true,
 				},
 			];
 		},
-	})
+	}),
 );

@@ -2,7 +2,7 @@ section#hero {
 	&::after {
 		@apply absolute inset-x-0 bottom-0 w-full h-16 bg-gradient-to-b from-transparent to-primary-100 dark:to-primary-900;
 
-		content: "";
+		content: '';
 	}
 }
 
@@ -15,7 +15,7 @@ div.text-page-content {
 	&::after {
 		@apply absolute inset-y-0 h-full w-16 from-transparent to-primary-100 dark:to-primary-900;
 
-		content: "";
+		content: '';
 	}
 
 	&::before {

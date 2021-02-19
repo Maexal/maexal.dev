@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import type { StyledButtonProps } from "./types";
+import styled from 'styled-components';
+import type { StyledButtonProps } from './types';
 
 export const Link = styled.a`
 	cursor: pointer;
@@ -34,10 +34,10 @@ export const NavigationLink = styled(Link)`
 	}
 
 	&::before {
-		content: "<";
+		content: '<';
 	}
 	&::after {
-		content: "/>";
+		content: '/>';
 	}
 
 	&:hover {
@@ -66,8 +66,7 @@ export const NavigationLink = styled(Link)`
 `;
 
 export const Button = styled.a<StyledButtonProps>`
-	--color: ${({ color, theme }) =>
-		color === "blue" ? theme.colors.primary.DEFAULT : theme.colors.secondary.DEFAULT};
+	--color: ${({ color, theme }) => (color === 'blue' ? theme.colors.primary.DEFAULT : theme.colors.secondary.DEFAULT)};
 
 	position: relative;
 	display: inline-block;
@@ -89,7 +88,7 @@ export const Button = styled.a<StyledButtonProps>`
 
 	&::before,
 	&::after {
-		content: "";
+		content: '';
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -132,9 +131,9 @@ export const Button = styled.a<StyledButtonProps>`
 	&::before,
 	> span {
 		transform: ${({ elevation }) =>
-			elevation === "flying"
+			elevation === 'flying'
 				? `translate(0.5rem, -0.5rem)`
-				: elevation === "hovering"
+				: elevation === 'hovering'
 				? `translate(0.25rem, -0.25rem)`
 				: `translate(0, 0)`};
 	}
@@ -143,9 +142,9 @@ export const Button = styled.a<StyledButtonProps>`
 		&::before,
 		> span {
 			transform: ${({ elevation }) =>
-				elevation === "flying"
+				elevation === 'flying'
 					? `translate(0.25rem, -0.25rem)`
-					: elevation === "hovering"
+					: elevation === 'hovering'
 					? `translate(0.5rem, -0.5rem)`
 					: `translate(0.25rem, -0.25rem)`};
 		}
@@ -165,7 +164,7 @@ export const Button = styled.a<StyledButtonProps>`
 
 export const ButtonFunction = styled(Button)`
 	> span::after {
-		content: "()";
+		content: '()';
 		opacity: 0.5;
 		font-family: ${({ theme }) => theme.fonts.mono};
 		font-size: 0.875rem;

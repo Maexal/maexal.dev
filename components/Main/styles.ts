@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Container as GlobalContainer } from "@/styles";
-import type { StyledProps } from "./types";
+import styled from 'styled-components';
+import { Container as GlobalContainer } from '@/styles';
+import type { StyledProps } from './types';
 
 export const Main = styled.main<StyledProps>`
 	width: 100%;
