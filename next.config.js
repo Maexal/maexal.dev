@@ -21,6 +21,9 @@ module.exports = withBundleAnalyzer(
 		sassOptions: {
 			includePaths: [path.join(__dirname, 'styles')],
 		},
+		images: {
+			domains: ['media.giphy.com'],
+		},
 		i18n: {
 			locales: ['en', 'nl'],
 			defaultLocale: 'en',
@@ -59,11 +62,9 @@ module.exports = withBundleAnalyzer(
 				},
 			],
 		},
-		images: {
-			domains: ['media.giphy.com'],
-		},
 		async rewrites() {
 			return [
+				{ source: '/nl', destination: '/nl/' },
 				{
 					source: '/nl/algemene-voorwaarden/',
 					destination: '/en/terms-and-conditions/',

@@ -30,7 +30,8 @@
 			"@/redux/*": ["redux/*"],
 			"@/redux": ["redux"],
 			"@/types/*": ["types/*"],
-			"@/types": ["types"]
+			"@/types": ["types"],
+			"@/project.config": ["project.config.ts"]
 		}
 	},
 	"include": ["next-env.d.ts", "styled.d.ts", "**/*.ts", "**/*.tsx"],
