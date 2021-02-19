@@ -1,11 +1,5 @@
 # General
 node_modules
-.eslintignore
-.prettierignore
-.gitignore
-.editorconfig
-.browserslistrc
-.htaccess
 *.min.*
 *.yml
 *.pdf
@@ -13,15 +7,10 @@ node_modules
 *.jpg
 *.gif
 *.png
-LICENSE
 *.toml
-.netlify
-.next
+LICENSE
 public
-.snyk
-.babelrc
-.huskyrc
-.lintstagedrc
+.*
 
 # Project specific
 dist
