@@ -6,7 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import '@/styles/tailwind.scss';
 import '@/styles/customCSS.scss';
 import { getLanguageDictionary, getLanguageFromString, getThemeFromString, useLocalStorage } from '@/utils';
-import { useStore, changeLanguage, changeTheme } from '@/redux';
+import { useStore, changeLanguage, changeTheme } from '@/states';
 import projectConfig from '@/project.config';
 
 const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {

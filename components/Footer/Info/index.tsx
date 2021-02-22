@@ -4,8 +4,8 @@ import { useI18n } from 'next-localization';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { capitalizeFirst, getLanguageFromString, getThemeFromString } from '@/utils';
-import type { State } from '@/types';
-import { changeLanguage, changeTheme } from '@/redux';
+import type { AppActionTypes, State } from '@/types';
+import { changeLanguage, changeTheme } from '@/states';
 import { projectConfig } from '@/project.config';
 import * as Styled from './styles';
 
@@ -20,10 +20,10 @@ export const FooterInfo = (): JSX.Element => {
 	const { t } = i18n;
 	const { owner, ownerURL, languages } = projectConfig;
 
-	const _changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>): void =>
+	const _changeLanguage = (event: React.ChangeEvent<HTMLSelectElement>): AppActionTypes =>
 		dispatch(changeLanguage(getLanguageFromString(event.target.value), router));
 
-	const _changeTheme = (event: React.ChangeEvent<HTMLSelectElement>): void =>
+	const _changeTheme = (event: React.ChangeEvent<HTMLSelectElement>): AppActionTypes =>
 		dispatch(changeTheme(getThemeFromString(event.target.value)));
 
 	return (

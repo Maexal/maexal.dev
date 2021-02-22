@@ -1,4 +1,4 @@
-import { CHANGE_LANGUAGE, CHANGE_THEME } from '@/redux';
+import { CHANGE_LANGUAGE, CHANGE_THEME } from '@/states';
 
 export type Theme = 'system' | 'light' | 'dark';
 export type Language = 'en' | 'nl';
@@ -10,12 +10,12 @@ export interface State {
 	};
 }
 
-interface ChangeThemeAction {
+export interface ChangeThemeAction {
 	type: typeof CHANGE_THEME;
 	theme: Theme;
 }
 
-interface ChangeLanguageAction {
+export interface ChangeLanguageAction {
 	type: typeof CHANGE_LANGUAGE;
 	language: Language;
 }
