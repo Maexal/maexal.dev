@@ -76,7 +76,7 @@
 		"netlify-plugin-submit-sitemap": "^0.2.3",
 		"postcss": "^8.2.7",
 		"prettier": "^2.2.1",
-		"redux-devtools-extension": "^2.13.8",
+		"redux-devtools-extension": "^2.13.9",
 		"sass": "^1.32.8",
 		"sort-package-json": "^1.49.0",
 		"tailwindcss": "^2.0.3",
