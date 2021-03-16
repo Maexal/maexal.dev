@@ -8,6 +8,10 @@ node_modules
 *.png
 LICENSE
 public
+.netlify
+.husky
+.next
+netlify.toml
 
 # Project specific
 dist
@@ -18,3 +22,7 @@ out_functions
 # Misc
 .editorconfig
 .prettierignore
+.eslintignore
+.browserslistrc
+.gitignore
+.lintstagedrc
