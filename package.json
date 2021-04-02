@@ -34,7 +34,7 @@
 		"postinstall": "husky install"
 	},
 	"dependencies": {
-		"framer-motion": "^4.1.0",
+		"framer-motion": "^4.1.2",
 		"next": "^10.1.2",
 		"next-build-id": "^3.0.0",
 		"next-localization": "^0.11.0",
