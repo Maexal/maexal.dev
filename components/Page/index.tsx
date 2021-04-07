@@ -2,7 +2,7 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from 'framer-motion';
+import { AnimatePresence, m as motion, MotionProps } from 'framer-motion';
 import { ThemeProvider } from 'styled-components';
 import type { State } from '@/types';
 import { themes, ResetStyles, ToastifyStyles, SwalStyles, GlobalStyles } from '@/styles';
@@ -43,13 +43,11 @@ export const Page = ({ children }: { children: React.ReactNode }): JSX.Element =
 			<SwalStyles />
 
 			<Header />
-			<MotionConfig features={[AnimationFeature, ExitFeature]}>
-				<AnimatePresence exitBeforeEnter>
-					<motion.div key={route} {...motionProps}>
-						{children}
-					</motion.div>
-				</AnimatePresence>
-			</MotionConfig>
+			<AnimatePresence exitBeforeEnter>
+				<motion.div key={route} {...motionProps}>
+					{children}
+				</motion.div>
+			</AnimatePresence>
 		</ThemeProvider>
 	);
 };

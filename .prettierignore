@@ -8,6 +8,7 @@ node_modules
 *.png
 LICENSE
 public
+.husky
 
 # Project specific
 dist
