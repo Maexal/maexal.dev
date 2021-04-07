@@ -10,12 +10,14 @@ module.exports = withBundleAnalyzer(
 	withPWA({
 		target: 'serverless',
 		reactStrictMode: true,
+		future: {
+			webpack5: true,
+		},
 		trailingSlash: true,
 		pwa: {
 			dest: 'public',
 			disable: process.env.NODE_ENV === 'development',
 			register: true,
-			scope: '/',
 		},
 		generateBuildId: () => nextBuildId({ dir: __dirname }),
 		sassOptions: {

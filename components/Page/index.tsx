@@ -16,7 +16,7 @@ const motionProps: MotionProps = {
 	exit: 'pageExit',
 	variants: {
 		pageInitial: {
-			opacity: 0,
+			opacity: 1,
 		},
 		pageAnimate: {
 			opacity: 1,
