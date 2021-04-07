@@ -42,13 +42,11 @@ export const FooterInfo = (): JSX.Element => {
 				<Styled.Label>
 					<Styled.Span>{t('words.language')}</Styled.Span>
 					<Styled.Select value={appState.language} onChange={_changeLanguage}>
-						{languages.map(
-							({ key, name }: { key: string; name: string }): JSX.Element => (
-								<option key={key} value={key}>
-									{name}
-								</option>
-							),
-						)}
+						{languages.map(({ key, name }) => (
+							<option key={key} value={key}>
+								{name}
+							</option>
+						))}
 					</Styled.Select>
 				</Styled.Label>
 				<Styled.Label>
