@@ -1,16 +1,16 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
+
 import { useI18n } from 'next-localization';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
-import { capitalizeFirst, getLanguageFromString, getThemeFromString } from '@/utils';
-import type { AppActionTypes, State } from '@/types';
-import { changeLanguage, changeTheme } from '@/states';
-import { projectConfig } from '@/project.config';
-import * as Styled from './styles';
 
-const Link = dynamic(() => import('@/components/Link'));
-const Logo = dynamic(() => import('@/components/Logo'));
+import { Link, Logo } from '@/components';
+import { projectConfig } from '@/project.config';
+import { changeLanguage, changeTheme } from '@/states';
+import type { AppActionTypes, State } from '@/types';
+import { capitalizeFirst, getLanguageFromString, getThemeFromString } from '@/utils';
+
+import * as Styled from './styles';
 
 export const FooterInfo = (): JSX.Element => {
 	const router = useRouter();

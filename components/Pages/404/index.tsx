@@ -1,10 +1,11 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-import { useI18n } from 'next-localization';
-import { capitalizeFirst } from '@/utils';
-import * as Styled from './styles';
 
-const Link = dynamic(() => import('@/components/Link'));
+import { useI18n } from 'next-localization';
+
+import { Link } from '@/components';
+import { capitalizeFirst } from '@/utils';
+
+import * as Styled from './styles';
 
 export const Page404Content = (): JSX.Element => {
 	const i18n = useI18n();

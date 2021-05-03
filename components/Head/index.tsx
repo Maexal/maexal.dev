@@ -1,10 +1,12 @@
 import React from 'react';
+
+import { useI18n } from 'next-localization';
 import { Head as NextDocumentHead } from 'next/document';
 import NextHead from 'next/head';
-import { useI18n } from 'next-localization';
+
 import { projectConfig } from '@/project.config';
-import { getFullTitle } from '@/utils';
 import { lightTheme as theme } from '@/styles';
+import { getFullTitle } from '@/utils';
 
 const _getMeta = () => {
 	const { url } = projectConfig;

@@ -1,14 +1,14 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
+
+import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
-import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from 'framer-motion';
 import { ThemeProvider } from 'styled-components';
-import type { State } from '@/types';
-import { themes, ResetStyles, ToastifyStyles, SwalStyles, GlobalStyles } from '@/styles';
-import { getTheme } from '@/utils';
 
-const Header = dynamic(() => import('@/components/Header'));
+import { Header } from '@/components';
+import { themes, ResetStyles, ToastifyStyles, SwalStyles, GlobalStyles } from '@/styles';
+import type { State } from '@/types';
+import { getTheme } from '@/utils';
 
 const motionProps: MotionProps = {
 	initial: 'pageInitial',

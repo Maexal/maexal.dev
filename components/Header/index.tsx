@@ -1,17 +1,17 @@
-import React from 'react';
-import dynamic from 'next/dynamic';
-import { useI18n } from 'next-localization';
-import * as Styled from './styles';
+import React, { useState, useEffect } from 'react';
 
-const Link = dynamic(() => import('@/components/Link'));
-const Logo = dynamic(() => import('@/components/Logo'));
+import { useI18n } from 'next-localization';
+
+import { Link, Logo } from '@/components';
+
+import * as Styled from './styles';
 
 export const Header = (): JSX.Element => {
 	const i18n = useI18n();
 	const { t } = i18n;
-	const [scrolled, setScrolled] = React.useState<boolean>(false);
+	const [scrolled, setScrolled] = useState<boolean>(false);
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const _handleScroll = () => {
 			if (window.scrollY > 10) setScrolled(true);
 			else setScrolled(false);

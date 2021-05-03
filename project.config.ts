@@ -1,11 +1,10 @@
-import { ToastContainerProps } from 'react-toastify';
+import type { ToastContainerProps } from 'react-toastify';
 
 const name = 'Mæxal';
 const nameSafe = 'M&aelig;xal';
 const owner = 'Max Altena';
 const domain = 'maexal.dev';
 const faviconVersion = '2Ia6uyFL0E';
-
 const company = {
 	kvk: '78183251',
 	bic: 'BUNQNL2AXXX',

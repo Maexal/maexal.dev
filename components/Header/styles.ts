@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import { Container as GlobalContainer } from '@/styles';
-import type { StyledProps } from './types';
 
-const ComponentLink = dynamic(() => import('@/components/Link'));
+import { Link } from '@/components/Link/styles';
+import { Container as GlobalContainer } from '@/styles';
+
+import type { StyledProps } from './types';
 
 export const Header = styled.header<StyledProps>`
 	position: fixed;
@@ -44,8 +44,7 @@ export const Container = styled(GlobalContainer)`
 	align-items: center;
 `;
 
-export const Logo = styled(ComponentLink)`
-	display: inherit;
+export const Logo = styled(Link)`
 	display: inline-flex;
 	position: relative;
 	justify-content: center;

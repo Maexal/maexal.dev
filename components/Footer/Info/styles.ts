@@ -1,8 +1,7 @@
-import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import { device } from '@/styles';
 
-const Link = dynamic(() => import('@/components/Link'));
+import { Link } from '@/components/Link/styles';
+import { device } from '@/styles';
 
 export const Wrapper = styled.div`
 	grid-column: span 2 / span 2;

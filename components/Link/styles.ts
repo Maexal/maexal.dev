@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import type { StyledProps } from './types';
 
 export const Link = styled.a`

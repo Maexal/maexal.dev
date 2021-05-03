@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { useI18n } from 'next-localization';
+
+import { FooterInfo } from './Info';
+import { FooterNotice } from './Notice';
 import * as Styled from './styles';
 import type { Props } from './types';
-import { FooterNotice } from './Notice';
-import { FooterInfo } from './Info';
 
 export const Footer = ({ type = 'regular', ...props }: Props): JSX.Element => {
 	const i18n = useI18n();

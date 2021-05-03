@@ -1,4 +1,4 @@
-import { Language, Theme } from '@/types';
+import type { Language, Theme } from '@/types';
 
 export const getLanguageFromString = (language: string): Language => {
 	switch (language) {

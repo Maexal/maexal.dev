@@ -1,16 +1,12 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
+
 import { useI18n } from 'next-localization';
 import { useSelector } from 'react-redux';
-import { projectConfig } from '@/project.config';
-import { capitalizeFirst } from '@/utils';
-import type { State } from '@/types';
 
-const Page = dynamic(() => import('@/components/Page'));
-const Head = dynamic(() => import('@/components/Head'));
-const Footer = dynamic(() => import('@/components/Footer'));
-const Link = dynamic(() => import('@/components/Link'));
-const Main = dynamic(() => import('@/components/Main'));
+import { Page, Head, Footer, Link, Main } from '@/components';
+import { projectConfig } from '@/project.config';
+import type { State } from '@/types';
+import { capitalizeFirst } from '@/utils';
 
 const TermsAndConditionsPage = (): JSX.Element => {
 	const locale = useSelector((state: State) => state.app.language);

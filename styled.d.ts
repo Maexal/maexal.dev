@@ -1,5 +1,6 @@
 import 'react';
 import { CSSProp } from 'styled-components';
+
 import type { Theme } from '@/styles';
 
 declare module 'react' {

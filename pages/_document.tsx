@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import dynamic from 'next/dynamic';
+
 import NextDocument, { Html, Main, NextScript, DocumentContext, DocumentInitialProps } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
-const HeadDocument = dynamic(() => import('@/components/Head').then((module) => module.HeadDocument) as any);
+import { HeadDocument } from '@/components';
 
 class Document extends NextDocument {
 	static getInitialProps = async (context: DocumentContext): Promise<DocumentInitialProps> => {

@@ -1,12 +1,9 @@
 import React from 'react';
+
 import { NextPageContext } from 'next';
-import dynamic from 'next/dynamic';
 import { useI18n } from 'next-localization';
 
-const Head = dynamic(() => import('@/components/Head'));
-const Main = dynamic(() => import('@/components/Main'));
-const Page = dynamic(() => import('@/components/Page'));
-const PageErrorContent = dynamic(() => import('@/components/Pages/Error'));
+import { Head, Main, Page, PageErrorContent } from '@/components';
 
 const ErrorPage = ({ statusCode = null }: { statusCode?: number | null }): JSX.Element => {
 	const i18n = useI18n();

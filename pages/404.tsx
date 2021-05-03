@@ -1,12 +1,9 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
-import { useI18n } from 'next-localization';
-import { capitalizeFirst } from '@/utils';
 
-const Head = dynamic(() => import('@/components/Head'));
-const Main = dynamic(() => import('@/components/Main'));
-const Page = dynamic(() => import('@/components/Page'));
-const Page404Content = dynamic(() => import('@/components/Pages/404'));
+import { useI18n } from 'next-localization';
+
+import { Head, Main, Page, Page404Content } from '@/components';
+import { capitalizeFirst } from '@/utils';
 
 const NotFoundPage = (): JSX.Element => {
 	const i18n = useI18n();

@@ -1,7 +1,10 @@
 import { useMemo } from 'react';
+
 import { createStore, applyMiddleware, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
 import type { ActionTypes, State } from '@/types';
+
 import { CHANGE_LANGUAGE, CHANGE_THEME } from '.';
 
 let store: Store<State, ActionTypes> | undefined;

@@ -1,26 +1,30 @@
 import React from 'react';
+
+import { I18nProvider } from 'next-localization';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
-import { I18nProvider } from 'next-localization';
 import { ToastContainer } from 'react-toastify';
+
 import '@/styles/tailwind.scss';
 import '@/styles/customCSS.scss';
-import { getLanguageDictionary, getLanguageFromString, getThemeFromString, useLocalStorage } from '@/utils';
+import { projectConfig } from '@/project.config';
 import { useStore, changeLanguage, changeTheme } from '@/states';
-import projectConfig from '@/project.config';
+import {
+	getLanguageDictionary,
+	getLanguageFromString,
+	getThemeFromString,
+	useLocalStorage,
+	checkDarkMode,
+	addListenerForTheme,
+} from '@/utils';
 
 const App = ({ Component, pageProps, router }: AppProps): JSX.Element => {
-	// Redux store setup
 	const { initialReduxState } = pageProps;
 	const store = useStore(initialReduxState);
 
-	// Dark mode setup
-	import('@/utils').then((utils) => {
-		utils.checkDarkMode();
-		utils.addListenerForTheme();
-	});
+	checkDarkMode();
+	addListenerForTheme();
 
-	// Language setup
 	const state = store.getState();
 	const { language, theme } = state.app;
 	const { locale } = router;

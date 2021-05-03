@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import { Container as GlobalContainer, device } from '@/styles';
-import type { StyledProps } from './types';
 
-const ComponentLink = dynamic(() => import('@/components/Link'));
+import { Link as ComponentLink } from '@/components/Link/styles';
+import { Container as GlobalContainer, device } from '@/styles';
+
+import type { StyledProps } from './types';
 
 export const Footer = styled.footer<StyledProps>`
 	position: relative;
