@@ -12,6 +12,7 @@ public
 .husky
 .next
 netlify.toml
+*.lock
 
 # Project specific
 dist

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AnimatePresence, AnimationFeature, ExitFeature, m as motion, MotionConfig, MotionProps } from 'framer-motion';
+import { AnimatePresence, m as motion, MotionProps } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
@@ -16,7 +16,7 @@ const motionProps: MotionProps = {
 	exit: 'pageExit',
 	variants: {
 		pageInitial: {
-			opacity: 0,
+			opacity: 1,
 		},
 		pageAnimate: {
 			opacity: 1,
@@ -43,13 +43,11 @@ export const Page = ({ children }: { children: React.ReactNode }): JSX.Element =
 			<SwalStyles />
 
 			<Header />
-			<MotionConfig features={[AnimationFeature, ExitFeature]}>
-				<AnimatePresence exitBeforeEnter>
-					<motion.div key={route} {...motionProps}>
-						{children}
-					</motion.div>
-				</AnimatePresence>
-			</MotionConfig>
+			<AnimatePresence exitBeforeEnter>
+				<motion.div key={route} {...motionProps}>
+					{children}
+				</motion.div>
+			</AnimatePresence>
 		</ThemeProvider>
 	);
 };
