@@ -8,10 +8,8 @@ node_modules
 *.png
 LICENSE
 public
-.netlify
 .husky
 .next
-netlify.toml
 *.lock
 
 # Project specific

@@ -126,7 +126,6 @@ export const PageHomeContact = (): JSX.Element => {
 						className="flex-grow flex flex-col items-center"
 						onSubmit={_handleSubmit}
 						name="contact"
-						data-netlify="true"
 						ref={form.current}
 					>
 						<div className="relative mb-4 w-full">

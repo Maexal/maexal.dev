@@ -1,6 +1,6 @@
 # [maexal.dev][link:maexal]
 
-###### [![Netlify status][img:netlify-status]][link:netlify-status] [![Uptime Robot status][img:uptimerobot-status]][link:uptimerobot-status] [![Uptime Robot ratio (30 days)][img:uptimerobot-ratio]][link:uptimerobot-status] [![Snyk Vulnerabilities for GitHub Repo][img:snyk]][link:snyk]
+###### [![Uptime Robot status][img:uptimerobot-status]][link:uptimerobot-status] [![Uptime Robot ratio (30 days)][img:uptimerobot-ratio]][link:uptimerobot-status] [![Snyk Vulnerabilities for GitHub Repo][img:snyk]][link:snyk]
 
 ###### [![Version][img:github-version]][link:github-version] [![Issues][img:github-issues]][link:github-issues] [![Pull requests][img:github-prs]][link:github-prs] [![License][img:github-license]][link:github-license]
 
@@ -10,8 +10,6 @@
 
 Find it on [maexal.dev][link:maexal]!
 
-[img:netlify-status]: https://img.shields.io/netlify/aa957790-1f4a-47c2-bd28-c5b1a25ce651
-[link:netlify-status]: https://app.netlify.com/sites/maexal/deploys
 [img:uptimerobot-status]: https://img.shields.io/uptimerobot/status/m786492674-8530fef8f4f2e8316568821c
 [img:uptimerobot-ratio]: https://img.shields.io/uptimerobot/ratio/m786492674-8530fef8f4f2e8316568821c
 [link:uptimerobot-status]: https://status.maexal.dev/786492674
