@@ -9,7 +9,6 @@ const withPWA = require('next-pwa');
 
 module.exports = withBundleAnalyzer(
 	withPWA({
-		target: 'serverless',
 		reactStrictMode: true,
 		future: {
 			webpack5: true,
