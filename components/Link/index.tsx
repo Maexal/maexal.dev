@@ -26,13 +26,29 @@ export const Link = ({
 			);
 		case 'button-function':
 			return (
-				<Styled.ButtonFunction as="button" color={color} elevation={elevation} disabled={disabled} onClick={onClick}>
+				<Styled.ButtonFunction
+					as="button"
+					color={color}
+					elevation={elevation}
+					disabled={disabled}
+					/*
+					// @ts-ignore */
+					onClick={onClick}
+				>
 					<span>{children}</span>
 				</Styled.ButtonFunction>
 			);
 		case 'button':
 			return (
-				<Styled.Button as="button" color={color} elevation={elevation} disabled={disabled} onClick={onClick}>
+				<Styled.Button
+					as="button"
+					color={color}
+					elevation={elevation}
+					disabled={disabled}
+					/*
+					// @ts-ignore */
+					onClick={onClick}
+				>
 					<span>{children}</span>
 				</Styled.Button>
 			);
