@@ -69,7 +69,7 @@
 		"postcss": "^8.3.10",
 		"prettier": "^2.4.1",
 		"redux-devtools-extension": "^2.13.9",
-		"sass": "^1.43.2",
+		"sass": "^1.43.3",
 		"sort-package-json": "^1.52.0",
 		"tailwindcss": "^2.2.17",
 		"typescript": "^4.4.4",
