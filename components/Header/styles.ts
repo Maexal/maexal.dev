@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
+import type { StyledProps } from './types';
 import { Link } from '@/components/Link/styles';
 import { Container as GlobalContainer } from '@/styles';
-
-import type { StyledProps } from './types';
 
 export const Header = styled.header<StyledProps>`
 	position: fixed;

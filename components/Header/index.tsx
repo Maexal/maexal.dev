@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import { useI18n } from 'next-localization';
 
-import { Link, Logo } from '@/components';
-
 import * as Styled from './styles';
+import { Link, Logo } from '@/components';
 
 export const Header = (): JSX.Element => {
 	const i18n = useI18n();

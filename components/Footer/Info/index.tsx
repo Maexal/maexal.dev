@@ -4,13 +4,12 @@ import { useI18n } from 'next-localization';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 
+import * as Styled from './styles';
 import { Link, Logo } from '@/components';
 import { projectConfig } from '@/project.config';
 import { changeLanguage, changeTheme } from '@/states';
 import type { AppActionTypes, State } from '@/types';
 import { capitalizeFirst, getLanguageFromString, getThemeFromString } from '@/utils';
-
-import * as Styled from './styles';
 
 export const FooterInfo = (): JSX.Element => {
 	const router = useRouter();

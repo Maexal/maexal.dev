@@ -2,10 +2,9 @@ import React from 'react';
 
 import { useI18n } from 'next-localization';
 
+import * as Styled from './styles';
 import { Link } from '@/components';
 import { capitalizeFirst } from '@/utils';
-
-import * as Styled from './styles';
 
 export const Page404Content = (): JSX.Element => {
 	const i18n = useI18n();

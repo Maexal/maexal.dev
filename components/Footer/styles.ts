@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
+import type { StyledProps } from './types';
 import { Link as ComponentLink } from '@/components/Link/styles';
 import { Container as GlobalContainer, device } from '@/styles';
-
-import type { StyledProps } from './types';
 
 export const Footer = styled.footer<StyledProps>`
 	position: relative;

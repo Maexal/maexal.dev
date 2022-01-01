@@ -2,11 +2,10 @@ import React from 'react';
 
 import { useI18n } from 'next-localization';
 
-import { Link } from '@/components';
-import { capitalizeFirst } from '@/utils';
-
 import * as Styled from './styles';
 import type { Props } from './types';
+import { Link } from '@/components';
+import { capitalizeFirst } from '@/utils';
 
 export const PageErrorContent = ({ errorText }: Props): JSX.Element => {
 	const i18n = useI18n();

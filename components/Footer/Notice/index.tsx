@@ -2,9 +2,8 @@ import React from 'react';
 
 import { useI18n } from 'next-localization';
 
-import { projectConfig } from '@/project.config';
-
 import * as Styled from './styles';
+import { projectConfig } from '@/project.config';
 
 export const FooterNotice = (): JSX.Element => {
 	const i18n = useI18n();

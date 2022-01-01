@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { projectConfig } from '@/project.config';
-
 import * as Styled from './styles';
+import { projectConfig } from '@/project.config';
 
 export const Logo = (): JSX.Element => (
 	<Styled.Logo>

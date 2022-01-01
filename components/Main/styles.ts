@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
-import { Container as GlobalContainer } from '@/styles';
-
 import type { StyledProps } from './types';
+import { Container as GlobalContainer } from '@/styles';
 
 export const Main = styled.main<StyledProps>`
 	width: 100%;
