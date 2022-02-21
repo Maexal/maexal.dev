@@ -44,7 +44,7 @@
 		"react-toastify": "^8.1.1",
 		"redux": "^4.1.2",
 		"styled-components": "^5.3.3",
-		"sweetalert2": "^11.4.0"
+		"sweetalert2": "^11.4.2"
 	},
 	"devDependencies": {
 		"@next/bundle-analyzer": "^12.1.0",
