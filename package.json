@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"framer-motion": "^6.2.9",
-		"next": "^12.1.4",
+		"next": "^12.1.5",
 		"next-build-id": "^3.0.0",
 		"next-localization": "^0.11.0",
 		"next-pwa": "^5.5.0",
