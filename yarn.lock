@@ -3310,10 +3310,10 @@ next-build-id@^3.0.0:
   resolved "https://registry.yarnpkg.com/next-build-id/-/next-build-id-3.0.0.tgz#bfb7a1e2df03882688758f0a4a67e6e837043f42"
   integrity sha512-B3JCsL/9Z/wkmo3EySukQHCgx89Aw0i4LPi2MEhCboQBJ6wpkYTIu1z6hOYKuw/S1Wy8ZRqCEq0dVY/ST6jGqg==
 
-next-localization@^0.11.0:
-  version "0.11.0"
-  resolved "https://registry.yarnpkg.com/next-localization/-/next-localization-0.11.0.tgz#4676d2b1c556f5e8d6d841d10cf88b5c3ff3a51f"
-  integrity sha512-W+b0jxdAVoGvIy+LLSBOOwHlyLZXyUlgTWddl4TWvSX82mHM+NzRsAVn8bmV38h8uL5vSnBcoSWsYqoQjvYcTQ==
+next-localization@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/next-localization/-/next-localization-0.12.0.tgz#908d9cc749e617946306f208bc1e68afce63a71b"
+  integrity sha512-zWEBdWzwvEve6rkhFic4qswV7tZf3mf6kT96qqSgVnh4+Knwu+kXztjZUbIK5iDq/VFxqi0fEc7DgGMNuSdXcQ==
   dependencies:
     rosetta "1.1.0"
 
