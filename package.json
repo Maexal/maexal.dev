@@ -33,7 +33,7 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
-		"framer-motion": "^6.3.11",
+		"framer-motion": "^6.3.12",
 		"next": "^12.1.6",
 		"next-build-id": "^3.0.0",
 		"next-localization": "^0.12.0",
