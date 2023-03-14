@@ -1,13 +1,12 @@
 {
 	"compilerOptions": {
-		"target": "es5",
+		"target": "es2017",
 		"lib": ["dom", "dom.iterable", "esnext"],
 		"allowJs": true,
+		"checkJs": true,
 		"skipLibCheck": true,
 		"strict": true,
 		"forceConsistentCasingInFileNames": true,
-		"allowSyntheticDefaultImports": true,
-		"noFallthroughCasesInSwitch": true,
 		"noEmit": true,
 		"esModuleInterop": true,
 		"module": "esnext",
@@ -15,25 +14,20 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"jsx": "preserve",
-		"baseUrl": "./",
-		"paths": {
-			"@/components/*": ["components/*"],
-			"@/components": ["components"],
-			"@/pages/*": ["pages/*"],
-			"@/pages": ["pages"],
-			"@/utils/*": ["utils/*"],
-			"@/utils": ["utils"],
-			"@/styles/*": ["styles/*"],
-			"@/styles": ["styles"],
-			"@/locales/*": ["locales/*"],
-			"@/locales": ["locales"],
-			"@/states/*": ["states/*"],
-			"@/states": ["states"],
-			"@/types/*": ["types/*"],
-			"@/types": ["types"],
-			"@/project.config": ["project.config.ts"]
-		}
+		"incremental": true,
+		"noUncheckedIndexedAccess": true,
+		"baseUrl": ".",
+		"plugins": [{ "name": "next" }],
+		"paths": { "@/*": ["./*"] }
 	},
-	"include": ["next-env.d.ts", "styled.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": [
+		".eslintrc.cjs",
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.cjs",
+		"**/*.mjs",
+		".next/types/**/*.ts"
+	],
 	"exclude": ["node_modules"]
 }
