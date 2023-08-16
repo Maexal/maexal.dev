@@ -67,7 +67,7 @@
 		"husky": "^8.0.3",
 		"lint-staged": "^14.0.0",
 		"postcss": "^8.4.27",
-		"prettier": "^3.0.1",
+		"prettier": "^3.0.2",
 		"redux-devtools-extension": "^2.13.9",
 		"sass": "^1.65.1",
 		"sort-package-json": "^2.5.1",
