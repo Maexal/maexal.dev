@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata: Metadata = {
 	title: {
@@ -23,7 +24,10 @@ export const metadata: Metadata = {
 export default function Layout({ children }: React.PropsWithChildren) {
 	return (
 		<html>
-			<body>{children}</body>
+			<body>
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	);
 }
