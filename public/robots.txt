@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://maexal.dev/sitemap.xml
-Host: https://maexal.dev
